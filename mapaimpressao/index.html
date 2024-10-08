@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizador de impressao</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+
+    <script type="text/javascript" src="js/jspdf.umd.js"></script>
+
+
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/jakob');
+
+        html {
+            font-family: 'Jakob', sans-serif;
+            font-size: 22px;
+        }
+
+        body {
+            font-family: 'Jakob', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(245, 245, 247);
+        }
+
+        .cont {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 10px;
+        }
+
+        .left {
+            margin-right: 20px;
+        }
+
+        .right {
+            width: 80%;
+            overflow-y: auto;
+        }
+
+        #pagesContainer {
+            display: grid;
+            /*grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));*/
+            grid-gap: 10px;
+            overflow-x: hidden;
+
+        }
+
+        .caderno {
+            width: 97%;
+            /* Expand to fill the grid column */
+            height: 150px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .cadBranco {
+            background-color: #f0f0f0;
+        }
+
+        .cadVermelho {
+            background-color: #ff0000;
+        }
+
+        .pagina {
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            position: relative;
+            flex-direction: column;
+        }
+
+        .pagina-after {
+            content: '';
+            position: absolute;
+            right: 0;
+            width: 10px;
+            height: 100%;
+            background-image: repeating-linear-gradient(0deg, transparent, transparent 9px, #ccc 9px, #ccc 10px);
+            clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+        }
+
+        .pagina-before {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 10px;
+            height: 100%;
+            background-image: repeating-linear-gradient(0deg, transparent, transparent 9px, #ccc 9px, #ccc 10px);
+            clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+        }
+
+        .page-text {
+            font-size: 13px;
+            color: #333;
+            word-wrap: break-word;
+            width: 80%;
+        text-align: center;
+        }
+
+        .page-number {
+            font-size: 16px;
+            color: #333;
+            word-wrap: break-word;
+            bottom: 5px;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 25px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 10px;
+            width: 90%;
+        }
+
+        .controls {
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            top: 20px;
+            left: 20px;
+            width: 15%;
+            background-color: #001236;
+            top: 0;
+            left: 0;
+            height: 100%;
+            margin-right: 10px;
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+
+        #exportBtn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #8d2be2;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 22px;
+
+        }
+
+        .roundbutton {
+            background-color: #fe8d03;
+            border: none;
+            color: white;
+            line-height: 12px;
+            text-align: center;
+            vertical-align: middle;
+            display: inline-block;
+            font-size: 16px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .button {
+            background-color: #fe8d03;
+            border: none;
+            color: white;
+            padding: 20px;
+            line-height: 12px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            width: 50px;
+            height: 50px;
+            border-radius: 20px;
+        }
+
+        .caixaInfo {
+            background-color: #ffcc00;
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .quebraLinha {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .caixaDanger {
+            background-color: #ff0000;
+            color: white;
+        }
+
+        .popModal {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 30%;
+            height: 40%;
+            border-radius: 20px;
+            filter: drop-shadow(0 0 0.75rem rgb(121, 41, 5));
+            background-color: #ffcc00;
+            padding: 20px;
+        }
+
+        .popContent {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+
+        }
+
+        .btModo {
+            width: 120px;
+            height: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            background-color: #ffea00;
+            border-radius: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .color-palette {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .color-box {
+            width: 50px;
+            height: 50px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .pageText {
+            pointer-events: none;
+        }
+
+        .checkmark {
+            position: absolute;
+            display: inline-block;
+
+            right: 10px;
+            width: 50px;
+            height: 50px;
+            -ms-transform: rotate(45deg);
+            /* IE 9 */
+            -webkit-transform: rotate(45deg);
+            /* Chrome, Safari, Opera */
+            transform: rotate(45deg);
+        }
+
+        .checkmark_stem {
+            position: absolute;
+            width: 6px;
+            height: 18px;
+            background-color: #ffffff;
+            left: 11px;
+            top: 0px;
+        }
+
+        .checkmark_kick {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background-color: #ffffff;
+            left: 5px;
+            top: 12px;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #de8d00;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked+.slider {
+            background-color: #2196F3;
+        }
+
+        input:focus+.slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked+.slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+        .color-swatch {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        border: 2px solid darkgrey;
+                    }
+                    .color-swatch[data-color="#FFD700"] { background-color: #FFD700; }
+                    .color-swatch[data-color="#FF8C00"] { background-color: #FF8C00; }
+                    .color-swatch[data-color="#FF6347"] { background-color: #FF6347; }
+                    .color-swatch[data-color="#FF4500"] { background-color: #FF4500; }
+                    .color-swatch[data-color="#FF1493"] { background-color: #FF1493; }
+                    .color-swatch[data-color="#DB7093"] { background-color: #DB7093; }
+                    .color-swatch[data-color="#B0C4DE"] { background-color: #B0C4DE; }
+                    .color-swatch[data-color="#ADD8E6"] { background-color: #ADD8E6; }
+                    .color-swatch[data-color="#87CEEB"] { background-color: #87CEEB; }
+                    .color-swatch[data-color="#6A5ACD"] { background-color: #6A5ACD; }
+                    .color-swatch[data-color="#00ff37"] { background-color: #00ff37; }
+                .color-swatch[data-color="#a7ff70"] { background-color: #a7ff70; }
+                .color-swatch[data-color="#609df8"] { background-color: #609df8; }
+                .color-swatch[data-color="#000000"] { background-color: #000000; }
+                .color-swatch[data-color="#5b5b5b"] { background-color: #5b5b5b; }
+        .nome {
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cont">
+        <div class="controls">
+            <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
+                <img src="assets/marca_site.png" style="width: 28%; margin-top: 20px;" alt="Marca do Site">
+            </div>
+            <div class="caixaInfo">
+                <label for="number-input">Páginas:</label>
+                <input type="number" placeholder="1" id="pageNumber" min="1" max="1000" value='default text' />
+            </div>
+            <div class="caixaInfo">
+                <label class="nome">Páginas por caderno:</label>
+                <div style="display: flex; justify-content: space-around; align-items: center;">
+                    <input type="radio" id="pages4" name="pagesPerBooklet" value="4" checked onchange="mudaModoQuantCaderno(event)">
+                    <label for="pages4">4</label>
+                    <input type="radio" id="pages8" name="pagesPerBooklet" value="8" onchange="mudaModoQuantCaderno(event)">
+                    <label for="pages8">8</label>
+                    <input type="radio" id="pages16" name="pagesPerBooklet" value="16" onchange="mudaModoQuantCaderno(event)">
+                    <label for="pages16">16</label>
+                </div>
+                <!--
+                <div
+                    style="display: flex; width: 100%; justify-content: space-evenly; align-items: center;margin-top: 10px;">
+                    <label>4</label>
+                    <label class="switch">
+                        <input id="inputQuantCadernos" type="checkbox" onchange="mudaModoQuantCaderno(event)">
+                        <span class="slider round"></span>
+                    </label>
+                    <label>8</label>
+                </div>
+                -->
+            </div>
+            <div class="caixaInfo caixaCaderno quebraLinha">
+                <span class="checkmark hidden">
+                    <div class="checkmark_stem"></div>
+                    <div class="checkmark_kick"></div>
+                </span>
+                <label class="nome">Cadernos:</label>
+                <label style="font-size: 30px;" id="nCadernos">1</label>
+
+
+            </div>
+            <div class="caixaInfo">
+                <label class="nome">Zoom:</label>
+                <div
+                    style="display: flex; width: 100%; justify-content: space-evenly; align-items: center;margin-top: 10px;">
+                    <img src="assets/zoom-in.svg" alt="Grid View" style="width: 20%;" onclick="zoomin(event)"
+                        id="btZoom1">
+                    <img src="assets/zoom-out.svg" alt="Grid View" style="width: 20%;" onclick="zoomout(event)"
+                        id="btZoom2">
+                </div>
+                <label class="nome">Visualização:</label>
+                <div
+                    style="display: flex; width: 100%; justify-content: space-evenly; align-items: center;margin-top: 10px;">
+                    <img src="assets/ballot.svg" alt="Grid View" style="width: 12%;">
+                    <label class="switch">
+                        <input id="inputVisualizacao" type="checkbox" checked onchange="mudaModoVisualizacao(event)">
+                        <span class="slider round"></span>
+                    </label>
+                    <img src="assets/document.svg" alt="Grid View" style="width: 12%;">
+                </div>
+
+            </div>
+            <button id="exportBtn" style="width: 100%;">Exportar</button>
+
+        </div>
+        <div class="left">
+
+        </div>
+        <div class="right" id="pagesContainer">
+            <!-- As divs representando as páginas serão adicionadas aqui -->
+        </div>
+    </div>
+    <div class="popModal hidden">
+        <div class="popContent">
+            <label for="base-color">Texto: </label>
+            <textarea placeholder="texto" id="editText" style="width: 80%;" rows="3"></textarea>
+            <label for="base-color">Cor: </label>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; gap: 10px;">
+                <style>
+
+                </style>
+
+                <div class="color-swatch" data-color="#FFD700" onclick="updateBaseColor('#FFD700')"></div>
+                <div class="color-swatch" data-color="#FF8C00" onclick="updateBaseColor('#FF8C00')"></div>
+                <div class="color-swatch" data-color="#FF6347" onclick="updateBaseColor('#FF6347')"></div>
+                <div class="color-swatch" data-color="#FF4500" onclick="updateBaseColor('#FF4500')"></div>
+                <div class="color-swatch" data-color="#FF1493" onclick="updateBaseColor('#FF1493')"></div>
+                <div class="color-swatch" data-color="#DB7093" onclick="updateBaseColor('#DB7093')"></div>
+                <div class="color-swatch" data-color="#B0C4DE" onclick="updateBaseColor('#B0C4DE')"></div>
+                <div class="color-swatch" data-color="#ADD8E6" onclick="updateBaseColor('#ADD8E6')"></div>
+                <div class="color-swatch" data-color="#87CEEB" onclick="updateBaseColor('#87CEEB')"></div>
+                <div class="color-swatch" data-color="#6A5ACD" onclick="updateBaseColor('#6A5ACD')"></div>
+                <div class="color-swatch" data-color="#00ff37" onclick="updateBaseColor('#00ff37')"></div>
+                <div class="color-swatch" data-color="#a7ff70" onclick="updateBaseColor('#a7ff70')"></div>
+                <div class="color-swatch" data-color="#609df8" onclick="updateBaseColor('#609df8')"></div>
+                <div class="color-swatch" data-color="#000000" onclick="updateBaseColor('#000000')"></div>
+
+                
+            </div>
+            <input type="color" value="#0091fe" id="base-color" onchange="mudaCor(this)" class="hidden"/>
+            <button id="closeBtn" class="button" style="width: 30%;" onclick="fechaModal()">Salvar</button>
+        </div>
+    </div>
+
+    <div class="loaderSc"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: none; justify-content: center; align-items: center; z-index: 9999;">
+        <img src="assets/loading.svg" alt="Grid View" style="width: 5%;">
+        <script type="text/javascript" src="./index.js"></script>
+    </div>
+</body>
+
+</html>
