@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>SAE25_AI11_MAT_C01_OA1</title>
+    <link
+      href="../../../../../../geral/css/html5reset.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral1024.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral640.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/EF1/disciplinas/matematica.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../../../../../../geral/js/jquery-1.11.3.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.lib.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.lib.ods.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.geral.init.js"></script>
+    <script src="../../../../../../geral/js/jquery.professor.init.js"></script>
+    <script src="../../../../../../geral/js/jquery.professor.init.js"></script>
+    <script src="../../../../../../geral/js/jogoMemoria2018.js"></script>
+  </head>
+  <body id="SAE25_AI11_MAT_C01_OA1" class="od ei" lang="pt-BR">
+    <a class="professor" href="#professorod1">Para o professor</a>
+    <div id="professorod1" class="professor">
+      <h2>Encaminhamento metodológico</h2>
+      <p>
+        Solicite aos alunos que contem cada grupo, nas cartas, de forma
+        individual. Eles devem fazer a cada contagem a relação entre a
+        quantidade de elementos e o número correspondente.
+      </p>
+      <p>
+        É importante que contem mais de uma vez e de maneiras diferentes, pois é
+        comum, neste momento da escolaridade, que os alunos identifiquem o
+        último elemento contado com o número correspondente, e não a quantidade
+        total, desenvolvendo a habilidade EF01MA04 da BNCC.
+      </p>
+    </div>
+    <h2>CONTAGENS ATÉ 10</h2>
+    <div class="arrastar">
+      <p>
+        OBSERVE AS QUANTIDADES DE MONSTRINHOS NAS CARTAS E ENCONTRE A CARTA COM
+        O VALOR CORRESPONDENTE.
+      </p>
+      <canvas id="od1" width="1280" height="720" class="alinhaCentro"></canvas>
+      <p class="textoCredito" style="text-align: center; text-indent: 0">
+        CruZeWizard; Maxx-Studio; Dmytro Zinkevych; Guryanov Andrey; Sergio
+        Stakhnyk/Shutterstock
+      </p>
+    </div>
+    <script>
+      /*
+      Memoria 2018
+      Jogo fixo em 1280x720
+      Ajustado para ter fases, tomar cuidado com os titulos e tempos das cartas para adequar ao numero de fases
+      */
+      var parametros = [
+        [10000, 10000] /*tempos das cartas para cada fase, caso tenha fases*/,
+        2 /*linha*/,
+        4 /*colunas*/,
+        300 /*width em px da carta*/,
+        300 /*height em px da carta*/,
+        1 /*escala das cartas*/,
+        3 /*espacamento entre as cartas*/,
+        [220, 220] /*offset x*/,
+        [250, 250] /*offset y*/,
+      ];
+
+      var cartas = [
+        [
+          "resources/image/c0.png",
+          "resources/image/c1.png",
+          "resources/image/c2.png",
+          "resources/image/c3.png",
+          "resources/image/c4.png",
+          "resources/image/c5.png",
+          "resources/image/c6.png",
+          "resources/image/c7.png",
+        ],
+        [
+          "resources/image/c8.png",
+          "resources/image/c9.png",
+          "resources/image/c10.png",
+          "resources/image/c11.png",
+          "resources/image/c12.png",
+          "resources/image/c13.png",
+          "resources/image/c14.png",
+          "resources/image/c15.png",
+        ],
+      ];
+
+      var titulosFases = ["", "", "", "", ""];
+
+      AppJogoMemoria(
+        "od1",
+        cartas,
+        "fundo_od1.png",
+        "bt_iniciar.png",
+        parametros,
+        titulosFases
+      );
+    </script>
+  </body>
+</html>

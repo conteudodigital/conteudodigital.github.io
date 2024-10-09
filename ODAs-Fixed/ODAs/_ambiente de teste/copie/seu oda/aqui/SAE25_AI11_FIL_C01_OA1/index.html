@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SAE25_AI11_FIL_C01_OA1</title>
+    <!-- Título alterado para o original -->
+    <link
+      href="../../../../../../geral/css/html5reset.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral1024.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral640.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/EF1/disciplinas/artes.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../../../../../../geral/js/jquery-1.11.3.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.lib.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.lib.ods.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.geral.init.js"></script>
+    <script src="../../../../../../geral/js/jquery.professor.init.js"></script>
+    <style>
+      /* Configurações básicas */
+      body,
+      html {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f7f7f7;
+        overflow-x: hidden;
+      }
+
+      /* Fontes e cores */
+      h1,
+      h2,
+      h3 {
+        font-family: "Simply Rounded", Helvetica, Arial, sans-serif;
+        text-align: center;
+        margin: 10px 0;
+        color: #940866; /* Cor original dos títulos */
+      }
+
+      p {
+        font-family: "Myriad Pro", Helvetica, Arial, sans-serif;
+        line-height: 1.8;
+        font-size: 18px; /* Aumentando o tamanho da fonte */
+        color: #333;
+      }
+
+      /* Título Centralizado */
+      .main-title {
+        padding: 30px 20px;
+        text-align: center;
+        font-size: 36px;
+        font-weight: bold;
+        color: #940866; /* Cor original do título principal */
+      }
+
+      /* Estilos da Linha do Tempo */
+      .timeline {
+        position: relative;
+        max-width: 1000px;
+        margin: 20px auto;
+        padding: 40px 20px;
+      }
+
+      .timeline::after {
+        content: "";
+        position: absolute;
+        width: 6px;
+        background-color: #333;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -3px;
+      }
+
+      .timeline-item {
+        padding: 20px;
+        position: relative;
+        background-color: inherit;
+        width: 50%;
+      }
+
+      .timeline-item::after {
+        content: "";
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        background-color: white;
+        border: 4px solid #333;
+        top: 15px;
+        left: 50%;
+        margin-left: -12px;
+        border-radius: 50%;
+        z-index: 1;
+      }
+
+      .timeline-item.left {
+        left: 0;
+      }
+
+      .timeline-item.right {
+        left: 50%;
+      }
+
+      .timeline-item .content {
+        padding: 30px;
+        background-color: white;
+        position: relative;
+        border-radius: 6px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin: 10px 0;
+      }
+
+      .timeline-item.right .content {
+        margin-left: 30px;
+      }
+
+      .timeline-item.left .content {
+        margin-right: 30px;
+      }
+
+      .timeline-item .content img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 10px;
+      }
+
+      .timeline-item .content p {
+        margin: 10px 0;
+        font-size: 18px; /* Aumentando o tamanho do texto */
+      }
+
+      .timeline-item .content h2 {
+        font-size: 24px; /* Tamanho dos títulos */
+        color: #940866; /* Cor original dos títulos dos cards */
+      }
+
+      .timeline-item .content figcaption {
+        font-size: 0.6em; /* Tamanho dos créditos ajustado para 0.6em */
+        color: #555;
+      }
+
+      .timeline-item.left::before {
+        content: "";
+        position: absolute;
+        top: 22px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+        left: 100%;
+      }
+
+      .timeline-item.right::before {
+        content: "";
+        position: absolute;
+        top: 22px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 10px 0 10px 10px;
+        border-color: transparent transparent transparent white;
+        right: 100%;
+      }
+
+      /* Responsividade para dispositivos móveis */
+      @media screen and (max-width: 768px) {
+        .timeline::after {
+          left: 20px;
+        }
+
+        .timeline-item {
+          width: 100%;
+          padding-left: 40px;
+          margin-bottom: 20px;
+        }
+
+        .timeline-item.right,
+        .timeline-item.left {
+          left: 0;
+        }
+
+        .timeline-item .content {
+          margin-left: 70px;
+          margin-right: 0;
+        }
+
+        .timeline-item.left .content,
+        .timeline-item.right .content {
+          margin-left: 50px;
+          margin-right: 0;
+        }
+
+        .timeline-item::after {
+          left: 20px;
+          border-color: #333;
+        }
+
+        .timeline-item.left::before,
+        .timeline-item.right::before {
+          left: 45px;
+          border-width: 10px 10px 10px 0;
+          border-color: transparent white transparent transparent;
+        }
+
+        .main-title {
+          font-size: 28px; /* Ajuste para título em telas menores */
+        }
+
+        .timeline-item .content h2 {
+          font-size: 20px; /* Ajuste para títulos */
+        }
+
+        .timeline-item .content p {
+          font-size: 16px; /* Ajuste para texto */
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .timeline::after {
+          display: none;
+        }
+
+        .timeline-item {
+          padding: 20px 10px;
+          width: 100%;
+        }
+
+        .timeline-item.left .content,
+        .timeline-item.right .content {
+          margin-left: 10px;
+          margin-right: 10px;
+        }
+
+        .timeline-item.left::before,
+        .timeline-item.right::before {
+          display: none;
+        }
+
+        .timeline-item::after {
+          display: none;
+        }
+
+        .timeline-item .content {
+          padding: 20px;
+          font-size: 14px;
+        }
+
+        .timeline-item .content h2 {
+          font-size: 18px;
+        }
+
+        .timeline-item .content p {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body id="SAE25_AI11_FIL_C01_OA1" class="od ei" lang="pt-BR">
+    <!-- ID e class mantidos -->
+    <div class="main-title">A FABRICAÇÃO DE PAPEL</div>
+
+    <!-- Linha do Tempo -->
+    <div class="timeline">
+      <!-- Seção 1 -->
+      <div class="timeline-item left">
+        <div class="content">
+          <figure>
+            <img
+              src="resources/image/shutterstock_32652847.jpg"
+              alt="Fabricação de papel - Passo 1"
+            />
+            <figcaption style="font-size: 0.6em; color: #555">
+              Ilya Zlatyev/Shutterstock
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- Seção 2 -->
+      <div class="timeline-item right">
+        <div class="content">
+          <figure>
+            <img
+              src="resources/image/shutterstock_91643909.jpg"
+              alt="Fabricação de papel - Passo 2"
+            />
+            <figcaption style="font-size: 0.6em; color: #555">
+              Yuttasak Jannarong/Shutterstock
+            </figcaption>
+          </figure>
+          <p>
+            O papel é feito a partir da madeira de uma árvore chamada eucalipto.
+          </p>
+          <p>
+            A matéria-prima básica para a fabricação do papel é a celulose, uma
+            substância que pode ser extraída das árvores. Veja como:
+          </p>
+        </div>
+      </div>
+
+      <!-- Seção 3 -->
+      <div class="timeline-item left">
+        <div class="content">
+          <figure>
+            <img
+              src="resources/image/shutterstock_283061540.jpg"
+              alt="Fabricação de papel - Passo 3"
+            />
+            <figcaption style="font-size: 0.6em; color: #555">
+              Mors/Shutterstock
+            </figcaption>
+          </figure>
+          <p>
+            A árvore inicialmente é cortada, descascada e picada. Depois, os
+            pedaços de madeira são colocados em um tanque para cozinhar com
+            algumas substâncias químicas. Após horas cozinhando tem-se uma pasta
+            de celulose.
+          </p>
+        </div>
+      </div>
+
+      <!-- Seção 4 -->
+      <div class="timeline-item right">
+        <div class="content">
+          <figure>
+            <img
+              src="resources/image/shutterstock_252384646.jpg"
+              alt="Fabricação de papel - Passo 4"
+            />
+            <figcaption style="font-size: 0.6em; color: #555">
+              hxdyl/Shutterstock
+            </figcaption>
+          </figure>
+          <p>
+            A pasta de celulose então é lavada para retirar as impurezas e
+            substâncias químicas. Em seguida, ela é levada para uma máquina que
+            irá transformar a pasta em uma folha contínua. A grande folha passa
+            por rolos que irão prensá-la e retirar o excesso de água.
+          </p>
+        </div>
+      </div>
+
+      <!-- Seção 5 -->
+      <div class="timeline-item left">
+        <div class="content">
+          <figure>
+            <img
+              src="resources/image/shutterstock_1088491.jpg"
+              alt="Fabricação de papel - Passo 5"
+            />
+            <figcaption style="font-size: 0.6em; color: #555">
+              Kenneth Sponsler/Shutterstock
+            </figcaption>
+          </figure>
+          <p>
+            Finalmente a folha passa por um equipamento chamado “enroladeira”,
+            no qual o papel toma forma de rolos enormes ou bobinas e está pronto
+            para o corte e empacotamento.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
