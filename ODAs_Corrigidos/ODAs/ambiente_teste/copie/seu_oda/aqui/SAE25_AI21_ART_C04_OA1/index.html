@@ -1,0 +1,34 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+<meta charset="utf-8">
+
+
+<title>SAE25_AI21_ART_C04_OA1</title>
+<!-- cod antigo <title>EF24_1_ART_L2_U2_02_OD2</title>-->
+
+<link href="../../../../../../geral/css/html5reset.css" rel="stylesheet" type="text/css">
+<link href="../../../../../../geral/css/geral.css" rel="stylesheet" type="text/css">
+<link href="../../../../../../geral/css/geral1024.css" rel="stylesheet" type="text/css">
+<link href="../../../../../../geral/css/geral640.css" rel="stylesheet" type="text/css">
+<link href="../../../../../../geral/css/EF1/disciplinas/artes.css" rel="stylesheet" type="text/css">
+<script src="../../../../../../geral/js/jquery-1.11.3.min.js"></script>
+<script src="../../../../../../geral/js/jquery.lib.min.js"></script>
+<script src="../../../../../../geral/js/jquery.lib.ods.min.js"></script>
+<script src="../../../../../../geral/js/jquery.geral.init.js"></script>
+<script src="../../../../../../geral/js/jquery.professor.init.js"></script>
+</head>
+<body id="SAE25_AI21_ART_C04_OA1" class="od ef1" lang="pt-BR">
+
+
+<a class="professor" href="#professor">Para o professor</a>
+<div id="professor" class="professor">
+<h2>Encaminhamento metodológico</h2>
+<p>Nessa animação os alunos ouvirão alguns instrumentos que são usados no samba .</p>
+</div>
+<h2>O samba e seus instrumentos </h2>
+<center><canvas id="od2" width="1280" height="720"></canvas></center>
+<script type="text/javascript">var caminho="resources/image/";var canvas1;var stage;var content;var content2;var fundo;var cuica;var cavaco;var pandeiro;var tamborin;var surdo;var inicio1=false;var btinicia;var trilha1;var trilha2;var trilha3;var trilha4;var trilha5;var objetosAtivos=[true,true,true,true,true];canvas1 = document.getElementById("od2");stage = new createjs.Stage(canvas1);stage.enableMouseOver(10);content = new createjs.Container();content2 = new createjs.Container();trilha1=new Audio(caminho+"samba1.mp3");trilha2=new Audio(caminho+"samba2.mp3");trilha3=new Audio(caminho+"samba3.mp3");trilha4=new Audio(caminho+"samba4.mp3");trilha5=new Audio(caminho+"samba5.mp3");trilha1.loop = true;trilha2.loop = true;trilha3.loop = true;trilha4.loop = true;trilha5.loop = true;fundo = new createjs.Bitmap(caminho+"cenario.png");fundo.image.onload = function(){};stage.addChild(fundo);var spriteSheet = new createjs.SpriteSheet({framerate: 2,"images": [caminho+"cavaco.png"],frames: [[2,2,163,442,0,70,416],[167,2,163,442,0,70,416],[332,2,163,442,0,70,416],[497,2,163,442,0,70,416],[662,2,163,442,0,70,416],[827,2,163,442,0,70,416],[2,446,163,442,0,70,416],[167,446,163,442,0,70,416],[332,446,163,442,0,70,416],[497,446,163,442,0,70,416]],"animations": {"idle": 0,"idle2": 5,"move1": [0, 27, "move1",0.1]}});var spriteSheet2 = new createjs.SpriteSheet({framerate: 20,"images": [caminho+"cuica.png"],frames: [[2,2,181,430,0,88,398],[185,2,181,430,0,88,398],[368,2,181,430,0,88,398],[551,2,181,430,0,88,398],[734,2,181,430,0,88,398],[2,434,181,430,0,88,398],[185,434,181,430,0,88,398],[368,434,181,430,0,88,398],[551,434,181,430,0,88,398],[734,434,181,430,0,88,398]],"animations": {"idle": 0,"idle2": 5,"move1": [0, 27, "move1",1]}});var spriteSheet3 = new createjs.SpriteSheet({framerate: 20,"images": [caminho+"pandeiro.png"],frames: [[2,2,136,432,0,65,403],[140,2,136,432,0,65,403],[278,2,136,432,0,65,403],[416,2,136,432,0,65,403],[554,2,136,432,0,65,403],[692,2,136,432,0,65,403],[830,2,136,432,0,65,403],[2,436,136,432,0,65,403],[140,436,136,432,0,65,403],[278,436,136,432,0,65,403]],"animations": {"idle": 0,"idle2": 5,"move1": [0, 13, "move1",0.2]}});var spriteSheet4 = new createjs.SpriteSheet({framerate: 20,"images": [caminho+"surdo.png"],frames: [[2,2,193,426,0,78,393],[197,2,193,426,0,78,393],[392,2,193,426,0,78,393],[587,2,193,426,0,78,393],[782,2,193,426,0,78,393],[2,430,193,426,0,78,393],[197,430,193,426,0,78,393],[392,430,193,426,0,78,393],[587,430,193,426,0,78,393],[782,430,193,426,0,78,393]],"animations": {"idle": 0,"idle2": 5,"move1": [0, 47, "move1",0.75]}});var spriteSheet5 = new createjs.SpriteSheet({framerate: 20,"images": [caminho+"tamborin.png"],frames: [[2,2,176,422,0,76,378],[180,2,176,422,0,76,378],[358,2,176,422,0,76,378],[536,2,176,422,0,76,378],[714,2,176,422,0,76,378],[2,426,176,422,0,76,378],[180,426,176,422,0,76,378],[358,426,176,422,0,76,378],[536,426,176,422,0,76,378],[714,426,176,422,0,76,378]],"animations": {"idle": 0,"idle2": 5,"move1": [0, 47, "move1",0.75]}});cuica = new createjs.Sprite(spriteSheet2, "idle");stage.addChild(cuica);cuica.x=676;cuica.y=610;cuica.on("click", function() {if(objetosAtivos[0]){trilha2.volume=1;spriteSheet.framerate=0.2;cuica.gotoAndPlay(cuica.currentFrame);objetosAtivos[0]=false;}else{trilha2.volume=0;spriteSheet.framerate=0.2;cuica.gotoAndStop(cuica.currentFrame);objetosAtivos[0]=true;}});cavaco = new createjs.Sprite(spriteSheet, "idle");stage.addChild(cavaco);cavaco.x=362;cavaco.y=638;cavaco.on("click", function() {if(objetosAtivos[1]){trilha1.volume=1;cavaco.gotoAndPlay(cavaco.currentFrame);objetosAtivos[1]=false;}else{trilha1.volume=0;cavaco.gotoAndStop(cavaco.currentFrame);objetosAtivos[1]=true;}});tamborin = new createjs.Sprite(spriteSheet5, "idle");stage.addChild(tamborin);tamborin.x=833;tamborin.y=608;tamborin.on("click", function() {if(objetosAtivos[2]){trilha4.volume=1;tamborin.gotoAndPlay(tamborin.currentFrame);objetosAtivos[2]=false;}else{trilha4.volume=0;tamborin.gotoAndStop(tamborin.currentFrame);objetosAtivos[2]=true;}});pandeiro = new createjs.Sprite(spriteSheet3, "idle");stage.addChild(pandeiro);pandeiro.x=959;pandeiro.y=623;pandeiro.on("click", function() {if(objetosAtivos[3]){trilha3.volume=1;pandeiro.gotoAndPlay(pandeiro.currentFrame);objetosAtivos[3]=false;}else{trilha3.volume=0;pandeiro.gotoAndStop(pandeiro.currentFrame);objetosAtivos[3]=true;}});surdo = new createjs.Sprite(spriteSheet4, "idle");stage.addChild(surdo);surdo.x=508;surdo.y=609;surdo.on("click", function() {if(objetosAtivos[3]){trilha5.volume=1;surdo.gotoAndPlay(surdo.currentFrame);objetosAtivos[3]=false;}else{trilha5.volume=0;surdo.gotoAndStop(surdo.currentFrame);objetosAtivos[3]=true;}});stage.addChild(content);stage.addChild(content2);btinicia = new createjs.Bitmap(caminho+"bt_iniciar_od2.png");btinicia.image.onload = function(){};stage.addChild(btinicia);btinicia.x=0;btinicia.y=0;btinicia.on("click", function() {createjs.Tween.get(btinicia).to({y:-800},350,createjs.Ease.backIn);trilha1.play();trilha2.play();trilha3.play();trilha4.play();trilha5.play();trilha1.volume=0;trilha2.volume=0;trilha3.volume=0;trilha4.volume=0;trilha5.volume=0;});createjs.Ticker.setFPS(30);createjs.Ticker.on("tick", ticker);function ticker(){stage.update();}</script>
+<p class="textoCredito">SAE Digital</p>
+
+</body>
+</html>

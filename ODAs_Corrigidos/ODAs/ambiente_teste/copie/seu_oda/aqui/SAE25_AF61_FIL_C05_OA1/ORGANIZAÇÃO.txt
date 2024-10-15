@@ -1,0 +1,465 @@
+// ESTRUTURA DAS INTERAÇÕES - O QUE DEVE ACONTECER E QUANDO
+
+CARREGA A TELA INICIAL COM IMAGEM
+CLICA NO BOTAO AVANCAR
+CARREGA A TELA DE CONTEUDO SE EXISTIR
+	QUANDO CLICAR NO BOTAO AVANCAR VAI PRO QUIZ
+SE NÃO EXISTIR CONTEUDO CARREGA DIRETO O QUIZ
+	PERGUNTAS DO QUIZ SÃO EMBARALHADAS
+	PERGUNTAS SÃO CARREGADAS NA TELA
+	CLICA NA PERGUNTA PRA RESPONDER
+	AO CLICAR NA ALTERNATIVA, ESTA É SELECIONADA
+	APARECE O FEEDBACK 
+		SE NA MATRIZ DO CONTEÚDO A OPCAO DA ALTERNATIVA correct FOR IGUAL A TRUE O CONTADOR DE ACERTOS RECEBE +1 E O FEEDBACK RECEBE UMA MARCAÇÃO DE ACERTO
+		SE NÃO O FEEDBACK RECEBE UMA MARCAÇÃO DE ERRO E O CONTADOR NÃO RECEBE INCREMENTO
+	BOTAO AVANCAR DO QUIZ É HABILITADO
+	AO CLICAR NO BOTÃO ELE É ENVIADO PARA A PROXIMA PERGUNTA ENQUANTO O CONTADOR DO QUIZ FOR MENOR DO QUE O NUMERO DA MATRIZ DE PERGUNTAS
+	AO CHEGAR À ULTIMA PERGUNTA O RESULTADO É VERIFICADO
+RESULTADO É APRESENTADO NA TELA DE RESULTADO DE ACORDO COM A NECESSIDADE.
+	
+
+
+
+// ESTRUTURA DO HTML
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>QUIZ</title>
+		
+		<link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+		<script src="js/jquery.ui.touch-punch.min.js"></script>
+		<script src="js/functions.js"></script>
+		<script src="js/content.js"></script>
+		<script src="js/resize.js"></script>
+		
+	</head>
+
+	<body translate="no">
+
+		<div class="pagina title">
+			<div class="moldura">
+				FRAME - TITLE
+			</div>
+			<div class="btn-next">
+				BTN - TITLE
+			</div>
+		</div>
+
+		<div class="pagina conteudo">
+			<div class="moldura">
+				FRAME - CONTENT
+			</div>
+			<div class="btn-next">
+				BTN - CONTENT
+			</div>
+		</div>
+
+		<div class="pagina quiz">
+			<div class="moldura">
+				FRAME - QUIZ
+				<div class="questao">
+					<div class="numero-questao">
+						00
+					</div>
+					<div class="enunciado-questao">
+						PERGUNTA
+					</div>
+				</div>
+				<div class="respostas">
+					<div class="alternativa">
+						<div class="marcador-alternativa">x</div>
+						<div class="texto-alternativa">ALTERNATIVA 1</div>
+					</div>
+					<div class="alternativa">
+						<div class="marcador-alternativa">0</div>
+						<div class="texto-alternativa">ALTERNATIVA 2</div>
+					</div>
+					<div class="alternativa">
+						<div class="marcador-alternativa">0</div>
+						<div class="texto-alternativa">ALTERNATIVA 3</div>
+					</div>
+					<div class="alternativa">
+						<div class="marcador-alternativa">0</div>
+						<div class="texto-alternativa">ALTERNATIVA 4</div>
+					</div>
+				</div>
+				<div class="btn-next">
+					BTN - QUIZ
+				</div>
+			</div>
+		</div>
+
+		<div class="pagina conteudo">
+			<div class="moldura">
+				FRAME - RESULTADO
+			</div>
+			<div class="btn-next">
+				BTN - RESULTADO
+			</div>
+		</div>
+		
+	</body>
+	
+</html>
+
+
+
+// ESTRUTURA DO JS PARA ALIMENTAR O QUIZ 
+var content = [
+    {
+        section: 'title',
+        bgImage: '',
+    },
+    {
+        section: 'content',
+        bgImage: '',
+        html: '<p>Assista ao vídeo. Ele mostra vários tipos de turismo praticados no Brasil.</p>',
+    },
+    {
+        section: 'quiz',
+        bgImage: '',
+        randomQuestions: false,
+        questions: [
+            {
+                // QUESTÃO 01               
+                class: 'question-1',
+                question: '',
+                randomAlternatives: false,
+                alternatives: [
+                    {
+                        answer: '',
+                        correct: '',
+                        feedback: ''
+                    },
+                    {
+                        answer: '',
+                        correct: '',
+                        feedback: ''
+                    },
+                    {
+                        answer: '',
+                        correct: '',
+                        feedback: ''
+                    },
+                    {
+                        answer: '',
+                        correct: 'true',
+                        feedback: ''
+                    }
+                ],
+                generalFeedback: ''
+            },
+            {            
+                // QUESTÃO 02              
+                class: 'question-2',
+                question: '',
+                randomAlternatives: false,
+                alternatives: [
+                    {
+                        answer: '',
+                        correct: '',
+                        feedback: ''
+                    },
+                    {
+                        answer: '',
+                        correct: '',
+                        feedback: ''
+                    },
+                    {
+                        answer: '',
+                        correct: '',
+                        feedback: ''
+                    },
+                    {
+                        answer: '',
+                        correct: 'true',
+                        feedback: ''
+                    }
+                ],
+                generalFeedback: ''
+            },
+            {
+                // QUESTÃO 03              
+                class: 'question-3',
+                question: '',
+                randomAlternatives: false,
+                alternatives: [
+                    {
+                        answer: '',
+                        correct: '',
+                        feedback: ''
+                    },
+                    {
+                        answer: '',
+                        correct: '',
+                        feedback: ''
+                    },
+                    {
+                        answer: '',
+                        correct: '',
+                        feedback: ''
+                    },
+                    {
+                        answer: '',
+                        correct: 'true',
+                        feedback: ''
+                    }
+                ],
+                generalFeedback: ''
+            },
+            {
+                // QUESTÃO 04            
+                class: 'question-4',
+                question: '',
+                randomAlternatives: false,
+                alternatives: [
+                    {
+                        answer: '',
+                        correct: '',
+                        feedback: ''
+                    },
+                    {
+                        answer: '',
+                        correct: '',
+                        feedback: ''
+                    },
+                    {
+                        answer: '',
+                        correct: '',
+                        feedback: ''
+                    },
+                    {
+                        answer: '',
+                        correct: 'true',
+                        feedback: ''
+                    }
+                ],
+                generalFeedback: ''
+            },
+            {
+                // QUESTÃO 05             
+                class: 'question-5',
+                question: '',
+                randomAlternatives: false,
+                alternatives: [
+                    {
+                        answer: '',
+                        correct: '',
+                        feedback: ''
+                    },
+                    {
+                        answer: '',
+                        correct: '',
+                        feedback: ''
+                    },
+                    {
+                        answer: '',
+                        correct: '',
+                        feedback: ''
+                    },
+                    {
+                        answer: '',
+                        correct: 'true',
+                        feedback: ''
+                    }
+                ],
+                generalFeedback: ''
+            },
+            {
+                // QUESTÃO 06             
+                class: 'question-6',
+                question: '',
+                randomAlternatives: false,
+                alternatives: [
+                    {
+                        answer: '',
+                        correct: '',
+                        feedback: ''
+                    },
+                    {
+                        answer: '',
+                        correct: '',
+                        feedback: ''
+                    },
+                    {
+                        answer: '',
+                        correct: '',
+                        feedback: ''
+                    },
+                    {
+                        answer: '',
+                        correct: 'true',
+                        feedback: ''
+                    }
+                ],
+                generalFeedback: ''
+            },
+            {
+                // QUESTÃO 07     
+                class: 'question-7',
+                question: '',
+                randomAlternatives: false,
+                alternatives: [
+                    {
+                        answer: '',
+                        correct: '',
+                        feedback: ''
+                    },
+                    {
+                        answer: '',
+                        correct: '',
+                        feedback: ''
+                    },
+                    {
+                        answer: '',
+                        correct: '',
+                        feedback: ''
+                    },
+                    {
+                        answer: '',
+                        correct: 'true',
+                        feedback: ''
+                    }
+                ],
+                generalFeedback: ''
+            },
+            {
+                // QUESTÃO 08
+                class: 'question-8',
+                question: '',
+                randomAlternatives: false,
+                alternatives: [
+                    {
+                        answer: '',
+                        correct: '',
+                        feedback: ''
+                    },
+                    {
+                        answer: '',
+                        correct: '',
+                        feedback: ''
+                    },
+                    {
+                        answer: '',
+                        correct: '',
+                        feedback: ''
+                    },
+                    {
+                        answer: '',
+                        correct: 'true',
+                        feedback: ''
+                    }
+                ],
+                generalFeedback: ''
+            },
+            {
+                // QUESTÃO 09
+                class: 'question-9',
+                question: '',
+                randomAlternatives: false,
+                alternatives: [
+                    {
+                        answer: '',
+                        correct: '',
+                        feedback: ''
+                    },
+                    {
+                        answer: '',
+                        correct: '',
+                        feedback: ''
+                    },
+                    {
+                        answer: '',
+                        correct: '',
+                        feedback: ''
+                    },
+                    {
+                        answer: '',
+                        correct: 'true',
+                        feedback: ''
+                    }
+                ],
+                generalFeedback: ''
+            },
+			{
+                // QUESTÃO 10
+                class: 'question-10',
+                question: '',
+                randomAlternatives: false,
+                alternatives: [
+                    {
+                        answer: '',
+                        correct: '',
+                        feedback: ''
+                    },
+                    {
+                        answer: '',
+                        correct: '',
+                        feedback: ''
+                    },
+                    {
+                        answer: '',
+                        correct: '',
+                        feedback: ''
+                    },
+                    {
+                        answer: '',
+                        correct: 'true',
+                        feedback: ''
+                    }
+                ],
+                generalFeedback: ''
+            },
+    {
+        section: 'result',
+		bgImage:""
+    }
+]
+
+
+// ESTRUTURA DO JS PARA MONTAR O QUIZ
+$(document).ready(function(){
+	
+	var atual = 0;
+    var construtorQuestoes = [];
+    var construtorContent = [];
+	
+	$(".pagina")
+		.css({"background-image":"img/"+content[atual].bgImage+,"background-repeat":"no-repeat","background-size":"contain"})
+		.addClass("active title");
+	
+	$(".btn-next").on( "click", function() {
+		
+		console.log(atual);
+		console.log(content[atual].section );
+		
+		if(content[atual].section =! "quiz"){
+			atual++;
+			$(".pagina")
+				.css({"background-image":"img/"+content[atual].bgImage+,"background-repeat":"no-repeat","background-size":"contain"})
+				.addClass("active content");
+		}
+		else{
+			$(".pagina")
+				.css({"background-image":"img/"+content[atual].bgImage+,"background-repeat":"no-repeat","background-size":"contain"})
+				.addClass("active quiz ");
+		
+			qtdeQuestoes = content[2].questions.length;
+			
+			if(contQuiz < qtdeQuestoes){
+				$(".quiz").child(".moldura-conteudo");
+			}
+			else if (){
+				atual++;
+			}
+		}
+		else if(content[atual].section == "result"){
+			
+		}
+	});
+	
+
+});

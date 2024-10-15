@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta charset="utf-8">
+
+  <title>SAE25_AI11_CIE_C01_OA1</title>
+  <!-- codigo antigo <title>EF23_1_CIE_L2_U2_02_OD1</title> -->
+
+  <link href="../../../../../../geral/css/html5reset.css" rel="stylesheet" type="text/css">
+  <link href="../../../../../../geral/css/geral.css" rel="stylesheet" type="text/css">
+  <link href="../../../../../../geral/css/geral1024.css" rel="stylesheet" type="text/css">
+  <link href="../../../../../../geral/css/geral640.css" rel="stylesheet" type="text/css">
+  <link href="../../../../../../geral/css/EF1/disciplinas/ciencias.css" rel="stylesheet" type="text/css">
+  <script src="../../../../../../geral/js/jquery-1.11.3.min.js"></script>
+  <script src="../../../../../../geral/js/jquery.lib.min.js"></script>
+  <script src="../../../../../../geral/js/jquery.lib.ods.min.js"></script>
+  <script src="../../../../../../geral/js/jquery.geral.init.js"></script>
+  <script src="../../../../../../geral/js/jquery.professor.init.js"></script>
+  <script src="../../../../../../geral/js/jquery.professor.init.js"></script>
+  <script src="../../../../../../geral/js/jogoOrdenarObjetos.js"></script>
+
+ </head>
+
+<body id="SAE25_AI11_CIE_C01_OA1" class="od ef1" lang="pt-BR">
+
+ <a class="professor" href="#professor">Para o professor</a>
+
+ <div id="professor" class="professor">
+  <h2>Encaminhamento metodológico</h2>
+  <p>Esta atividade tem como objetivo o aprofundamento da habilidade de identificação de partes externas do corpo humano. Trabalhe este objeto digital para que os alunos identifiquem as partes externas observáveis facilmente pelas crianças: cabelo, rosto, pescoço, peito, barriga, braço, mão, coxa, joelho, perna e pé.</p>
+  <p>Após a atividade ter sido feita por todos, peça que os alunos identifiquem oralmente quais destas partes aparecem em duplas no corpo e quais os seres humanos possuem só uma.</p>
+ </div>
+ 
+ <h2>Partes do Corpo Humano</h2>
+
+ <div class="arrastar">
+
+  <p>OBSERVE A IMAGEM A SEGUIR. NELA, HÁ INDICAÇÕES DE ALGUMAS PARTES DO CORPO. ESCOLHA ENTRE OS TERMOS LISTADOS AQUELES QUE NOMEIAM CORRETAMENTE AS PARTES DO CORPO INDICADAS.</p>
+  <br>
+  <canvas id="od1" width="1280" height="720" class="alinhaCentro"></canvas>
+  <figcaption><p class="textoCredito">Matthew Cole / Shutterstock</p></figcaption>
+ 
+  <script>
+   /* _________________ _____ _   _   ___  ______   ___________   ___ _____ _____ _____ _____|  _  | ___ \  _  \  ___| \ | | / _ \ | ___ \ |  _  | ___ \ |_  |  ___|_   _|  _  /  ___|| | | | |_/ / | | | |__ |  \| |/ /_\ \| |_/ / | | | | |_/ /   | | |__   | | | | | \ `--.| | | |    /| | | |  __|| . ` ||  _  ||    /  | | | | ___ \   | |  __|  | | | | | |`--. \\ \_/ / |\ \| |/ /| |___| |\  || | | || |\ \  \ \_/ / |_/ /\__/ / |___  | | \ \_/ /\__/ / \___/\_| \_|___/ \____/\_| \_/\_| |_/\_| \_|  \___/\____/\____/\____/  \_/  \___/\____/ v2018              Ver TUTORIAL.jpg              */              var parametros=[0,/*margem x*/              0,/*margem y*/              985/*posicao x Joinha*/,              350/*posicao y Joinha*/,              80,/*offset colisao x*/              80,/*offset colisao y*/              3/*erros permitidos*/,              false/*conta pontos ou nao no final*/,              false/*true unica resposta, false multiplas*/,              null/*inicio da fase, deixar null caso nao tenha*/,              true/*limpa canvas antes de passar de fase*/,              null/*[60,"#000000",90,1150,20] tempo para resolver, deixar null caso nao tenha */,              null/*prefixo da imagem que vai substituir a certa*/              ];              var itens=[              {pergunta:"f1.png",tamanhoPergunta:[216,58],resposta:"h1.png",respondivel:true,tamanhoResposta:[216,58],posicaoResposta:[413,658],posicaoPergunta:[150,228],som:""},              {pergunta:"f2.png",tamanhoPergunta:[216,58],resposta:"h2.png",respondivel:true,tamanhoResposta:[216,58],posicaoResposta:[829,581],posicaoPergunta:[138,361],som:""},              {pergunta:"f3.png",tamanhoPergunta:[216,58],resposta:"h3.png",respondivel:true,tamanhoResposta:[216,58],posicaoResposta:[452,513],posicaoPergunta:[140,491],som:""},              {pergunta:"f4.png",tamanhoPergunta:[216,58],resposta:"h4.png",respondivel:true,tamanhoResposta:[216,58],posicaoResposta:[841,457],posicaoPergunta:[1133,240],som:""},              {pergunta:"f5.png",tamanhoPergunta:[216,58],resposta:"h5.png",respondivel:true,tamanhoResposta:[216,58],posicaoResposta:[399,377],posicaoPergunta:[1157,114],som:""},              {pergunta:"f6.png",tamanhoPergunta:[216,58],resposta:"h6.png",respondivel:true,tamanhoResposta:[216,58],posicaoResposta:[873,317],posicaoPergunta:[139,98],som:""},              {pergunta:"f7.png",tamanhoPergunta:[216,58],resposta:"h7.png",respondivel:true,tamanhoResposta:[216,58],posicaoResposta:[844,244],posicaoPergunta:[1131,480],som:""},              {pergunta:"f8.png",tamanhoPergunta:[216,58],resposta:"h8.png",respondivel:true,tamanhoResposta:[216,58],posicaoResposta:[445,184],posicaoPergunta:[1156,352],som:""},              {pergunta:"f9.png",tamanhoPergunta:[216,58],resposta:"h9.png",respondivel:true,tamanhoResposta:[216,58],posicaoResposta:[839,142],posicaoPergunta:[1154,603],som:""},              {pergunta:"f10.png",tamanhoPergunta:[216,58],resposta:"h10.png",respondivel:true,tamanhoResposta:[216,58],posicaoResposta:[438,107],posicaoPergunta:[126,608],som:""}];              AppJogoOrndearObjetos(false/*modo edição*/,'od1',"fundo_od1.png",itens,parametros,"btiniciarod1.png");
+  </script>
+
+ </div>
+
+</body>
+</html>
