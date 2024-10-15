@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>QUIZ</title>
+	<!-- analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-124031348-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-124031348-1');
+	</script>
+
+
+	<link href="template/css/documentation.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="template/css/template.css" rel="stylesheet" type="text/css" media="screen" />
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300" rel="stylesheet">
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script type="text/javascript" src="template/js/bulma-carousel.min.js"></script>
+
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+				tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+			});
+		</script>
+	<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
+
+</head>
+
+<body>
+
+	<!-- TITULO -->
+
+	<section id="title" class="fundogif section hero is-fullheight is-widescreen is-fullhd is-active">
+		<header class="content level is-mobile ">
+			<div class="level-left"></div>
+			<div class="level-right"></div>
+		</header>
+		<div class="hero-body wrapper is-mobile content">
+
+		</div>
+		<footer class="content level">
+			<div class="level-left">
+
+			</div>
+			<div class="level-right">
+				<button class="btn-check">
+					<p>Confirmar</p>
+					<span class="check-icon">&#10004;</span>
+				</button>
+			</div>
+		</footer>
+	</section>
+
+	<!-- MODAL FEEDBACK -->
+	<div class="modal modal-feedback animated fadeIn">
+		<div class="modal-background"></div>
+		<div class="modal-content"></div>
+		<button class="modal-close is-large" aria-label="close"></button>
+	</div>
+
+	<!-- MODAL IMAGEM -->
+	<div class="modal modal-image animated fadeIn">
+		<div class="modal-background"></div>
+		<div class="modal-content"></div>
+		<button class="modal-close is-large" aria-label="close"></button>
+	</div>
+
+	<div class="btn btn-next animated fadeIn"></div>
+
+	<div class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="columns">
+                <div class="column">
+                    <!--altera o título aqui-->
+                    <h2>Sedentarismo</h2>
+                    <p>Gerente de Conteúdo Digital: Fabrício Cortezi de Abreu Moura</p>
+                    <p>Gerente editorial: Júlio Rocker Neto</p>
+                    <p>Coordenação Multimídia: Karla Simon Gomes Franco</p>
+                    <p>Coordenação editorial: Jeferson Freitas</p>
+                    <p>Edição Multimídia: Andrea Bettes, Ana Paula Villa Cavalotti, Ana Raquel Cruz, Jessica Bianchi, Larissa do Nascimento, Marlon Negrão </p>
+                    <p>Edição de Arte: Anabell Diez Previdi</p>
+                    <p>Design Digital: Andre Souza, Carolina Cruz, Carolina Rosa, Leandro Schuques, Valdineia Valente, Yuri Schrederhof Cortes</p>
+                    <p>Edição de conteúdo: Heloísa Tavares, Juliana Rodrigues, Luiz Rogério Lucena dos Santos Lima</p>
+                    <p>Roteiro: Tatiana Sviesk </p>
+
+                    <hr>
+                    <p class="dir">@Positivo Soluções Didáticas</p>
+                </div>
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+        </div>
+    </div>
+
+    <div class="relative">
+    	<a class="button creditos">©</a>
+
+    	<div class="rodape">
+        	<p class="marca">@Positivo Soluções Didáticas</p>
+    	</div>
+    </div>
+    
+
+	<script src="quiz/js/interacoes.js"></script>
+	<script src="quiz/js/content.js"></script>
+	<script src="template/js/functions.js"></script>
+
+	<script src="template/js/shuffle.js"></script>
+
+
+	<!-- USER ADDITIONS -->
+	<link href="quiz/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+	<script src="quiz/js/script.js"></script>
+
+	<script>
+		$('.creditos').on('click', function () {
+    	$('.modal').toggleClass('is-active');
+    	$('html').css('overflow', 'hidden');
+		});
+
+		$('.modal-close').on('click', function () {
+    	$('.modal').toggleClass('is-active');
+    	$('html').css('overflow', 'auto');
+		});
+	</script>	
+
+
+
+</body>
+
+</html>
