@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>SAE25_AI11_GEO_C03_OA1</title>
+    <link
+      href="../../../../../../geral/css/html5reset.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral1024.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral640.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/EF1/disciplinas/matematica.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../../../../../../geral/js/jquery-1.11.3.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.lib.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.lib.ods.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.geral.init.js"></script>
+    <script src="../../../../../../geral/js/jquery.professor.init.js"></script>
+    <script src="../../../../../../geral/js/jogoMemoria2018.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+      }
+      .slide {
+        display: none;
+        padding: 20px;
+        text-align: center;
+      }
+      .slide.active {
+        display: block;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+      .navigation {
+        text-align: center;
+        margin-top: 20px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        margin: 5px;
+        cursor: pointer;
+      }
+      /* Imagens padrão */
+      img {
+        max-width: 100%;
+        height: auto;
+        width: 400px; /* Define um tamanho padrão para as imagens */
+      }
+      /* Imagens grandes para slides 1, 5 e 6 */
+      .slide img.large {
+        width: 450px; /* Aumenta o tamanho das imagens no slide 1, 5 e 6 */
+      }
+      /* Tamanho reduzido para slides 2 e 3 */
+      .slide img.small {
+        width: 300px; /* Imagens menores no slide 2 e 3 */
+      }
+      h1 {
+        margin: 20px 0;
+        font-size: 2em;
+      }
+      h2 {
+        margin: 20px 0;
+        font-size: 1.5em;
+      }
+      p,
+      ul {
+        font-size: 1.2em;
+        line-height: 1.5;
+      }
+
+      /* Media queries para telas menores */
+      @media only screen and (max-width: 600px) {
+        .container {
+          padding: 10px;
+        }
+        h1 {
+          font-size: 1.5em;
+        }
+        h2 {
+          font-size: 1em;
+        }
+        p,
+        ul {
+          font-size: 1.1em;
+        }
+        button {
+          font-size: 14px;
+          padding: 8px 16px;
+        }
+        img {
+          width: 300px; /* Reduz tamanho das imagens em telas pequenas */
+        }
+      }
+    </style>
+  </head>
+  <body id="SAE25_AI11_GEO_C03_OA1" class="od ei" lang="pt-BR">
+    <div class="container">
+      <!-- Slide 1 -->
+      <div class="slide active" id="slide1">
+        <h1>COMO CONFECCIONAR UMA PETECA</h1>
+        <h2>VAMOS CRIAR UM BRINQUEDO MUITO SIMPLES E DIVERTIDO?</h2>
+        <h3>Materiais</h3>
+        <ul style="text-align: left">
+          <li>2 Folhas de jornal</li>
+          <li>Tintas de diversas cores</li>
+          <li>Pincel</li>
+          <li>Tesoura</li>
+          <li>Um pedaço de barbante</li>
+        </ul>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide" id="slide2">
+        <h2>Como Fazer</h2>
+        <p>
+          Amasse uma das folhas de jornal e faça, com ela, uma bolinha de papel.
+        </p>
+        <img
+          class="small"
+          src="resources/images/amassar_papel.png"
+          alt="Amasse o papel"
+        />
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide" id="slide3">
+        <h2>Como Fazer</h2>
+        <p>
+          Recorte em tiras a outra folha de jornal e depois, envolva a bolinha,
+          deixando uma sobra de papel para prender.
+        </p>
+        <img
+          class="small"
+          src="resources/images/tiras.png"
+          alt="Recorte em tiras"
+        />
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="slide" id="slide4">
+        <h2>Como Fazer</h2>
+        <p>
+          Recorte um pedaço de barbante e passe entre a bolinha e as abas que
+          você deixou.
+        </p>
+        <img src="resources/images/peteca.png" alt="Peteca com barbante" />
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="slide" id="slide5">
+        <h2>Como Fazer</h2>
+        <p>Se preferir, pinte sua peteca como desejar.</p>
+        <img
+          class="large"
+          src="resources/images/pintando_peteca.png"
+          alt="Pintando a peteca"
+        />
+      </div>
+
+      <!-- Slide 6 -->
+      <div class="slide" id="slide6">
+        <h2>Pronto!</h2>
+        <p>Assim você terá uma peteca.</p>
+        <img
+          class="large"
+          src="resources/images/peteca_pronta.png"
+          alt="Peteca finalizada"
+        />
+      </div>
+
+      <div class="navigation">
+        <button id="prevBtn" onclick="prevSlide()">Retornar</button>
+        <button id="nextBtn" onclick="nextSlide()">Avançar</button>
+        <button id="restartBtn" onclick="restartSlides()" style="display: none">
+          Recomeçar
+        </button>
+      </div>
+    </div>
+
+    <script>
+      let currentSlide = 1;
+      const totalSlides = 6;
+
+      function showSlide(n) {
+        let slides = document.querySelectorAll(".slide");
+        slides.forEach((slide, index) => {
+          slide.classList.remove("active");
+          if (index === n - 1) {
+            slide.classList.add("active");
+          }
+        });
+        updateButtons();
+      }
+
+      function nextSlide() {
+        currentSlide = (currentSlide % totalSlides) + 1;
+        showSlide(currentSlide);
+      }
+
+      function prevSlide() {
+        currentSlide = currentSlide === 1 ? totalSlides : currentSlide - 1;
+        showSlide(currentSlide);
+      }
+
+      function restartSlides() {
+        currentSlide = 1; // Reinicia o slideshow para o primeiro slide
+        showSlide(currentSlide);
+      }
+
+      function updateButtons() {
+        const nextBtn = document.getElementById("nextBtn");
+        const prevBtn = document.getElementById("prevBtn");
+        const restartBtn = document.getElementById("restartBtn");
+
+        if (currentSlide === totalSlides) {
+          nextBtn.style.display = "none"; // Esconde o botão "Avançar" no último slide
+          restartBtn.style.display = "inline-block"; // Mostra o botão "Recomeçar"
+        } else {
+          nextBtn.style.display = "inline-block"; // Mostra o botão "Avançar"
+          restartBtn.style.display = "none"; // Esconde o botão "Recomeçar"
+        }
+
+        // Sempre mostrar o botão "Retornar", exceto no primeiro slide
+        prevBtn.style.display = currentSlide === 1 ? "none" : "inline-block";
+      }
+
+      // Inicializa os botões no estado correto
+      updateButtons();
+    </script>
+  </body>
+</html>
