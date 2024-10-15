@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>SAE25_AI11_EDF_C02_OA1</title>
+ <!-- <title>EF23_1_EDF_L1_U1_02_OD2</title> -->
+
+	<link href="../../../../../../geral/css/html5reset.css" rel="stylesheet" type="text/css">
+	<link href="../../../../../../geral/css/geral.css" rel="stylesheet" type="text/css">
+	<link href="../../../../../../geral/css/geral1024.css" rel="stylesheet" type="text/css">
+	<link href="../../../../../../geral/css/geral640.css" rel="stylesheet" type="text/css">
+	<link href="../../../../../../geral/css/EF1/disciplinas/educacaofisica.css" rel="stylesheet" type="text/css">
+	<script src="../../../../../../geral/js/jquery-1.11.3.min.js"></script>
+	<script src="../../../../../../geral/js/jquery.lib.min.js"></script>
+	<script src="../../../../../../geral/js/jquery.lib.ods.min.js"></script>
+	<script src="../../../../../../geral/js/jquery.geral.init.js"></script>
+	<script src="../../../../../../geral/js/jquery.professor.init.js"></script>
+	<script src="../../../../../../geral/js/jquery.professor.init.js"></script>
+	<script src="../../../../../../geral/js/jogoMemoria2018.js"></script>
+</head>
+
+<body id="SAE25_AI11_EDF_C02_OA1" class="od ei" lang="pt-BR">
+
+
+		<div id="container">
+			<a class="professor" href="#professorOD2">Para o professor</a>
+			<div id="professorOD2" class="professor">
+				<h2>Encaminhamento metodológico</h2>
+				<p>Esta RA apresenta um jogo da memória sobre os jogos da cultura popular trabalhados em aula. Os alunos terão que relacionar a imagem com o nome do jogo.</p>
+			</div>
+			<h2>Brincadeiras populares do Brasil</h2>
+			<canvas id="od2" width="1280" height="720" class="alinhaCentro"></canvas>
+			<p class="textoCredito" style="text-align:center; text-indent:0;">Syda_Productions iStock/Thinkstock; Marista Goiânia /vamosbrincar.org.br; NATAL - RN NUCLEO EDUCACIONAL INFANTIL - NEI</p>
+		</div>
+		<script>
+		/*
+		Memoria 2018
+		Jogo fixo em 1280x720
+		Ajustado para ter fases, tomar cuidado com os titulos e tempos das cartas para adequar ao numero de fases
+		*/
+		var parametros=[
+		[6000,6000,6000], /*tempos das cartas para cada fase, caso tenha fases*/
+		3, /*linha*/
+		4, /*colunas*/
+		558, /*width em px da carta*/
+		359, /*height em px da carta*/
+	0.5, /*escala das cartas*/
+		5, /*espacamento entre as cartas*/
+		[220,360,360], /*offset x*/
+		[185,185,185] /*offset y*/
+		];
+
+		var cartas = [[
+		'resources/image/a1.png',
+		'resources/image/a2.png',
+		'resources/image/a3.png',
+		'resources/image/a4.png',
+		'resources/image/a5.png',
+		'resources/image/a6.png',
+		'resources/image/a7.png',
+		'resources/image/a8.png',
+		'resources/image/a9.png',
+		'resources/image/a10.png',
+		'resources/image/a11.png',
+		'resources/image/a12.png'
+		]];
+
+		var titulosFases=[""];
+
+		AppJogoMemoria(
+			'od2',
+			cartas,
+			"fundo_od2.png",
+			"bt_iniciar.png",
+			parametros,
+			titulosFases,
+			null,
+			"ctras.png",
+			"gui_od1.png"
+			);
+		</script>
+	
+	
+</body></html>
