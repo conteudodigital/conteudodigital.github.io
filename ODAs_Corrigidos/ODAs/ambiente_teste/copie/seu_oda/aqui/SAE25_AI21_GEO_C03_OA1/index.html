@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>SAE25_AI21_GEO_C03_OA1</title>
+    <link
+      href="../../../../../../geral/css/html5reset.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral1024.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral640.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/EF1/disciplinas/geografia.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../../../../../../geral/js/jquery-1.11.3.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.lib.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.lib.ods.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.geral.init.js"></script>
+    <script src="../../../../../../geral/js/jquery.professor.init.js"></script>
+    <script src="../../../../../../geral/js/memoria_v2.js"></script>
+  </head>
+  <body id="SAE25_AI21_GEO_C03_OA1" class="od ef1" lang="pt-BR">
+    <a class="professor" href="#professorod1">Para o professor</a>
+    <div id="professorod1" class="professor">
+      <h2>Encaminhamento metodológico</h2>
+      <p>
+        O Objeto digital apresenta o conteúdo de forma gameficada, utilizando o
+        tradicional formato de jogo da memória. A ideia é fazer com que os
+        alunos identifiquem imagens com conteúdos semelhantes, porém, com visões
+        diferentes, tais como; visão vertical, oblíqua, horizontal.
+      </p>
+    </div>
+    <h2>Diferentes pontos de vista</h2>
+    <div id="container">
+      <canvas id="od2" width="1280" height="720" class="alinhaCentro"></canvas>
+      <p class="textoCredito" style="text-align: center; text-indent: 0">
+        Yauheni Meshcharakou/Sentavio/Pretty Vectors/CITL/HelgaMariah/Konstantin
+        Petrov/KittyVector/Lily Studio/robuart/Julia Dolzhenko/Marina
+        Bolsunova/Yauheni Meshcharakou/Shutterstock
+      </p>
+    </div>
+    <script>
+      /*            Memoria v2            Jogo fixo em 1280x720            Numero de linhas x coluna deve ser igual ao numero total de cartas            */ var tempoCartasAbertas = 6000;
+      var linhas = 3;
+      var colunas = 4;
+      var larguraImg = 250;
+      var alturaImg = 250;
+      var escala = 0.8;
+      var espacamento = 5;
+      var margemX = 330;
+      var margemY = 160;
+      var cards = [
+        "resources/image/c0.png",
+        "resources/image/c1.png",
+        "resources/image/c2.png",
+        "resources/image/c3.png",
+        "resources/image/c4.png",
+        "resources/image/c5.png",
+        "resources/image/c6.png",
+        "resources/image/c7.png",
+        "resources/image/c8.png",
+        "resources/image/c9.png",
+        "resources/image/c10.png",
+        "resources/image/c11.png",
+      ];
+      $(document).ready(function () {
+        gameMemoria2("od2", cards);
+      });
+    </script>
+  </body>
+</html>
