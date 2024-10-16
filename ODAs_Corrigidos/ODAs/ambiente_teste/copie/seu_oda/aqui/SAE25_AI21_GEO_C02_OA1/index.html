@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>SAE25_AI21_GEO_C02_OA1</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-124031348-1"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-124031348-1");
+    </script>
+    <!-- jquery -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- estilos -->
+    <link rel="stylesheet" href="css/bulma.min.css" />
+    <link rel="stylesheet" href="css/animate.min.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/style.min.css" />
+  </head>
+
+  <body id="SAE25_AI21_GEO_C02_OA1" class="backs back1">
+    <div class="modal m-cred">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <div class="columns">
+          <div class="column">
+            <!--Os IDs preenchem automaticamente o texto, não há necessidade de edição-->
+            <div id="titulo"></div>
+            <div id="diretores"></div>
+            <div id="equipe"></div>
+
+            <!--Para puxar o editor correto, será necessário inserir, como classe,
+                    - a coleção (CQT ou SPE) 
+                    - o nível [EI(ed Infantil), AI(anos Iniciais), AF(anos finais) ou EM(Ensino médio)]
+                    - o ano (AI11, A12, AI13, AI14, ... AF91, AF92..., EM01, EM02, EM03, EM04 ...)
+                    - e a matéria (ART BIO CIE EDF ESP FIL GEO HIS ING LIT MAT POR QUI SOC OT ou PV), separados por traço
+
+                    ***Excessão para EI, a classe para este será simplificada: SPE-EI ou CQT-EI (pois é um único editor para o EI inteiro)    -->
+
+            <div id="EdConteudo" class="SPE-EM-EM06-ING"></div>
+
+            <hr />
+            <!-- copywriter puxa automático-->
+            <p class="dir"></p>
+          </div>
+        </div>
+        <button
+          class="modal-close is-large close-cred"
+          aria-label="close"
+        ></button>
+      </div>
+    </div>
+    <a class="button creditos">©</a>
+    <div class="header"></div>
+    <div class="conteudo">
+      <h1>O que mudou?</h1>
+      <p>Transformação da paisagem</p>
+      <p>Observe a transformação de algumas cidades com o passar do tempo.</p>
+
+      <a href="./segundo.html">
+        <p class="buttao">Iniciar</p>
+      </a>
+    </div>
+  </body>
+  <script src="js/script.js"></script>
+  <script src="../../CREDITOS/creditos.js"></script>
+</html>
