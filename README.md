@@ -1,3 +1,7 @@
+#Reaproveitamento Positivo:
+
+- [X] SAE25_AI21_GEO_C02_OA1
+
 # 🛠️ Ferramentas para o Setor de Interações Digitais
 
 Bem-vindo(a) ao repositório do **Ferramentas Setor**! Este site oferece um conjunto prático de utilidades voltadas para designers, desenvolvedores e profissionais de usabilidade, com foco em produtividade e acessibilidade.
