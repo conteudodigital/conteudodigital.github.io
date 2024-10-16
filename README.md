@@ -1,6 +1,5 @@
-
-
 # 🛠️ Ferramentas para o Setor de Interações Digitais
+
 Bem-vindo(a) ao repositório do **Ferramentas Setor**! Este site oferece um conjunto prático de utilidades voltadas para designers, desenvolvedores e profissionais de usabilidade, com foco em produtividade e acessibilidade.
 
 Nosso objetivo é facilitar seu dia a dia com ferramentas eficientes e fáceis de usar, tudo em um só lugar. Explore as funcionalidades disponíveis e veja como cada uma pode melhorar seu fluxo de trabalho!
@@ -10,18 +9,23 @@ Nosso objetivo é facilitar seu dia a dia com ferramentas eficientes e fáceis d
 Aqui estão algumas das principais ferramentas que você encontrará no site:
 
 ### 🎨 **Conversor de Códigos CMYK**
+
 Transforme facilmente valores CMYK em cores HEX ou RGB e vice-versa. Ideal para garantir a precisão das cores nos seus projetos gráficos e digitais.
 
 ### 🎨 **ColorADD**
+
 Facilite a inclusão ao utilizar o sistema de cores **ColorADD**, que permite identificar cores de forma acessível para daltônicos. Inclua essa prática em seus projetos e torne seu design mais inclusivo.
 
 ### 📱 **Testes de Usabilidade**
+
 Ferramentas para análise e teste de usabilidade de websites, proporcionando uma melhor experiência do usuário. Teste responsividade, acessibilidade e descubra áreas para melhorar a interação do seu público.
 
 ### 📲 **Gerador de QR Codes**
+
 Gere rapidamente códigos QR personalizados para qualquer URL, texto ou informação. Uma forma prática de adicionar interatividade em materiais impressos ou digitais.
 
 ### 🎨 **Conversor de Formatos de Cores**
+
 Transforme seus códigos de cores entre diferentes formatos: HEX, RGB, CMYK, HSL e outros. Facilite o trabalho de adaptação de paletas em diversos contextos e plataformas.
 
 ## 📚 Como Utilizar
@@ -47,7 +51,7 @@ Este projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 🤝 Contribuições
 
-Contribuições são bem-vindas! Se você tem ideias para novas ferramentas, melhorias nas existentes, ou encontrou um bug, sinta-se à vontade para abrir uma issue ou enviar um pull request. 
+Contribuições são bem-vindas! Se você tem ideias para novas ferramentas, melhorias nas existentes, ou encontrou um bug, sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
 1. Faça um fork do repositório
 2. Crie uma nova branch (`git checkout -b feature/nova-funcionalidade`)
@@ -72,3 +76,5 @@ Se você tiver alguma dúvida ou sugestão, entre em contato por e-mail: [august
 ---
 
 Com esse README, o objetivo é ser claro, informativo e convidativo para outros usuários e colaboradores. Ele também transmite um aspecto amigável com emojis e seções bem estruturadas.
+
+Teste
