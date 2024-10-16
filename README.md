@@ -1,6 +1,6 @@
 #Reaproveitamento Positivo:
 
--[ ] SAE25_AI21_GEO_C02_OA1
+- [ ] SAE25_AI21_GEO_C02_OA1
 
 # 🛠️ Ferramentas para o Setor de Interações Digitais
 
