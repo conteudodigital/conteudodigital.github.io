@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+      }
+      body {
+        left: 0;
+        top: 0;
+        background-image: url(assets/images/tras.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+      .frente {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        top: 50%;
+        background-image: url(assets/images/frente.png);
+        background-size: cover;
+      }
+      .info {
+        width: 30px;
+        height: 30px;
+        background-color: blue;
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frente">
+      <div class="info" style="left: 100px; top: 100px"></div>
+      <div class="info" style="left: 200px; top: 200px"></div>
+    </div>
+  </body>
+</html>
