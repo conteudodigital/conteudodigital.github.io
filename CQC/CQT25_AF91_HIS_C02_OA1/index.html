@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Grande Guerra</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="virarTela" id="virarTela">
+      <div class="celular">
+        <img
+          style="width: 120%"
+          src="assets/images/disclaimer.png"
+          alt="Aviso"
+          class="disclaimer"
+        />
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="title">
+        <img
+          src="assets/images/oda-titulo.png"
+          alt="A Grande Guerra"
+          class="title-image"
+        />
+      </div>
+      <div class="btn-container">
+        <a href="tutorial.html" class="btn-iniciar">
+          <img
+            src="assets/images/btn-iniciar.png"
+            alt="Iniciar"
+            class="btn-image"
+          />
+        </a>
+      </div>
+    </div>
+
+    <!-- Botão de créditos -->
+    <button class="bts-creditos" id="botaoVoltar">
+      <img
+        src="assets/images/btn-creditos.png"
+        alt="Voltar"
+        class="btn-image"
+      />
+    </button>
+
+    <!-- Modal para exibir a imagem -->
+    <div class="modalCreditos" id="modalCreditos" style="display: none">
+      <div class="modal-content">
+        <img
+          src="assets/images/creditos-cqc.png"
+          alt="Créditos de um material educacional. Direção Geral: João Cunha. Direção da Produção de Conteúdo: Rodolpho Meschgrahw. Gerência Executiva de Conteúdo: Igor Junqueira de Castro. Núcleo de Conteúdo Educacional: Alessandra Atanazio, Emanoelle Almeida (Coordenação Editorial), Mariana Ramos (Design Educacional), Anne da Rocha, Clarianna Matos, Eduardo Nunes, Janayna Goulart, Jéssica Lima, Joice Tozato, Aline Veiga, Jonatan Camargo (Edição de Conteúdo). Núcleo de Arte: Thalita Costa. Interações Digitais: Nicole Ribeiro, Augusto Barbosa, Carla Oliveira, Carlos Morevi, João Depine, Juliana Aparecida, Mariana Fontoura, Matheus Ranze, Nuyara Gracioli, Rafael Vieira, Roberto Querido. Autores: Alisson Douglas de Oliveira Lima (ODA)."
+          class="imagemCreditos"
+        />
+        <span class="botaoFechar" id="botaoFecharModal">&times;</span>
+      </div>
+    </div>
+
+    <!-- Imagem de créditos que aparece atrás do disclaimer -->
+    <img
+      src="assets/images/creditos-cqc.png"
+      alt="Créditos"
+      class="backgroundCreditos"
+      style="display: none"
+    />
+
+    <!-- Imagem de créditos que aparece atrás do disclaimer para mobile -->
+    <div class="backgroundCreditosMobile" style="display: none">
+      <button class="botaoFecharCreditos" id="botaoFecharCreditos">
+        &times;
+      </button>
+      <div class="scroll-container">
+        <img
+          src="assets/images/creditosMobile-cqc.png"
+          alt="Créditos Mobile"
+          class="imagemCreditosMobile"
+        />
+      </div>
+    </div>
+
+    <script>
+      const botaoVoltar = document.getElementById("botaoVoltar");
+      const modalCreditos = document.getElementById("modalCreditos");
+      const botaoFecharModal = document.getElementById("botaoFecharModal");
+      const backgroundCreditos = document.querySelector(".backgroundCreditos");
+      const backgroundCreditosMobile = document.querySelector(
+        ".backgroundCreditosMobile"
+      );
+      const botaoFecharCreditos = document.getElementById(
+        "botaoFecharCreditos"
+      );
+
+      botaoVoltar.addEventListener("click", () => {
+        if (window.innerWidth <= 768) {
+          // Verifica se a tela é mobile
+          backgroundCreditosMobile.style.display = "block"; // Exibe a imagem de créditos mobile
+          backgroundCreditos.style.display = "none"; // Esconde a imagem de créditos desktop
+          modalCreditos.style.display = "none"; // Fecha o modal
+        } else {
+          modalCreditos.style.display = "flex"; // Abre o modal com a imagem
+          backgroundCreditos.style.display = "none"; // Esconde a imagem de créditos mobile
+          backgroundCreditosMobile.style.display = "none"; // Esconde a imagem de créditos mobile
+        }
+      });
+
+      botaoFecharModal.addEventListener("click", () => {
+        modalCreditos.style.display = "none"; // Fecha o modal
+      });
+
+      // Fecha a imagem de créditos mobile ao clicar no botão "X"
+      botaoFecharCreditos.addEventListener("click", () => {
+        backgroundCreditosMobile.style.display = "none"; // Fecha a imagem de créditos mobile
+      });
+
+      // Fecha o modal ao clicar fora da imagem
+      window.addEventListener("click", (event) => {
+        if (event.target === modalCreditos) {
+          modalCreditos.style.display = "none"; // Fecha o modal
+        }
+      });
+
+      // Adiciona um listener para ocultar a imagem de créditos ao redimensionar
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 768) {
+          backgroundCreditos.style.display = "none"; // Oculta a imagem de créditos se a tela não for mobile
+          backgroundCreditosMobile.style.display = "none"; // Oculta a imagem de créditos mobile
+        }
+      });
+    </script>
+  </body>
+</html>
