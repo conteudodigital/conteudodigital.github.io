@@ -41,7 +41,7 @@ body {
 }
 
 /* Ajustes para telas menores */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .title-image {
     width: 100vw; /* Aumentado de 80vw para 120vw para ficar maior */
     max-width: 700px; /* Aumentado de 400px para 800px para permitir imagens maiores */
