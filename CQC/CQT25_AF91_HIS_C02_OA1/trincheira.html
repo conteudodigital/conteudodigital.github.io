@@ -16,10 +16,9 @@
     <div class="virarTela">
       <div class="celular">
         <img
-          style="width: 120%"
           src="assets/images/disclaimer.png"
           alt="Aviso"
-          class="disclaimer"
+          style="width: 100%"
         />
       </div>
     </div>
@@ -38,7 +37,7 @@
         align-items: center;
       "
     >
-      <div class="frente" style="position: relative; margin-top: 130vh">
+      <div class="frente" style="position: relative; margin-top: 100vh">
         <img
           src="assets/images/frente.png"
           class="trincheira-image"
@@ -51,7 +50,7 @@
             alt="Retaguarda"
             class="interaction-image"
           />
-          <div class="caption">Retaguarda</div>
+          <div class="caption posRetaguarda" id="Retaguarda">Retaguarda</div>
         </div>
         <div class="image-container" id="imageContainer2" style="display: none">
           <img
@@ -59,7 +58,9 @@
             alt="Segunda Trincheira"
             class="interaction-image"
           />
-          <div class="caption" id="SegundaTrincheira">Segunda Trincheira</div>
+          <div class="caption posSegundaTrincheira" id="SegundaTrincheira">
+            <label class="textoCaption">Segunda Trincheira</label>
+          </div>
         </div>
         <div class="image-container" id="imageContainer3" style="display: none">
           <img
@@ -67,7 +68,9 @@
             alt="Túneis de Comunicação"
             class="interaction-image"
           />
-          <div class="caption" id="Tunel">Túneis de Comunicação</div>
+          <div class="caption posTunel" id="Tunel">
+            <label class="textoCaption"> Túneis de Comunicação</label>
+          </div>
         </div>
         <div class="image-container" id="imageContainer4" style="display: none">
           <img
@@ -75,7 +78,9 @@
             alt="Primeira Trincheira"
             class="interaction-image"
           />
-          <div class="caption">Primeira Trincheira</div>
+          <div class="caption posPrimeiraTrincheira" id="PrimeiraTrincheira">
+            <label class="textoCaption"> Primeira Trincheira</label>
+          </div>
         </div>
         <div class="image-container" id="imageContainer5" style="display: none">
           <img
@@ -86,10 +91,11 @@
           <img
             src="assets/images/zona-minada.png"
             alt="Zona Minada"
+            style="width: 60%"
             class="interaction-image"
           />
           <div class="titulo5-container">
-            <div class="titulo5">Zona Minada</div>
+            <div class="caption" id="ZonaMinada">Zona Minada</div>
           </div>
         </div>
         <button class="btn-interaction" id="btnInteraction1">
@@ -134,7 +140,7 @@
       <img src="assets/images/btn-voltar.png" alt="Voltar" class="btn-image" />
     </button>
 
-    <button class="btn-conhecer" id="btnConhecer" style="display: none">
+    <button class="btn-conhecer" id="btnConhecer">
       <img
         src="assets/images/btn-conhecer.png"
         alt="Conhecer"
@@ -142,7 +148,7 @@
       />
     </button>
 
-    <div class="modal-container">
+    <div class="modal-container" style="overflow: hidden">
       <div class="modal" id="retaguardaModal" style="display: none">
         <div class="modal-content">
           <div class="left-container">
@@ -331,11 +337,23 @@
       </div>
       <div id="conhecerModal" style="display: none">
         <div class="modal-content">
-          <span class="close" id="closeConhecerModal">&times;</span>
+          <span class="close" id="closeConhecerModal" onclick="fechaModal()"
+            >&times;</span
+          >
           <img
-            src="assets/images/conhecer.gif"
+            src="assets/images/grafico_astropas.gif"
+            id="gifConhecer1"
             alt="Conhecer"
             class="gif-image"
+            onclick="pulaConhecer()"
+          />
+          <img
+            src="assets/images/grafico_custohumano.gif"
+            id="gifConhecer2"
+            alt="Conhecer"
+            class="gif-image"
+            style="display: none"
+            onclick="fechaModal()"
           />
         </div>
       </div>
@@ -533,6 +551,8 @@
       // Abre o modal ao clicar no botão "Conhecer"
       btnConhecer.addEventListener("click", () => {
         // Verifica se algum botão de interação está ativo
+        gifConhecer1.style.display = "block";
+        gifConhecer2.style.display = "none";
         const anyInteractionActive = Array.from(bts).some(
           (btn) => btn.disabled
         );
@@ -551,29 +571,28 @@
             overlay.style.pointerEvents = "auto"; // Habilita a interação com o overlay
           };
 
-          // Fecha o modal e o overlay ao clicar no botão "x"
-          closeConhecerModal.addEventListener("click", () => {
-            conhecerModal.style.display = "none"; // Esconde o modal
-            overlay.style.display = "none"; // Esconde o overlay
-            bts.forEach((btn) => (btn.disabled = false)); // Reabilita todos os botões de interação
-            btnVoltar.disabled = false; // Habilita o botão "Voltar" ao fechar o modal
-          });
-
           // Habilita o clique no overlay após a visualização completa
-          nextButton.addEventListener("click", enableOverlayClick);
+          //nextButton.addEventListener("click", enableOverlayClick);
         }
       });
 
       // Fecha o modal e o overlay ao clicar no "x"
-      closeConhecerModal.addEventListener("click", () => {
+      closeConhecerModal.addEventListener("click", fechaModal());
+
+      function pulaConhecer() {
+        gifConhecer1.style.display = "none";
+        gifConhecer2.style.display = "block";
+      }
+      function fechaModal() {
         conhecerModal.style.display = "none"; // Esconde o modal
         overlay.style.display = "none"; // Esconde o overlay
         bts.forEach((btn) => (btn.disabled = false)); // Reabilita todos os botões de interação
-        btnConhecer.disabled = false; // Habilita o botão "Conhecer" ao fechar o modal
-      });
+        btnVoltar.disabled = false; // Habilita o botão "Voltar" ao fechar o modal
+      }
 
       function mobilecheckOds() {
         var check = false;
+
         (function (a) {
           if (
             /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(
@@ -594,11 +613,18 @@
         });
       }
 
-      const titulo5 = document.querySelector("#imageContainer5 .titulo5");
-      titulo5.addEventListener("click", () => {
-        // Ação que você deseja realizar ao clicar na legenda
-        console.log("Zona Minada clicada!");
-        // Você pode adicionar a lógica para abrir um modal ou qualquer outra ação
+      window.addEventListener("resize", function () {
+        if (mobilecheckOds()) {
+          console.log("mobile");
+          bts.forEach((btn) => {
+            btn.style.width = "20vh";
+          });
+        } else {
+          console.log("desktop");
+          bts.forEach((btn) => {
+            btn.style.width = "15vh";
+          });
+        }
       });
     </script>
   </body>

@@ -1,4 +1,5 @@
 body {
+  overflow: hidden;
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -47,16 +48,29 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  width: 3%; /* Aumenta o tamanho do botão */
-  height: 3%; /* Aumenta o tamanho do botão */
+  width: 5%; /* Aumenta o tamanho do botão */
+  height: 5%; /* Aumenta o tamanho do botão */
   z-index: 100; /* Define um z-index maior para garantir que o botão esteja acima de outros elementos */
+  transition: transform 0.3s ease; /* Adiciona transição suave */
 }
 
 .btn-voltar img {
+  margin-top: 10%;
   width: 200%; /* Aumenta a imagem para 200% do tamanho do botão */
   height: auto; /* Mantém a proporção da imagem */
   position: relative; /* Permite que a imagem se posicione corretamente */
-  left: -50%; /* Ajusta a posição da imagem para centralizá-la */
+  left: -20%; /* Ajusta a posição da imagem para centralizá-la */
+  transition: transform 0.3s ease; /* Adiciona transição suave à imagem */
+}
+
+.btn-voltar:hover {
+  transform: scale(1.2); /* Aumenta o botão de voltar ao passar o mouse */
+}
+
+.btn-voltar:hover img {
+  transform: scale(
+    1.2
+  ); /* Aumenta a imagem do botão de voltar ao passar o mouse */
 }
 
 .btn-interaction {
@@ -91,7 +105,7 @@ body {
 
 #btnInteraction5 {
   top: 5%;
-  left: 75%;
+  left: 85%;
 }
 
 .btn-interaction {
@@ -122,15 +136,42 @@ body {
   bottom: 0;
 }
  */
+.celular {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+.textoCaption {
+  text-align: center; /* Centraliza o texto */
+  width: auto; /* Ajusta a largura para o conteúdo */
+}
+
 .caption {
+  position: fixed;
   margin-top: 10px;
-  font-size: 18px;
   color: #000;
   display: block;
   background-color: #fff; /* Adiciona fundo branco */
-  padding: 1%; /* Adiciona um pouco de padding para melhor visualização */
-  border-radius: 5px; /* Adiciona bordas arredondadas */
   font-weight: bold; /* Torna a fonte negrita */
+  font-size: 18px;
+  padding: 0 0.5%;
+}
+
+.posRetaguarda {
+  transform: translate(0, 1vh);
+}
+
+.posSegundaTrincheira {
+  transform: translate(6vh, 0);
+}
+
+.posTunel {
+  transform: translate(6vh, 0);
+}
+
+.posPrimeiraTrincheira {
+  transform: translate(6vh, 1vh);
 }
 
 @keyframes fadeIn {
@@ -163,7 +204,7 @@ body {
   border-radius: 10px;
   display: flex; /* Usar flexbox para centralização */
   padding: 20px;
-  max-width: 80%;
+  max-width: 60%;
   z-index: 3000; /* Garante que o modal fique acima do overlay */
   text-align: left;
   justify-content: center; /* Centralizar horizontalmente */
@@ -172,18 +213,19 @@ body {
   opacity: 0; /* Opacidade inicial */
   animation: fadeInRight 0.5s forwards; /* Animação ao aparecer */
 }
-.right-container {
-  overflow: visible; /* Permite que a imagem transborde do container */
-}
 
 .professor-image {
   width: 10vw; /* Ajuste conforme necessário */
   position: absolute;
-  transform: translate(60%, -150%);
+  transform: translate(60%, -120%);
   z-index: 3000; /* Certifique-se de que o z-index seja maior que o modal */
   right: -5%; /* Ajuste para posicionar sobre o modal */
   top: 1%; /* Ajuste este valor para mover a imagem para cima */
   display: block;
+}
+
+.left-container {
+  padding-right: 2%;
 }
 
 @keyframes fadeInRight {
@@ -195,12 +237,6 @@ body {
     opacity: 1;
     transform: translateX(0); /* Termina na posição original */
   }
-}
-
-.caption {
-  margin-top: 10px;
-  font-size: 18px;
-  color: #000;
 }
 
 .dialogue {
@@ -234,7 +270,7 @@ body {
 
 /* Ajuste os tamanhos específicos para as imagens nos containers de interação */
 #imageContainer1 {
-  top: -5%;
+  top: -4.5%;
   left: 10%;
   width: 15%;
   height: auto;
@@ -278,8 +314,8 @@ body {
 }
 
 #imageContainer5 {
-  top: 3%;
-  left: 58%;
+  top: -3%;
+  left: 63%;
   width: 34%; /* Aumentado para acomodar as duas imagens lado a lado */
   height: auto;
   display: flex; /* Usado flexbox para alinhar as imagens horizontalmente */
@@ -318,7 +354,7 @@ body {
 }
 
 /* Media query para telas menores que 768px */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (min-device-pixel-ratio: 1.5) {
   #btnInteraction1,
   #btnInteraction2,
   #btnInteraction3,
@@ -330,13 +366,13 @@ body {
 
 .btn-conhecer {
   position: absolute;
-  top: 20px; /* Alinhado ao topo */
-  right: 45px; /* Alinhado à direita */
+  top: -2%; /* Alinhado ao topo */
+  right: -5%; /* Alinhado à direita */
   background: none;
   border: none;
   cursor: pointer;
-  width: 80px; /* Aumenta o tamanho do botão */
-  height: 30px; /* Aumenta o tamanho do botão */
+  width: 15%; /* Aumenta o tamanho do botão */
+  height: 20%; /* Aumenta o tamanho do botão */
   z-index: 1001; /* Define um z-index maior para garantir que o botão esteja acima de outros elementos */
 }
 
@@ -382,22 +418,6 @@ body {
     align-items: center; /* Centraliza verticalmente */
     background-color: rgba(0, 0, 0, 0.7);
   }
-  .virarTela img {
-    max-width: 90%; /* Reduz o tamanho da imagem para 90% da tela */
-    max-height: 90%; /* Reduz o tamanho da imagem para 90% da tela */
-    position: absolute; /* Permite que a imagem se posicione corretamente */
-    left: 50%; /* Ajusta a posição da imagem para centralizá-la */
-    top: 50%; /* Ajusta a posição da imagem para centralizá-la */
-    transform: translate(-50%, -50%); /* Centraliza a imagem */
-  }
-
-  #Tunel {
-    margin-top: -10px;
-  }
-  #SegundaTrincheira {
-    margin-top: -10px;
-    margin-left: -10px;
-  }
 }
 
 #conhecerModal {
@@ -434,7 +454,7 @@ body {
 }
 
 /* Estilos específicos para mobile */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (min-device-pixel-ratio: 1.5) {
   .modal {
     width: 90%; /* Ajuste a largura conforme necessário */
     max-width: 600px; /* Limite a largura máxima */
@@ -446,6 +466,21 @@ body {
     align-items: flex-end; /* Alinha os itens na parte inferior */
     margin-top: 20px; /* Adiciona espaço acima do modal */
     margin-bottom: 20px; /* Adiciona espaço abaixo do modal */
+  }
+
+  .btn-voltar img {
+    width: 300%; /* Aumenta a imagem para 200% do tamanho do botão */
+  }
+  .caption {
+    position: fixed;
+    margin-top: 10px;
+    color: #000;
+    display: block;
+    background-color: #fff; /* Adiciona fundo branco */
+    font-weight: bold; /* Torna a fonte negrita */
+    font-size: 16px;
+    transform: initial;
+    padding: 0;
   }
 
   .professor-image {
@@ -465,14 +500,29 @@ body {
     margin-right: 5px; /* Espaço entre o texto e a imagem */
   }
 
-  #Tunel {
-    margin-top: -5px;
-    margin-left: 15px;
+  .textoCaption {
+    display: block;
+    width: 110px;
   }
 
+  #Retaguarda {
+    transform: translateX(-40px);
+    padding: 0 1%;
+  }
+
+  #Tunel {
+    transform: translate(35px, -10px);
+    padding: 0 1% 0 1%;
+  }
   #SegundaTrincheira {
-    margin-top: -10px;
-    margin-left: -100px;
+    margin-top: 5px;
+  }
+  #PrimeiraTrincheira {
+    transform: translate(70px, -60px);
+  }
+  #ZonaMinada {
+    transform: translate(45px, -17px);
+    padding: 0 1%;
   }
 }
 
@@ -502,4 +552,91 @@ body {
   padding: 10%; /* Aumentado o padding para 10% para melhor visualização */
   border-radius: 5px; /* Adiciona bordas arredondadas */
   font-weight: bold; /* Torna a fonte negrita */
+}
+
+/* Media query para telas menores que 1100px */
+@media (max-width: 1100px) {
+  #btnInteraction1,
+  #btnInteraction2,
+  #btnInteraction3,
+  #btnInteraction4,
+  #btnInteraction5 {
+    width: 10%; /* Ajuste para telas ainda menores */
+  }
+
+  .modal {
+    width: 90%; /* Ajuste a largura conforme necessário */
+    max-width: 600px; /* Limite a largura máxima */
+    margin: auto; /* Centraliza o modal */
+    padding: 15px; /* Ajuste o padding para mobile */
+    background-color: #f5e1d3; /* Cor de fundo */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra */
+    flex-direction: row; /* Alinha os itens na horizontal */
+    align-items: flex-end; /* Alinha os itens na parte inferior */
+    margin-top: 20px; /* Adiciona espaço acima do modal */
+    margin-bottom: 20px; /* Adiciona espaço abaixo do modal */
+  }
+
+  .btn-voltar img {
+    width: 300%; /* Aumenta a imagem para 300% do tamanho do botão */
+  }
+
+  .caption {
+    position: fixed;
+    margin-top: 10px;
+    color: #000;
+    display: block;
+    background-color: #fff; /* Adiciona fundo branco */
+    font-weight: bold; /* Torna a fonte negrita */
+    font-size: 16px;
+    transform: initial;
+    padding: 0;
+  }
+
+  .professor-image {
+    width: 36vh; /* Ajuste o tamanho da imagem da professora */
+    display: flex; /* Adicionado para garantir que a imagem seja tratada como um flex item */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    margin-right: 2%; /* Espaço entre a imagem e o texto */
+    position: relative; /* Sobrescreve a posição absoluta da classe externa */
+    transform: none; /* Sobrescreve a transformação da classe externa */
+  }
+
+  .dialogue {
+    font-size: 16px; /* Ajuste o tamanho da fonte para mobile */
+    padding: 10px; /* Ajuste o padding para mobile */
+    text-align: left; /* Alinha o texto à esquerda */
+    margin-right: 5px; /* Espaço entre o texto e a imagem */
+  }
+
+  .textoCaption {
+    display: block;
+    width: 110px;
+  }
+
+  #Retaguarda {
+    transform: translateX(-40px);
+    padding: 0 1%;
+  }
+
+  #Tunel {
+    transform: translate(35px, -10px);
+    padding: 0 1% 0 1%;
+  }
+
+  #SegundaTrincheira {
+    margin-top: 5px;
+    padding: 0 -1% 0 -1%;
+  }
+
+  #PrimeiraTrincheira {
+    transform: translate(70px, -60px);
+    padding: 0 -1% 0 -1%;
+  }
+
+  #ZonaMinada {
+    transform: translate(45px, -17px);
+    padding: 0 1%;
+  }
 }

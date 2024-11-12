@@ -52,13 +52,17 @@ body {
 }
 
 .professor-image {
-  width: 10vw; /* Ajuste conforme necessário */
+  width: 8vw; /* Ajuste conforme necessário */
   position: absolute;
-  transform: translate(60%, -150%);
+  transform: translate(60%, -110%);
   z-index: 3000; /* Certifique-se de que o z-index seja maior que o modal */
   right: -5%; /* Ajuste para posicionar sobre o modal */
   top: 1%; /* Ajuste este valor para mover a imagem para cima */
   display: block;
+}
+
+.left-container {
+  padding-right: 2%;
 }
 
 @keyframes fadeInRight {
@@ -86,7 +90,7 @@ body {
   font-style: normal; /* Estilo da fonte */
   font-weight: 400; /* Peso da fonte */
   line-height: normal; /* Altura da linha */
-  padding: 15px 45px 15px 0; /* Padding: top, right, bottom, left */
+  padding: 15px 50px 15px 0; /* Padding: top, right, bottom, left */
   border-radius: 10px; /* Bordas arredondadas */
   background: none; /* Remove o fundo branco */
   box-shadow: none; /* Remove a sombra */
