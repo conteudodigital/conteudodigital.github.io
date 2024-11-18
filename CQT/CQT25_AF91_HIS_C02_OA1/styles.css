@@ -1,0 +1,270 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url("assets/images/background-iniciar.png"); /* Imagem de fundo */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.celular {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+.container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* Permite o posicionamento absoluto dos filhos */
+  margin-top: 20vh; /* Move todo o conteúdo para baixo */
+}
+
+.title {
+  margin-bottom: 10%; /* Espaçamento abaixo do título */
+}
+
+.title-image {
+  width: 70vw; /* Tamanho responsivo */
+  max-width: 200%; /* Tamanho máximo da imagem */
+  height: auto; /* Mantém a proporção da imagem */
+  margin-bottom: 0%;
+}
+
+.btn-container {
+  margin-top: 0; /* Remover a margem superior */
+  transform: translateY(-10px); /* Ajuste o valor para subir o botão */
+}
+@media screen and (max-width: 768px) {
+  .btn-container {
+    scale: 1.5;
+  }
+}
+.btn-image {
+  width: 15vw; /* Tamanho responsivo do botão */
+  max-width: 90%; /* Tamanho máximo do botão */
+  height: auto; /* Mantém a proporção da imagem */
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+  .title-image {
+    width: 100vw; /* Aumentado de 80vw para 120vw para ficar maior */
+    max-width: 80%; /* Aumentado de 400px para 800px para permitir imagens maiores */
+  }
+  .btn-image {
+    /*margin-top: -50%;
+    width: 20vw; /* Tamanho responsivo do botão */
+    max-width: 90%;
+  }
+  .btn-creditos {
+    width: 20vh;
+  }
+
+  .title-image {
+    margin-bottom: -3%; /* Espaçamento abaixo do título */
+  }
+
+  .btn-iniciar {
+    width: 120%;
+  }
+}
+
+.btn-iniciar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.btn-image:hover {
+  transform: scale(1.2);
+}
+
+/* Adiciona os estilos para o aviso de virar a tela */
+.virarTela {
+  display: none; /* Inicialmente escondido */
+}
+
+@media screen and (max-width: 1100px) and (orientation: portrait) {
+  .title {
+    margin-bottom: 2%; /* Espaçamento abaixo do título */
+  }
+
+  .btn-container {
+    margin-top: 1%; /* Aumenta a margem superior para mover o botão para baixo */
+  }
+
+  .virarTela {
+    display: flex; /* Exibe a tela de aviso */
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+}
+
+.bts-creditos {
+  position: fixed; /* Posiciona o botão de créditos */
+  top: 2%; /* Distância do topo */
+  left: 2%; /* Distância da esquerda */
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 8vh; /* Aumenta o tamanho do botão */
+  height: 8vh; /* Aumenta o tamanho do botão */
+  z-index: 0; /* Coloca o botão atrás da imagem */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+@media screen and (max-width: 768px) {
+  .bts-creditos {
+    width: 17vh; 
+    height: 17vh; /* Aumenta o tamanho do botão */
+  }
+}
+
+.bts-creditos img {
+  width: 100%; 
+}
+
+.bts-creditos:hover {
+  transform: scale(1.2); /* Aumenta o botão de créditos ao passar o mouse */
+}
+
+.bts-creditos:hover img {
+  transform: scale(
+    1.2
+  ); /* Aumenta a imagem do botão de créditos ao passar o mouse */
+}
+
+.btn-creditos:hover {
+  transform: scale(1.2);
+}
+
+.modalCreditos {
+  display: none; /* Inicialmente escondido */
+  position: fixed; /* Fixa o modal na tela */
+  z-index: 1000; /* Garante que o modal fique acima de outros elementos */
+  left: 0;
+  top: 0;
+  width: 100%; /* Largura total da tela */
+  height: 100%; /* Altura total da tela */
+  background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+}
+
+.modal-content {
+  position: relative; /* Para posicionar o botão de fechar */
+  width: calc(100% - 6%); /* Largura total menos 6% (3% de cada lado) */
+  height: calc(100% - 6%); /* Altura total menos 6% (3% de cada lado) */
+  margin: auto; /* Centraliza o modal */
+}
+
+.imagemCreditos {
+  width: 100%; /* Ajusta a largura da imagem para 100% do contêiner */
+  height: 100%; /* Ajusta a altura da imagem para 100% do contêiner */
+  object-fit: contain; /* Mantém a proporção da imagem dentro do contêiner */
+}
+
+.botaoFechar {
+  position: absolute; /* Posiciona o botão de fechar */
+  top: 3%; /* Distância do topo */
+  right: 20%; /* Distância da direita, ajustado para 10px */
+  color: white; /* Cor do botão de fechar */
+  font-size: 28px; /* Tamanho da fonte */
+  font-weight: bold; /* Negrito */
+  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+  z-index: 1001; /* Garante que o botão fique acima da imagem */
+}
+
+.botaoFechar:hover,
+.botaoFechar:focus {
+  color: #ccc; /* Cor ao passar o mouse */
+}
+
+.backgroundCreditos {
+  position: fixed; /* Fixa a imagem na tela */
+  top: 0; /* Alinha ao topo */
+  left: 0; /* Alinha à esquerda */
+  width: 100%; /* Largura total da tela */
+  height: 100%; /* Altura total da tela */
+  object-fit: cover; /* Mantém a proporção da imagem */
+  z-index: 0; /* Coloca a imagem atrás de outros elementos */
+  display: none; /* Inicialmente escondido */
+}
+
+.backgroundCreditosMobile {
+  position: fixed; /* Fixa a imagem na tela */
+  top: 0; /* Alinha ao topo */
+  left: 0; /* Alinha à esquerda */
+  width: 100%; /* Largura total da tela */
+  height: 100%; /* Altura total da tela */
+  z-index: 1; /* Coloca o contêiner acima de outros elementos */
+  display: none; /* Inicialmente escondido */
+  padding: 0; /* Remove margens laterais */
+}
+
+.scroll-container {
+  width: 90%; /* Ajusta a largura do contêiner para 90% */
+  height: 100%; /* Altura do contêiner para permitir rolagem */
+  overflow-y: auto; /* Permite o scroll vertical */
+  margin: 0 auto; /* Centraliza o contêiner */
+  position: relative; /* Para posicionar a barra de rolagem */
+}
+
+.imagemCreditosMobile {
+  width: 100%; /* Ajusta a largura da imagem para 100% do contêiner */
+  height: auto; /* Mantém a altura original da imagem */
+  display: block; /* Garante que a imagem seja tratada como um bloco para centralização */
+  margin: 0; /* Remove margens para evitar cortes */
+}
+
+.botaoFecharCreditos {
+  position: fixed; /* Fixa o botão de fechar na tela */
+  top: 10px; /* Distância do topo */
+  right: 6%; /* Distância da direita (5% da tela) */
+  background: none; /* Sem fundo */
+  border: none; /* Sem borda */
+  color: black; /* Cor do botão "X" para mobile */
+  font-size: 28px; /* Tamanho da fonte */
+  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+  z-index: 2; /* Coloca o botão acima da imagem */
+}
+
+.botaoFecharCreditos:hover,
+.botaoFecharCreditos:focus {
+  color: #ccc; /* Cor ao passar o mouse */
+}
+
+/* Adiciona uma barra de rolagem visível e preta */
+.scroll-container::-webkit-scrollbar {
+  width: 8px; /* Largura da barra de rolagem */
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background: black; /* Cor da barra de rolagem */
+  border-radius: 10px; /* Bordas arredondadas */
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1); /* Cor do fundo da barra de rolagem */
+}
+
+/* Para o botão "X" na versão desktop */
+.botaoFechar {
+  color: black; /* Cor do botão "X" para desktop */
+}
