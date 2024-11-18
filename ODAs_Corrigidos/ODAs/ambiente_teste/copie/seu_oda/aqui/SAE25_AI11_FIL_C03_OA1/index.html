@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>SAE25_AI11_FIL_C03_OA1</title>
+    <link
+      href="../../../../../../geral/css/html5reset.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral1024.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral640.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/EF1/disciplinas/geografia.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../../../../../../geral/js/jquery-1.11.3.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.lib.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.lib.ods.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.geral.init.js"></script>
+    <script src="../../../../../../geral/js/jquery.professor.init.js"></script>
+    <script src="../../../../../../geral/js/jogoSelecione2018.js"></script>
+  </head>
+  <body id="SAE25_AI11_FIL_C03_OA1" class="od ef1" lang="pt-BR">
+    <div class="arrastar">
+      <a class="professor" href="#professor">Para o professor</a>
+      <div id="professor" class="professor">
+        <h2>Encaminhamento metodológico</h2>
+        <p>
+          No Objeto Digital presente nesta página o aluno deve assinalar as
+          diferentes profissões com base no descritivo de cada profissional.
+          Apresente e ressalte a importância das diversas funções para a
+          sociedade. Com essa atividade, você pode destacar que algumas
+          profissões podem ser realizadas em casa, como a do pintor; aeromoça e
+          marinheiro são realizadas em espaços e ritmos diferentes dos
+          convencionais; já chef de cozinha, lojista, mecânico e bancário se
+          realizam em horário comercial, por exemplo.
+        </p>
+      </div>
+      <h2>Quem sou eu?</h2>
+      <p>
+        Diversas pessoas trabalham de dia e de noite para que tudo funcione.
+        Observe algumas profissões a seguir e marque a alternativa correta com
+        base na pergunta.
+      </p>
+      <canvas id="od2" width="1280" height="720" class="alinhaCentro"></canvas>
+      <p class="textoCredito">
+        SAE Digital, Olga1818/Shutterstock, stockgiu/freepik
+      </p>
+      <script>
+        /* Jogo de selecionar imagem correta */
+
+        var parametros = {
+          posicaoJoinha: [640, 400],
+          contaPontos: false /*conta pontos ou nao no final*/,
+          limpaContainer: false,
+          errosPermitidos: 3,
+          fase: 0,
+          mostraFeedback: null,
+          trocaImagem: null,
+          contaTempo: null,
+        };
+
+        var itens = [
+          {
+            pergunta: "f1.png",
+            fundo: "fundo1.png",
+            tamanhoPergunta: [463, 135],
+            posicaoPergunta: [320, 98],
+            respostas: [
+              ["aeromoca.png", false, [204, 376], [640, 502]],
+              ["artista.png", false, [204, 376], [309, 497]],
+              ["bombeiro.png", false, [204, 376], [1156, 539]],
+              ["cozinha.png", false, [204, 376], [128, 533]],
+              ["enfermeira.png", false, [204, 376], [817, 533]],
+              ["marinheiro.png", true, [204, 376], [977, 490]],
+              ["mecanico.png", false, [204, 376], [470, 536]],
+            ],
+            som: "",
+          },
+          {
+            pergunta: "f2.png",
+            fundo: "fundo1.png",
+            tamanhoPergunta: [463, 135],
+            posicaoPergunta: [300, 98],
+            respostas: [
+              ["aeromoca.png", false, [204, 376], [640, 502]],
+              ["artista.png", false, [204, 376], [309, 497]],
+              ["bombeiro.png", false, [204, 376], [1156, 539]],
+              ["cozinha.png", false, [204, 376], [128, 533]],
+              ["enfermeira.png", false, [204, 376], [817, 533]],
+              ["marinheiro.png", false, [204, 376], [977, 490]],
+              ["mecanico.png", true, [204, 376], [470, 536]],
+            ],
+            som: "",
+          },
+          {
+            pergunta: "f3.png",
+            fundo: "fundo1.png",
+            tamanhoPergunta: [463, 135],
+            posicaoPergunta: [300, 98],
+            respostas: [
+              ["aeromoca.png", true, [204, 376], [640, 502]],
+              ["artista.png", false, [204, 376], [309, 497]],
+              ["bombeiro.png", false, [204, 376], [1156, 539]],
+              ["cozinha.png", false, [204, 376], [128, 533]],
+              ["enfermeira.png", false, [204, 376], [817, 533]],
+              ["marinheiro.png", false, [204, 376], [977, 490]],
+              ["mecanico.png", false, [204, 376], [470, 536]],
+            ],
+            som: "",
+          },
+          {
+            pergunta: "f4.png",
+            fundo: "fundo1.png",
+            tamanhoPergunta: [463, 135],
+            posicaoPergunta: [300, 98],
+            respostas: [
+              ["aeromoca.png", false, [204, 376], [640, 502]],
+              ["artista.png", false, [204, 376], [309, 497]],
+              ["bombeiro.png", false, [204, 376], [1156, 539]],
+              ["cozinha.png", true, [204, 376], [128, 533]],
+              ["enfermeira.png", false, [204, 376], [817, 533]],
+              ["marinheiro.png", false, [204, 376], [977, 490]],
+              ["mecanico.png", false, [204, 376], [470, 536]],
+            ],
+            som: "",
+          },
+          {
+            pergunta: "f5.png",
+            fundo: "fundo1.png",
+            tamanhoPergunta: [463, 135],
+            posicaoPergunta: [300, 98],
+            respostas: [
+              ["aeromoca.png", false, [204, 376], [640, 502]],
+              ["artista.png", false, [204, 376], [309, 497]],
+              ["bombeiro.png", false, [204, 376], [1156, 539]],
+              ["cozinha.png", false, [204, 376], [128, 533]],
+              ["enfermeira.png", true, [204, 376], [817, 533]],
+              ["marinheiro.png", false, [204, 376], [977, 490]],
+              ["mecanico.png", false, [204, 376], [470, 536]],
+            ],
+            som: "",
+          },
+          {
+            pergunta: "f6.png",
+            fundo: "fundo1.png",
+            tamanhoPergunta: [463, 135],
+            posicaoPergunta: [300, 98],
+            respostas: [
+              ["aeromoca.png", false, [204, 376], [640, 502]],
+              ["artista.png", false, [204, 376], [309, 497]],
+              ["bombeiro.png", true, [204, 376], [1156, 539]],
+              ["cozinha.png", false, [204, 376], [128, 533]],
+              ["enfermeira.png", false, [204, 376], [817, 533]],
+              ["marinheiro.png", false, [204, 376], [977, 490]],
+              ["mecanico.png", false, [204, 376], [470, 536]],
+            ],
+            som: "",
+          },
+          {
+            pergunta: "f7.png",
+            fundo: "fundo1.png",
+            tamanhoPergunta: [463, 135],
+            posicaoPergunta: [300, 98],
+            respostas: [
+              ["aeromoca.png", false, [204, 376], [640, 502]],
+              ["artista.png", true, [204, 376], [309, 497]],
+              ["bombeiro.png", false, [204, 376], [1156, 539]],
+              ["cozinha.png", false, [204, 376], [128, 533]],
+              ["enfermeira.png", false, [204, 376], [817, 533]],
+              ["marinheiro.png", false, [204, 376], [977, 490]],
+              ["mecanico.png", false, [204, 376], [470, 536]],
+            ],
+            som: "",
+          },
+        ];
+
+        AppJogoSelecionar(
+          false /*modo edição*/,
+          "od2" /*canvas*/,
+          "fundo1.png",
+          "bt_iniciar.png",
+          itens,
+          parametros,
+          "" /*enunciado*/,
+          false,
+          false,
+          false,
+          60
+        );
+      </script>
+    </div>
+  </body>
+</html>

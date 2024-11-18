@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>SAE25_AI11_HIS_C03_OA1</title>
+    <!-- codigo antigo <title>EF23_1_MAT_L3_U5_01_OD1</title> -->
+
+    <link
+      href="../../../../../../geral/css/html5reset.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral1024.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral640.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/EF1/disciplinas/matematica.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../../../../../../geral/js/jquery-1.11.3.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.lib.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.lib.ods.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.geral.init.js"></script>
+    <script src="../../../../../../geral/js/jquery.professor.init.js"></script>
+    <script src="../../../../../../geral/js/jogoQuizAssociar.js"></script>
+  </head>
+
+  <body id="SAE25_AI11_HIS_C03_OA1" class="od ef1" lang="pt-BR">
+    <a class="professor" href="#professorod2">Para o professor</a>
+    <div id="professorod2" class="professor">
+      <h2>Encaminhamento metodológico</h2>
+      <p>
+        O jogo da realidade aumentada apresenta quatro sequências, envolvendo
+        cores, números, formas geométricas e letras. O objetivo é levar o aluno
+        a perceber as regularidades para completar as sequências. Para ampliar,
+        proponha aos alunos que copiem sequências usando materiais
+        manipulativos, como blocos lógicos ou palitos de sorvete coloridos, por
+        exemplo.
+      </p>
+    </div>
+    <h2>Sequências</h2>
+
+    <!-- Não ter mais que 1 html
+	Todo conteudo dentro da pasta resources
+	Titulo como código do ODA no head:
+	<title>SAE25_AI11_HIS_C03_OA1</title>
+
+	Body com o id do ODA
+	<body id="SAE25_AI11_HIS_C03_OA1" lang="pt-BR"></body>
+
+	Titulo do ODA tem que ser em h2 -->
+
+    <style>
+      .bold {
+        font-weight: bold;
+      }
+    </style>
+
+    <p class="bold">CLIQUE NA PEÇA QUE COMPLETA A SEQUÊNCIA:</p>
+    <div id="container">
+      <center>
+        <canvas id="od2" width="1280" height="720"></canvas>
+      </center>
+    </div>
+    <script>
+      /*
+		Jogo quiz V2
+		Adicionada Adicionada opção pra sequencia de botoes unica pra cada pergunta(opcional) "arrayBotoes"
+		Se o jogo não precisa mostrar uma imagem ou texto diferente ao acertar, deixar resposta como null e marcar respostaCerta e mostraFeedback como FALSE
+		*/
+      var itens = [
+        {
+          botao: ["opt1.png", "opt2.png"],
+          botaoCerto: "opt2.png",
+          pergunta: "f1.png",
+          resposta: "f1certo.png",
+        },
+        {
+          botao: ["opt4.png", "opt3.png", "opt7.png"],
+          botaoCerto: "opt3.png",
+          pergunta: "f2.png",
+          resposta: "f2certo.png",
+        },
+        {
+          botao: ["opt6.png", "opt5.png"],
+          botaoCerto: "opt6.png",
+          pergunta: "f3.png",
+          resposta: "f3certo.png",
+        },
+        {
+          botao: ["opt7.png", "opt8.png"],
+          botaoCerto: "opt8.png",
+          pergunta: "f4.png",
+          resposta: "f4certo.png",
+        },
+        {
+          botao: ["opt5.png", "opt9.png"],
+          botaoCerto: "opt9.png",
+          pergunta: "f5.png",
+          resposta: "f5certo.png",
+        },
+      ];
+      AppQuiz(
+        "od2",
+        "fundo.png",
+        221,
+        221,
+        380,
+        400,
+        50,
+        700,
+        [150, 100],
+        [640, 350],
+        3000,
+        800,
+        35,
+        35,
+        false,
+        true,
+        itens,
+        true
+      );
+
+      /*
+		var AppQuiz=function(
+		canvasID,
+		fundoID,
+		alturaBotao,
+		larguraBotao,
+		margemEsquerda,
+		margemTopo,
+		espacamento,
+		areaParaBotoes,
+		posicaoIconeCertoErrado,
+		posicaoPergunta,
+		tempoLeituraResposta,
+		larguraPergunta,
+		tamanhoTextoPergunta,
+		tamanhoTextoBotao,
+		respostaCerta,
+		mostraFeedback,
+		_itens,
+		arrayBotoes){
+		*/
+    </script>
+  </body>
+</html>

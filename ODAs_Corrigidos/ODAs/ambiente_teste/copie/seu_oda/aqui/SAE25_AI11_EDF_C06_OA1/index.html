@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>SAE25_AI11_EDF_C06_OA1</title>
+    <link
+      href="../../../../../../geral/css/html5reset.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral1024.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral640.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/EF1/disciplinas/educacaofisica.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../../../../../../geral/js/jquery-1.11.3.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.lib.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.lib.ods.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.geral.init.js"></script>
+    <script src="../../../../../../geral/js/jquery.professor.init.js"></script>
+    <script src="../../../../../../geral/js/jogoMemoria2018.js"></script>
+  </head>
+  <body id="SAE25_AI11_EDF_C06_OA1" class="od ef1" lang="pt-BR">
+    <div id="container">
+      <a class="professor" href="#professorOD1">Para o professor</a>
+      <div id="professorOD1" class="professor">
+        <h2>Encaminhamento metodológico</h2>
+        <p>
+          Nesta Realidade aumentada é apresentado um jogo da memória sobre as
+          brincadeiras e rodas cantadas no qual, os alunos terão que relacionar
+          o nome da brincadeira com a imagem que a representa.
+        </p>
+        <p>
+          O objetivo do jogo é fazer com que o aluno relacione as ações e
+          movimentos das atividades aprendidas com o nome da brincadeira.
+        </p>
+      </div>
+
+      <h2>Jogo da memória das danças</h2>
+      <p>
+        A partir dos movimentos apresentados, descubra qual é o nome da
+        brincadeira.
+      </p>
+      <canvas id="od1" width="1280" height="720" class="alinhaCentro"></canvas>
+      <p class="textoCredito" style="text-align: center; text-indent: 0">
+        Lightspring; BlueRingMedia; KanKhem; Olga Bolbot; FoxyImage; Colorfuel
+        Studio/Shutterstock
+      </p>
+    </div>
+    <!-- Fecha o container corretamente -->
+    <script>
+      var parametros = [
+        [20000, 4000, 2000],
+        4,
+        4,
+        274,
+        165,
+        1,
+        5,
+        [230],
+        [110],
+      ]; // Parâmetros do jogo
+      var cartas = [
+        [
+          "resources/image/c0.png",
+          "resources/image/c1.png",
+          "resources/image/c2.png",
+          "resources/image/c3.png",
+          "resources/image/c4.png",
+          "resources/image/c5.png",
+          "resources/image/c8.png",
+          "resources/image/c9.png",
+          "resources/image/c12.png",
+          "resources/image/c13.png",
+        ],
+      ];
+      var titulosFases = ["", "", "", "", ""];
+      AppJogoMemoria(
+        "od1",
+        cartas,
+        "fundo_od1.png",
+        "bt_iniciar.png",
+        parametros,
+        titulosFases,
+        null,
+        "ctras.png",
+        "gui_od1.png"
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8">
+
+	<title>SAE25_AF61_MAT_C03_OA1</title>
+ <!-- <title>EF22_6_MAT_L1_U3_02_OD1</title> -->
+
+	<link href="../../../../../../geral/css/html5reset.css" rel="stylesheet" type="text/css">
+	<link href="../../../../../../geral/css/geral.css" rel="stylesheet" type="text/css">
+	<link href="../../../../../../geral/css/geral1024.css" rel="stylesheet" type="text/css">
+	<link href="../../../../../../geral/css/geral640.css" rel="stylesheet" type="text/css">
+	<link href="../../../../../../geral/css/EF2/disciplinas/matematica.css" rel="stylesheet" type="text/css">
+	<script src="../../../../../../geral/js/jquery-1.11.3.min.js"></script>
+	<script src="../../../../../../geral/js/jquery.lib.min.js"></script>
+	<script src="../../../../../../geral/js/jquery.lib.ods.min.js"></script>
+	<script src="../../../../../../geral/js/jquery.geral.init.js"></script>
+	<script src="../../../../../../geral/js/jquery.professor.init.js"></script>
+	<script src="../../../../../../geral/js/jogoFruitNinja.js"></script>
+</head>
+
+<body id="EF22_6_MAT_L1_U3_02_OD1" class="od ef2" lang="pt-BR">
+
+	<a class="professor" href="#professorOD1">Para o professor</a>
+	<div id="professorOD1" class="professor">
+		<h2>Encaminhamento metodológico</h2>
+		<p>Nessa atividade o aluno deverá identificar ângulos retos, agudos e obtusos, formados pelos ponteiros de um relógio. a área pintada em cada relógio eindica qual ângulo deve ser considerado. Depois da realização do jogo, você pode estender a atividade pedindo aos alunos para desenharem relógios com os horários em que eles acordam, almoçam, assistem ao programa preferido, e depois identificarem o tipo de ângulo formado pelos ponteiros.</p>
+	</div>
+
+	<h2>Ângulos no relógio</h2>
+	<p style="text-indent:0; margin-left:0; padding-left:0;">Selecione os relógios em que os ponteiros formam o ângulo indicado.</p>
+	<canvas id="od1" width="1280" height="720" class="alinhaCentro"></canvas>
+	<p class="textoCredito" style="text-indent:0; margin-left:0; padding-left:0; text-align:center;">SAE Digital S/A</p>
+
+	<script>
+
+		var itens=[{
+			/*fase 1*/
+			titulo:'Os ponteiros formam um ângulo reto.',
+			figuras:["relogio1.png","relogio2.png","relogio3.png","relogio4.png","relogio5.png","relogio6.png","relogio7.png","relogio8.png","relogio9.png"],
+			certas:["relogio3.png","relogio7.png"],
+			tempo:30
+		},{
+			/*fase 2*/
+			titulo:'Os ponteiros formam um ângulo agudo.',
+			figuras:["relogio1.png","relogio2.png","relogio3.png","relogio4.png","relogio5.png","relogio6.png","relogio7.png","relogio8.png","relogio9.png"],
+			certas:["relogio1.png","relogio2.png","relogio8.png"],
+			tempo:30
+		},{
+			/*fase 3*/
+			titulo:'Os ponteiros formam um ângulo obtuso.',
+			figuras:["relogio1.png","relogio2.png","relogio3.png","relogio4.png","relogio5.png","relogio6.png","relogio7.png","relogio8.png","relogio9.png"],
+			certas:["relogio4.png","relogio5.png","relogio6.png","relogio9.png"],
+			tempo:30
+		}];
+
+		AppFruit(
+			'od1',
+			'fundo_od1.jpg',
+			itens,
+			30, /* tamanho do rastro*/
+			[300,308], /*tamanho das imagens*/
+			50, /*tamanho fonte texto*/
+			100, /* frequencia em que aparecem as imagens*/
+			true,/*colocando true as frutas caem de cima pra baixo*/
+			1,/*errosPermitidos*/
+			);
+
+ </script>
+	
+	
+</body>
+</html>

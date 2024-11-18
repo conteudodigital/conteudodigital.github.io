@@ -1,82 +1,44 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta charset="utf-8" />
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+ 
+<head>
+	<meta charset="utf-8">
 
-    <title>EF23_1_POR_L1_U1_02_OD1</title>
-    <!-- codigo antigo <title>EF23_1_POR_L1_U1_02_OD1</title> -->
+	<title>EF23_1_POR_L1_U1_02_OD1</title>
+ <!-- codigo antigo <title>EF23_1_POR_L1_U1_02_OD1</title> -->
 
-    <link
-      href="../../../../../../geral/css/html5reset.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="../../../../../../geral/css/geral.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="../../../../../../geral/css/geral1024.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="../../../../../../geral/css/geral640.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="../../../../../../geral/css/EF1/disciplinas/portugues.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <script src="../../../../../../geral/js/jquery-1.11.3.min.js"></script>
-    <script src="../../../../../../geral/js/jquery.lib.min.js"></script>
-    <script src="../../../../../../geral/js/jquery.lib.ods.min.js"></script>
-    <script src="../../../../../../geral/js/jquery.geral.init.js"></script>
-    <script src="../../../../../../geral/js/jquery.professor.init.js"></script>
-    <script src="./js/jogoFruitNinja.js"></script>
-  </head>
+	<link href="../../../../../../geral/css/html5reset.css" rel="stylesheet" type="text/css">
+	<link href="../../../../../../geral/css/geral.css" rel="stylesheet" type="text/css">
+	<link href="../../../../../../geral/css/geral1024.css" rel="stylesheet" type="text/css">
+	<link href="../../../../../../geral/css/geral640.css" rel="stylesheet" type="text/css">
+	<link href="../../../../../../geral/css/EF1/disciplinas/portugues.css" rel="stylesheet" type="text/css">
+	<script src="../../../../../../geral/js/jquery-1.11.3.min.js"></script>
+	<script src="../../../../../../geral/js/jquery.lib.min.js"></script>
+	<script src="../../../../../../geral/js/jquery.lib.ods.min.js"></script>
+	<script src="../../../../../../geral/js/jquery.geral.init.js"></script>
+	<script src="../../../../../../geral/js/jquery.professor.init.js"></script>
+	<script src="./js/jogoFruitNinja.js"></script>
+</head>
 
-  <body id="EF23_1_POR_L1_U1_02_OD1" class="od ef1" lang="pt-BR">
-    <a class="professor" href="#professorOD1">Para o professor</a>
-    <div id="professorOD1" class="professor">
-      <h2>Encaminhamento metodológico</h2>
-      <p>
-        O objetivo do conteúdo das vogais é a fazer a correspondência
-        desenho/grafema das imagens com as vogais que elas começam.
-      </p>
-    </div>
+<body id="EF23_1_POR_L1_U1_02_OD1" class="od ef1" lang="pt-BR">
 
-    <h2>Brincando com as vogais</h2>
-    <div
-      class="tituloSonoro"
-      arquivoaudio="resources/image/EF21_1_POR_L1_U1_02_OD1.mp3"
-      data-path="resources/image/"
-    >
-      Encontre as figuras cujos nomes iniciam com a vogal em destaque.
-    </div>
-    <canvas id="od1" width="1280" height="720" class="alinhaCentro"></canvas>
-    <p
-      class="textoCredito"
-      style="
-        text-indent: 0;
-        margin-left: 0;
-        padding-left: 0;
-        text-align: center;
-      "
-    >
-      SAE Digital S/A, Freepik
-    </p>
 
-    <script>
-      var itens = [
-        {
-          /*fase 1*/
-          titulo: "A",
-          figuras: [
-            "arvore.png",
+	<a class="professor" href="#professorOD1">Para o professor</a>
+	<div id="professorOD1" class="professor">
+		<h2>Encaminhamento metodológico</h2>
+		<p>O objetivo do conteúdo das vogais é a fazer a correspondência desenho/grafema das imagens com as vogais que elas começam.</p>
+	</div>
+
+	<h2>Brincando com as vogais</h2>
+	<div class="tituloSonoro" arquivoaudio="resources/image/EF21_1_POR_L1_U1_02_OD1.mp3" data-path="../../../../../../geral/image/">Encontre as figuras cujos nomes iniciam com a vogal em destaque.</div>
+	<canvas id="od1" width="1280" height="720" class="alinhaCentro"></canvas>
+	<p class="textoCredito" style="text-indent:0; margin-left:0; padding-left:0; text-align:center;">SAE Digital S/A, Freepik</p>
+
+	<script>
+
+		var itens=[{
+			/*fase 1*/
+			titulo:'A',
+			figuras:["arvore.png",
             "aviao.png",
             "elefante.png",
             "escada.png",
@@ -89,111 +51,48 @@
             "unha.png",
             "urso.png",
             "uva.png",
-            "oculos.png",
-          ],
-          certas: ["arvore.png", "aviao.png"],
-          tempo: 20,
-        },
-        {
-          /*fase 2*/
-          titulo: "E",
-          figuras: [
-            "arvore.png",
-            "aviao.png",
-            "elefante.png",
-            "escada.png",
-            "estrela.png",
-            "igreja.png",
-            "ilha.png",
-            "olho.png",
-            "osso.png",
-            "ovo.png",
-            "unha.png",
-            "urso.png",
-            "uva.png",
-            "oculos.png",
-          ],
-          certas: ["estrela.png", "elefante.png", "escada.png"],
-          tempo: 20,
-        },
-        {
-          /*fase 3*/
-          titulo: "I",
-          figuras: [
-            "arvore.png",
-            "aviao.png",
-            "elefante.png",
-            "escada.png",
-            "estrela.png",
-            "igreja.png",
-            "ilha.png",
-            "olho.png",
-            "osso.png",
-            "ovo.png",
-            "unha.png",
-            "urso.png",
-            "uva.png",
-            "oculos.png",
-          ],
-          certas: ["ilha.png", "igreja.png"],
-          tempo: 20,
-        },
-        {
-          /*fase 4*/
-          titulo: "O",
-          figuras: [
-            "arvore.png",
-            "aviao.png",
-            "elefante.png",
-            "escada.png",
-            "estrela.png",
-            "igreja.png",
-            "ilha.png",
-            "olho.png",
-            "osso.png",
-            "ovo.png",
-            "unha.png",
-            "urso.png",
-            "uva.png",
-            "oculos.png",
-          ],
-          certas: ["olho.png", "osso.png", "ovo.png", "oculos.png"],
-          tempo: 20,
-        },
-        {
-          /*fase 5*/
-          titulo: "U",
-          figuras: [
-            "arvore.png",
-            "aviao.png",
-            "elefante.png",
-            "escada.png",
-            "estrela.png",
-            "igreja.png",
-            "ilha.png",
-            "olho.png",
-            "osso.png",
-            "ovo.png",
-            "unha.png",
-            "urso.png",
-            "uva.png",
-            "oculos.png",
-          ],
-          certas: ["uva.png", "urso.png", "unha.png"],
-          tempo: 10,
-        },
-      ];
+            "oculos.png"],
+			certas:["arvore.png",
+           "aviao.png"],
+			tempo:20
+		},{
+			/*fase 2*/
+			titulo:'E',
+			figuras:["arvore.png","aviao.png","elefante.png","escada.png","estrela.png","igreja.png","ilha.png","olho.png","osso.png","ovo.png","unha.png", "urso.png", "uva.png", "oculos.png"],
+			certas:["estrela.png","elefante.png","escada.png"],
+			tempo:20
+		},{
+			/*fase 3*/
+			titulo:'I',
+			figuras:["arvore.png","aviao.png","elefante.png","escada.png","estrela.png","igreja.png","ilha.png","olho.png","osso.png","ovo.png","unha.png", "urso.png", "uva.png", "oculos.png"],
+			certas:["ilha.png","igreja.png"],
+			tempo:20
+		},{
+			/*fase 4*/
+			titulo:'O',
+			figuras:["arvore.png","aviao.png","elefante.png","escada.png","estrela.png","igreja.png","ilha.png","olho.png","osso.png","ovo.png","unha.png", "urso.png", "uva.png", "oculos.png"],
+			certas:["olho.png","osso.png", "ovo.png", "oculos.png"],
+			tempo:20
+		},{
+			/*fase 5*/
+			titulo:'U',
+			figuras:["arvore.png","aviao.png","elefante.png","escada.png","estrela.png","igreja.png","ilha.png","olho.png","osso.png","ovo.png","unha.png", "urso.png", "uva.png", "oculos.png"],
+			certas:["uva.png","urso.png", "unha.png"],
+			tempo:10
+		}];
 
-      AppFruit(
-        "od1",
-        "fundo_od1.jpg",
-        itens,
-        30 /* tamanho do rastro*/,
-        [300, 308] /*tamanho das imagens*/,
-        100 /*tamanho fonte texto*/,
-        100 /* frequencia em que aparecem as imagens*/,
-        false /*colocando true as frutas caem de cima pra baixo*/
-      );
-    </script>
-  </body>
-</html>
+		AppFruit(
+			'od1',
+			'fundo_od1.jpg',
+			itens,
+			30, /* tamanho do rastro*/
+			[300,308], /*tamanho das imagens*/
+			100, /*tamanho fonte texto*/
+			100, /* frequencia em que aparecem as imagens*/
+			false/*colocando true as frutas caem de cima pra baixo*/
+			);
+
+		</script>
+	
+	
+</body></html>

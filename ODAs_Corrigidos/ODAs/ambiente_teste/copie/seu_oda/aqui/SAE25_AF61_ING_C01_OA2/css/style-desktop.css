@@ -1,0 +1,326 @@
+@charset "utf-8";
+/* CSS Document  - LAYOUT COMBINAR PALAVRAS PARA DESKTOP */
+
+* {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+html {
+	height: 100%;
+}
+body {
+	background-image:url(../img/tela/fundo.png);
+	background-repeat:repeat;
+   	margin:0;
+	padding:0;
+	height: 100%;
+	overflow-x: hidden;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+}
+
+@font-face{
+    font-family: 'BuzzSaw AOE';
+    src: url('../fonts/BUZZSA__.eot');
+}
+@font-face{
+    font-family: 'BuzzSaw AOE';
+    src: url('../fonts/BUZZSA__.TTF') format('opentype');
+}
+
+ul { list-style-type: none; padding:0; margin:0; }
+
+/* =============  enunciado ============= */
+
+.tuto_content {
+    height: 42px;
+    margin: 4px auto 0;
+    width: 706px;
+}
+
+.tuto_bar {
+    background:#faffda;
+    width: 649px;
+    position:relative;
+	border-radius: 9px;
+	-moz-border-radius: 9px;
+	-webkit-border-radius: 9px;
+	border: 4px solid #4a6a0d;
+	min-height:50px;
+}
+.tuto_bar div.text {
+	margin-right:70px;
+	vertical-align: middle;
+}
+
+.t_text, .t_text1, .t_text2 {
+    color: #242424;
+    font-family: 'Trebuchet MS', Calibri, Arial;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    padding:10px;
+}
+.t_text div, .t_text1 div, .t_text2 div {
+	height: 52px;
+	width: 649px;
+	display:table-cell;
+	text-align:center;
+	vertical-align:middle;
+}
+
+.bt_voice, .bt_voice_press {
+    background: url('../img/tela/bt_voz.png') no-repeat center center !important;
+    cursor: pointer;
+    position:absolute;
+    right:6px;
+    top:10px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6x;
+	-khtml-border-radius: 6px;
+	border-radius: 6px;
+}
+.bt_voice:hover {
+	background:url('../img/tela/bt_voz_over.png') no-repeat center center !important;
+}
+.bt_voice_press{
+	background: url('../img/tela/bt_voz_press.png') no-repeat center center !important;
+}
+
+/* ============= enunciado ============= */
+
+
+
+/* ============= acoes do topo ============= */
+
+/* novo topo */
+.backTopo {
+	padding: 0;
+	margin:0;
+	height:123px;
+	border:1px solid red;
+}
+.topo {
+	width: 760px;
+    height: 70px;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+}
+.topo .logo {
+	text-align:center;
+}
+
+.topo .time_score {
+	font-family: 'Trebuchet MS', Arial, Sans-serif;
+	color: #fff;
+	background:url('../img/bg_ponto_tempo.png') no-repeat top center;
+	width:161px;
+	height:74px;
+	position:relative;
+	left:310px;
+}
+/* pontos */
+.topo .time_score .div_score {
+	font-size: 13pt;
+    text-align: center;
+	position:absolute;
+	top:7px;
+	left:118px;
+}
+/* tempo */
+.topo .time_score .t_time {
+	font-size: 13pt;
+	text-align: center;
+	position:absolute;
+	top:25px;
+	left:35px;
+}
+/* acoes */
+.topo .actions {
+	position: absolute;
+	right: 0;
+	top: 0px;
+}
+.topo .actions ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	position: relative;
+	left:18px;
+}
+.topo .actions ul li {
+	display: inline-block;
+}
+
+.bt_som_on, .bt_som_on_press, .bt_som_off, .bt_som_off_press {
+	background:url('../img/bt_som_on.png') no-repeat top left;
+	width:39px;
+	height:43px;
+	cursor:pointer;
+}
+
+.bt_som_on:hover { background-image:url('../img/bt_som_on.png'); }
+.bt_som_on_press { background-image:url('../img/bt_som_on.png'); }
+.bt_som_off, .bt_som_off_press { background-image:url('../img/bt_som_off.png'); }
+.bt_som_off:hover { background-image:url('../img/bt_som_off.png'); }
+.bt_som_off_press { background-image:url("../img/bt_som_off.png"); }
+
+.bt_music_on, .bt_music_on_press {
+	background:url('../img/bt_music_on.png') no-repeat top left;
+	width:39px;
+	height:43px;
+	cursor:pointer;
+}
+
+.bt_music_on:hover { background-image:url("../img/bt_music_on.png"); }
+.bt_music_on_press { background-image:url("../img/bt_music_on.png"); }
+.bt_music_off, .bt_music_off_press { background-image:url('../img/bt_music_off.png'); width:39px; height:43px; cursor:pointer; }
+.bt_music_off:hover { background-image:url("../img/bt_music_off.png"); }
+.bt_music_off_press { background-image:url("../img/bt_music_off.png"); }
+
+.bt_home, .bt_home_press { background:url('../img/bt_close.png') no-repeat top center; width:39px; height:43px; cursor:pointer; }
+.bt_home:hover { background-image:url('../img/bt_close.png'); }
+.bt_home_press { background-image:url('../img/bt_close.png'); }
+
+
+/* ============= acoes do topo ============= */
+
+
+
+/* ============= introducao ============= */
+
+.introbox-container {
+	position: relative;
+}
+.introbox-container-center {
+	position: relative;
+}
+.introbox-container .btn_intro {
+	position:absolute;
+	left:0;
+}
+.introbox-container .introbox {
+	font-family:'Trebuchet MS', Arial, Sans-serif;
+	font-size:14px;
+	width:429px;
+	z-index:9999;
+	border:2px solid #E88C0C;
+	cursor:pointer;
+	position: relative;
+	left: 65px;
+	background-color:#fff;
+}
+.introbox-container .introbox .btn_close {
+	position: absolute;
+	top: -22px;
+	right: -2px;
+	background: #E88C0C;
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	font-size: 23px;
+}
+.introbox-container .introbox .btn_close a {
+	color:white;
+	line-height: 20px;
+}
+.introbox-container .introbox .content {
+	padding:20px;
+	background:#fff;
+	color:black;
+	padding-bottom: 10px;
+}
+.introbox-container .introbox .content p {
+	padding: 0;
+	margin: 0;
+	display: inline;
+	vertical-align: top;
+	line-height: 21px;
+}
+
+.introbox-message-center{
+	display: table-cell;
+	width: 500px;
+	height:65px;
+	vertical-align: middle; 
+}
+
+.introbox-container .introbox .content a.btn_audio {
+	display: inline-block;
+	vertical-align: bottom;
+	
+}
+.introbox-container .introbox .indicator {
+	position: absolute;
+	top: -42px;
+	left: 2px;
+	width: 20px;
+	height: 100%;
+}
+.introbox-container .introbox .indicator span {
+	position: relative;
+	display: block;
+	top: 45px;
+	left: -15px;
+	width: 20px;
+	height: 20px;
+	border: 2px solid #E88C0C;
+	border-top: 0;
+	border-right: 0;
+	background: white;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+/* ============= introducao ============= */
+
+
+
+/* mensagem que aparece caso usuario esteja deslogado de educacional.com.br */
+.deve-se-logar {
+    font-size:26px;
+    color:#fff;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    margin-top:200px;
+}
+
+/* Padronização 800x600 */
+@media only screen and (min-device-height :590px) and (max-device-height
+	:610px) and (min-device-width :790px) and (max-device-width :810px) and
+	(orientation : landscape) {
+	 body{
+	 	overflow-y:hidden;
+	 	overflow-x:hidden;
+	 }
+		
+	}
+	
+	/* 1280 x 600 */
+@media only screen and (min-device-height :590px) and (max-device-height
+	:610px) and (min-device-width :1270px) and (max-device-width :1290px)
+	and (orientation : landscape) {
+	body{
+	 	overflow-y:hidden;
+	 	overflow-x:hidden;
+	 }
+}
+
+
+/* 1280 x 720 */
+@media only screen and (min-device-height :710px) and (max-device-height
+	:730px) and (min-device-width :1270px) and (max-device-width :1290px) and (orientation : landscape) {
+	body{
+	 	overflow-y:hidden;
+	 	overflow-x:hidden;
+	 }
+}

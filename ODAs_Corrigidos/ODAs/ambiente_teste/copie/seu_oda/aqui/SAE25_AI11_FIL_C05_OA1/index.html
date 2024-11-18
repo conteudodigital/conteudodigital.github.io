@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>SAE25_AI11_FIL_C05_OA1</title>
+    <link
+      href="../../../../../../geral/css/html5reset.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral1024.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral640.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/EF1/disciplinas/filosofia.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../../../../../../geral/js/jquery-1.11.3.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.lib.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.lib.ods.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.geral.init.js"></script>
+    <script src="../../../../../../geral/js/jquery.professor.init.js"></script>
+    <script src="../../../../../../geral/js/memoria_v2.js"></script>
+    <style>
+      #container {
+        padding: 20px; /* Adiciona espaçamento ao redor do container */
+      }
+      .professor {
+        margin: 20px 0; /* Adiciona margem ao botão do professor */
+      }
+    </style>
+  </head>
+
+  <body id="SAE25_AI11_FIL_C05_OA1" class="ef1" lang="pt-BR">
+    <div id="container">
+      <a class="professor" href="#professorod1">Para o professor</a>
+      <div id="professorod1" class="professor">
+        <h2>Encaminhamento metodológico</h2>
+        <p>
+          O conteúdo deste objeto digital serve para aprofundar o que está no
+          livro, proporcionando mais uma maneira de fazer com que as crianças
+          fixem os conceitos de semelhança e diferença. Dialogue com os alunos
+          sobre o que eles perceberam no jogo – o que é identificar dois
+          elementos semelhantes, e o que é identificar dois elementos diferentes
+          – e como se faz para fazer essa identificação.
+        </p>
+      </div>
+      <h2>Semelhanças e diferenças</h2>
+      <canvas id="od2" width="1280" height="720" class="alinhaCentro"></canvas>
+      <p class="textoCredito" style="text-align: center; text-indent: 0">
+        Imagens: AnutaBerg, baibaz, Jess Wealleans, photokup, YuryImaging,
+        Zurijeta / Shutterstock
+      </p>
+    </div>
+    <script>
+      var tempoCartasAbertas = 5000;
+      var linhas = 2;
+      var colunas = 5;
+      var larguraImg = 250;
+      var alturaImg = 250;
+      var escala = 0.9;
+      var espacamento = 5;
+      var margemX = 180;
+      var margemY = 250;
+      var cards = [
+        "resources/image/Ave.png",
+        "resources/image/Avião.png",
+        "resources/image/Bola.png",
+        "resources/image/Planeta.png",
+        "resources/image/Pirulito.png",
+        "resources/image/Placa.png",
+        "resources/image/Boneca.png",
+        "resources/image/Criança.png",
+        "resources/image/Dado.png",
+        "resources/image/Caixa.png",
+      ];
+
+      $(document).ready(function () {
+        gameMemoria2("od2", cards);
+      });
+    </script>
+  </body>
+</html>
