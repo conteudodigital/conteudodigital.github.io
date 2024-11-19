@@ -1,75 +1,122 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
- <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
 
- <title>SAE25_AI11_EDF_C05_OA1</title>
- <!-- codigo antigo <title>EF23_2_EDF_L2_U1_01_OD2</title> -->
+    <title>SAE25_AI11_EDF_C05_OA1</title>
+    <!-- codigo antigo <title>EF23_2_EDF_L2_U1_01_OD2</title> -->
 
- <link href="../../../../../../geral/css/html5reset.css" rel="stylesheet" type="text/css">
- <link href="../../../../../../geral/css/geral.css" rel="stylesheet" type="text/css">
- <link href="../../../../../../geral/css/geral1024.css" rel="stylesheet" type="text/css">
- <link href="../../../../../../geral/css/geral640.css" rel="stylesheet" type="text/css">
- <link href="../../../../../../geral/css/EF1/disciplinas/educacaofisica.css" rel="stylesheet" type="text/css">
- <script src="../../../../../../geral/js/jquery-1.11.3.min.js"></script>
- <script src="../../../../../../geral/js/jquery.lib.min.js"></script>
- <script src="../../../../../../geral/js/jquery.lib.ods.min.js"></script>
- <script src="../../../../../../geral/js/jquery.geral.init.js"></script>
- <script src="../../../../../../geral/js/jquery.professor.init.js"></script>
- <script src="../../../../../../geral/js/jquery.professor.init.js"></script>
- <script src="../../../../../../geral/js/jogoMemoria2018.js"></script>
-</head>
+    <link
+      href="../../../../../../geral/css/html5reset.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral1024.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral640.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/EF1/disciplinas/educacaofisica.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../../../../../../geral/js/jquery-1.11.3.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.lib.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.lib.ods.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.geral.init.js"></script>
+    <script src="../../../../../../geral/js/jquery.professor.init.js"></script>
+    <script src="../../../../../../geral/js/jquery.professor.init.js"></script>
+    <script src="../../../../../../geral/js/jogoMemoria2018.js"></script>
+  </head>
 
-<body id="SAE25_AI11_EDF_C05_OA1" class="od ef1" lang="pt-BR">
+  <body id="SAE25_AI11_EDF_C05_OA1" class="od ef1" lang="pt-BR">
+    <div id="container">
+      <a class="professor" href="#professorOD2">Para o professor</a>
+      <div id="professorOD2" class="professor">
+        <h2>Encaminhamento metodológico</h2>
+        <p>
+          Neste jogo da memória, os alunos poderão associar os nomes das
+          canções, que fazem parte das atividades rítmicas e expressivas, às
+          imagens. Oriente-os a prestar atenção, principalmente, aos nomes das
+          canções e, se necessário, escreva-as na lousa. Determine um tempo para
+          a vivência da atividade e, em outro momento, propicie a vivência das
+          canções que apareceram no jogo.
+        </p>
+        <p>
+          Para ampliar, proponha que os alunos desenhem as vistas de um objeto
+          que você deverá escolher.
+        </p>
+      </div>
 
- <div id="container">
-  <a class="professor" href="#professorOD2">Para o professor</a>
-  <div id="professorOD2" class="professor">
-   <h2>Encaminhamento metodológico</h2>
-   <p>Neste jogo da memória, os alunos poderão associar os nomes das canções, que fazem parte das atividades rítmicas e expressivas, às imagens. Oriente-os a prestar atenção, principalmente, aos nomes das canções e, se necessário, escreva-as na lousa. Determine um tempo para a vivência da atividade e, em outro momento, propicie a vivência das canções que apareceram no jogo.</p>
-   <p>Para ampliar, proponha que os alunos desenhem as vistas de um objeto que você deverá escolher.</p>
-  </div>
+      <h2>RELACIONANDO AS BRINCADEIRAS DE RODA CANTADAS</h2>
+      <p>
+        A partir das imagens, descubra qual é a canção que melhor se encaixa.
+      </p>
+      <canvas id="od1" width="1280" height="720" class="alinhaCentro"></canvas>
+      <p class="textoCredito" style="text-align: center; text-indent: 0">
+        1 StockSmartStart/Shutterstock - 2Ianguste/Shutterstock - 3
+        Hermandesing2015/Shutterstock - 4Sujono sujono/ Shutterstock - 5 Miguel
+        Angel Lopez/Shutterstock - 6 Dualororua/Shutterstock
+      </p>
+      <p></p>
+    </div>
 
-  <h2>Relacionando os jogos rítmicos</h2>
-  <p>A partir das imagens, descubra qual é a canção que melhor se encaixa.</p>
-  <canvas id="od1" width="1280" height="720" class="alinhaCentro"></canvas>
-  <p class="textoCredito" style="text-align:center; text-indent:0;">1 StockSmartStart/Shutterstock - 2Ianguste/Shutterstock - 3 Hermandesing2015/Shutterstock - 4Sujono sujono/ Shutterstock - 5 Miguel Angel Lopez/Shutterstock - 6 Dualororua/Shutterstock</p><p>
-  </p>
- </div>
- 
- <script>
-  /* Memoria 2018 - Jogo fixo em 1280x720 
+    <script>
+      /* Memoria 2018 - Jogo fixo em 1280x720 
   Ajustado para ter fases, tomar cuidado com os títulos e tempos das cartas para adequar ao número de fases */
-  
-  var parametros = [
-   [6000, 4000, 2000], /* tempos das cartas para cada fase, caso tenha fases */
-   2,                  /* linhas */
-   4,                  /* colunas */
-   250,                /* width em px da carta */
-   250,                /* height em px da carta */
-   1.2,                /* escala das cartas */
-   2,                  /* espaçamento entre as cartas */
-   [180],              /* offset x */
-   [200]               /* offset y */
-  ];
 
-  var cartas = [[
-   'resources/image/c5.png',
-   'resources/image/c6.png',
-   'resources/image/c7.png',
-   'resources/image/c8.png',
-   'resources/image/c9.png',
-   'resources/image/c10.png',
-   'resources/image/c11.png',
-   'resources/image/c12.png'
-   ]];
+      var parametros = [
+        [
+          6000, 4000, 2000,
+        ] /* tempos das cartas para cada fase, caso tenha fases */,
+        2 /* linhas */,
+        4 /* colunas */,
+        250 /* width em px da carta */,
+        250 /* height em px da carta */,
+        1.2 /* escala das cartas */,
+        2 /* espaçamento entre as cartas */,
+        [180] /* offset x */,
+        [200] /* offset y */,
+      ];
 
-  var titulosFases = ["", "", "", "", ""];
+      var cartas = [
+        [
+          "resources/image/c5.png",
+          "resources/image/c6.png",
+          "resources/image/c7.png",
+          "resources/image/c8.png",
+          "resources/image/c9.png",
+          "resources/image/c10.png",
+          "resources/image/c11.png",
+          "resources/image/c12.png",
+        ],
+      ];
 
-  AppJogoMemoria('od1', cartas, "fundo_od1.png", "bt_iniciar.png", parametros, titulosFases, null, "ctras.png", "gui_od1.png");
+      var titulosFases = ["", "", "", "", ""];
 
-</script>
-
-</body>
+      AppJogoMemoria(
+        "od1",
+        cartas,
+        "fundo_od1.png",
+        "bt_iniciar.png",
+        parametros,
+        titulosFases,
+        null,
+        "ctras.png",
+        "gui_od1.png"
+      );
+    </script>
+  </body>
 </html>
