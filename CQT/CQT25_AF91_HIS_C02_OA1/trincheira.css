@@ -2,7 +2,6 @@ body {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  overflow: hidden;
   font-family: "Quicksand", sans-serif;
   background-color: #f0e4d7;
   height: 100vh;
@@ -55,8 +54,8 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  width: 8vh; /* Aumenta o tamanho do botão */
-  height: 8vh; /* Aumenta o tamanho do botão */
+  width: 8vw; /* Aumenta o tamanho do botão */
+  height: 8vw; /* Aumenta o tamanho do botão */
   z-index: 100; /* Define um z-index maior para garantir que o botão esteja acima de outros elementos */
   transition: transform 0.3s ease; /* Adiciona transição suave */
 }
@@ -65,8 +64,8 @@ body {
 }
 @media screen and (max-width: 768px) {
   .btn-voltar {
-    width: 17vh; 
-    height: 17vh; /* Aumenta o tamanho do botão */
+    width: 9vw; 
+    height: 9vw; 
   }
 }
 .btn-voltar:hover {
@@ -190,6 +189,11 @@ body {
   display: flex;
   align-items: center; /* Centraliza os itens dentro do modal */
 }
+.modal-text{
+  height: 35vh;
+  overflow-y: auto;
+
+}
 .modal-container {
   width: 100%;
   height: 100%;
@@ -199,22 +203,22 @@ body {
   left: 0;
   top: 0;
   align-items: center;
-  overflow: visible; /* Permite que a imagem da professora se sobressaia */
+  overflow: hidden; /* Permite que a imagem da professora se sobressaia */
 }
 /* Interação do modal da professora explicando */
 .modal {
   background: #f5e1d3;
   border-radius: 10px;
-  display: flex; /* Usar flexbox para centralização */
+  display: flex;
   padding: 20px;
-  max-width: 60%;
-  z-index: 3000; /* Garante que o modal fique acima do overlay */
+  max-width: 80%;
+  z-index: 3000;
   text-align: left;
-  justify-content: center; /* Centralizar horizontalmente */
-  align-items: center; /* Centralizar verticalmente */
+  justify-content: center;
+  align-items: center;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  opacity: 0; /* Opacidade inicial */
-  animation: fadeInRight 0.5s forwards; /* Animação ao aparecer */
+  opacity: 0;
+  animation: fadeInRight 0.5s forwards;
 }
 
 .professor-image {
@@ -450,11 +454,11 @@ body {
 
 .modal-content {
   position: relative;
-  overflow: visible; /* Permite que o conteúdo transborde */
-  width: auto; /* Ajusta a largura para 100% do contêiner do modal */
-  display: flex; /* Usar flexbox para o conteúdo */
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente */
+  width: auto;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .gif-image {
@@ -466,18 +470,14 @@ body {
 }
 
 /* Estilos específicos para mobile */
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .modal {
-    width: 90%; /* Ajuste a largura conforme necessário */
-    max-width: 600px; /* Limite a largura máxima */
-    height: 70%;
+    width: 100%; /* Ajuste a largura conforme necessário */
+    height: 60%;
     margin: auto; /* Centraliza o modal */
-    padding: 15px; /* Ajuste o padding para mobile */
     background-color: #f5e1d3; /* Cor de fundo */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra */
     flex-direction: row; /* Alinha os itens na horizontal */
-    margin-top: 20px; /* Adiciona espaço acima do modal */
-    margin-bottom: 20px; /* Adiciona espaço abaixo do modal */
   }
 
   .caption {
@@ -507,6 +507,7 @@ body {
     padding: 10px; /* Ajuste o padding para mobile */
     text-align: left; /* Alinha o texto à esquerda */
     margin-right: 5px; /* Espaço entre o texto e a imagem */
+   
   }
 
   .textoCaption {

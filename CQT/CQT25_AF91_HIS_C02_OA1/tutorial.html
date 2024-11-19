@@ -1,114 +1,116 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tutorial - A Grande Guerra</title>
-    <!-- Link para o CSS principal -->
-    <link rel="stylesheet" href="tutorial.css" />
-    <!-- Link para o CSS do tutorial -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Fonte Quicksand -->
-  </head>
-  <body>
-    <div class="overlay" id="overlay"></div>
-    <div class="virarTela" id="virarTela">
-      <div class="celular">
-        <img
-          style="width: 120%"
-          src="assets/images/disclaimer.png"
-          alt="Aviso"
-          class="disclaimer"
-        />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutorial - A Grande Guerra</title>
+  <!-- Link para o CSS principal -->
+  <link rel="stylesheet" href="tutorial.css" />
+  <!-- Link para o CSS do tutorial -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet" />
+  <!-- Fonte Quicksand -->
+</head>
+
+<body>
+  <div class="overlay" id="overlay"></div>
+  <div class="virarTela" id="virarTela">
+    <div class="celular">
+      <img style="width: 120%" src="assets/images/disclaimer.png" alt="Aviso" class="disclaimer" />
+    </div>
+  </div>
+  <div class="modal" style="z-index: 0">
+    <div class="modal-content">
+      <div class="left-container">
+        <div class="dialogue" id="dialogue">
+          Hoje vamos explorar um dos aspectos mais emblemáticos da Primeira
+          Guerra Mundial: a Guerra de Trincheiras.
+        </div>
+        <button class="next-button" id="nextButton">
+          CLIQUE para continuar
+        </button>
+      </div>
+      <div class="right-container" style="position: relative">
+        <img src="assets/images/intro1-professora.png" alt="Professora" class="professor-image" />
       </div>
     </div>
-    <div class="modal" style="z-index: 0">
-      <div class="modal-content">
-        <div class="left-container">
-          <div class="dialogue" id="dialogue">
-            Hoje vamos explorar um dos aspectos mais emblemáticos da Primeira
-            Guerra Mundial: a Guerra de Trincheiras.
-          </div>
-          <button class="next-button" id="nextButton">
-            CLIQUE para continuar
-          </button>
-        </div>
-        <div class="right-container" style="position: relative">
-          <img
-            src="assets/images/intro1-professora.png"
-            alt="Professora"
-            class="professor-image"
-          />
-        </div>
-      </div>
-    </div>
+  </div>
 
-    <script>
-      const dialogues = [
-        "Hoje vamos explorar um dos aspectos mais emblemáticos da Primeira Guerra Mundial: a Guerra de Trincheiras. A guerra de trincheiras é uma forma de combate que se destacou durante a Primeira Guerra Mundial, que ocorreu entre 1914 e 1918. ",
-        "Nesse estilo de guerra, soldados se abrigavam em longas linhas de trincheiras, ou seja, valas escavadas no solo que se estendiam por quilômetros. Nesses buracos, os soldados encontravam abrigo contra os disparos de artilharia e as balas inimigas.",
-        "A Guerra de Trincheiras surgiu a partir do impasse militar que se instaurou na Frente Ocidental, especialmente após a Batalha do Marne, em 1914. Com o avanço da tecnologia militar, principalmente no que diz respeito à artilharia, as tropas se viram obrigadas a buscar proteção em posições fixas.",
-        "As trincheiras, com seus sistemas de comunicação e seu apoio logístico, foram a solução encontrada. Para compreender melhor como ocorria esse tipo de combate, interaja com o cenário a seguir!",
-      ];
+  <script>
 
-      let currentDialogue = 0;
+    if (document.documentElement.requestFullscreen) {
+      document.documentElement.requestFullscreen();
+    } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+      document.documentElement.mozRequestFullScreen();
+    } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari e Opera
+      document.documentElement.webkitRequestFullscreen();
+    } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+      document.documentElement.msRequestFullscreen();
+    }
 
-      const dialogueElement = document.getElementById("dialogue");
-      const nextButton = document.getElementById("nextButton");
-      const modalElement = document.querySelector(".modal");
+    const dialogues = [
+      "Hoje vamos explorar um dos aspectos mais emblemáticos da Primeira Guerra Mundial: a Guerra de Trincheiras. A guerra de trincheiras é uma forma de combate que se destacou durante a Primeira Guerra Mundial, que ocorreu entre 1914 e 1918. ",
+      "Nesse estilo de guerra, soldados se abrigavam em longas linhas de trincheiras, ou seja, valas escavadas no solo que se estendiam por quilômetros. Nesses buracos, os soldados encontravam abrigo contra os disparos de artilharia e as balas inimigas.",
+      "A Guerra de Trincheiras surgiu a partir do impasse militar que se instaurou na Frente Ocidental, especialmente após a Batalha do Marne, em 1914. Com o avanço da tecnologia militar, principalmente no que diz respeito à artilharia, as tropas se viram obrigadas a buscar proteção em posições fixas.",
+      "As trincheiras, com seus sistemas de comunicação e seu apoio logístico, foram a solução encontrada. Para compreender melhor como ocorria esse tipo de combate, interaja com o cenário a seguir!",
+    ];
 
-      function updateDialogue() {
-        if (currentDialogue < dialogues.length) {
-          dialogueElement.innerText = dialogues[currentDialogue];
-          // Alterna a imagem da professora
-          const professorImage =
-            currentDialogue % 2 === 0
-              ? "intro1-professora.png"
-              : "intro2-professora.png";
-          document.querySelector(
-            ".professor-image"
-          ).src = `assets/images/${professorImage}`;
-          currentDialogue++;
+    let currentDialogue = 0;
 
-          // Adiciona a animação ao novo diálogo
-          dialogueElement.classList.add("fadeInRight");
-          setTimeout(() => {
-            dialogueElement.classList.remove("fadeInRight"); // Remove a classe após a animação
-          }, 500); // Tempo da animação
-        } else {
-          // Redireciona para a página da trincheira após o último diálogo
-          window.location.href = "trincheira.html"; // Redireciona para a tela da trincheira
-        }
+    const dialogueElement = document.getElementById("dialogue");
+    const nextButton = document.getElementById("nextButton");
+    const modalElement = document.querySelector(".modal");
+
+    function updateDialogue() {
+      if (currentDialogue < dialogues.length) {
+        dialogueElement.innerText = dialogues[currentDialogue];
+        // Alterna a imagem da professora
+        const professorImage =
+          currentDialogue % 2 === 0
+            ? "intro1-professora.png"
+            : "intro2-professora.png";
+        document.querySelector(
+          ".professor-image"
+        ).src = `assets/images/${professorImage}`;
+        currentDialogue++;
+
+        // Adiciona a animação ao novo diálogo
+        dialogueElement.classList.add("fadeInRight");
+        setTimeout(() => {
+          dialogueElement.classList.remove("fadeInRight"); // Remove a classe após a animação
+        }, 500); // Tempo da animação
+      } else {
+        // Redireciona para a página da trincheira após o último diálogo
+        window.location.href = "trincheira.html"; // Redireciona para a tela da trincheira
       }
+    }
 
-      nextButton.addEventListener("click", updateDialogue);
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Enter") {
-          updateDialogue();
-        }
-      });
-
-      // Inicia o diálogo
-      modalElement.classList.add("fadeInRight"); // Adiciona a classe de animação ao carregar
-      updateDialogue();
-
-      // Código JavaScript para gerenciar o overlay e a exibição do aviso
-      const overlay = document.getElementById("overlay");
-      const virarTela = document.getElementById("virarTela");
-
-      function checkOrientation() {
-        if (window.innerWidth < window.innerHeight) {
-          virarTela.style.display = "flex"; // Exibe o aviso
-        } else {
-          virarTela.style.display = "none"; // Esconde o aviso
-        }
+    nextButton.addEventListener("click", updateDialogue);
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        updateDialogue();
       }
+    });
 
-      window.addEventListener("resize", checkOrientation);
-      checkOrientation(); // Verifica a orientação ao carregar a página
-    </script>
-  </body>
+    // Inicia o diálogo
+    modalElement.classList.add("fadeInRight"); // Adiciona a classe de animação ao carregar
+    updateDialogue();
+
+    // Código JavaScript para gerenciar o overlay e a exibição do aviso
+    const overlay = document.getElementById("overlay");
+    const virarTela = document.getElementById("virarTela");
+
+    function checkOrientation() {
+      if (window.innerWidth < window.innerHeight) {
+        virarTela.style.display = "flex"; // Exibe o aviso
+      } else {
+        virarTela.style.display = "none"; // Esconde o aviso
+      }
+    }
+
+    window.addEventListener("resize", checkOrientation);
+    checkOrientation(); // Verifica a orientação ao carregar a página
+  </script>
+</body>
+
 </html>
