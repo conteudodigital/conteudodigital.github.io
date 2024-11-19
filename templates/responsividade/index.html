@@ -5,15 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/checkDevice.js"></script>
+    <script src="js/Device.min.js"></script>
 
 
     <title>Página Básica</title>
 </head>
 
 <body>
-    <label id="orientation" style="position: fixed;top:10px;left: 10px;"></label>
-    <label id="pixelRatio" style="position: fixed;top:30px;left: 10px;"></label>
+    <label id="tipoDevice" style="position: fixed;top:10px;left: 10px;"></label>
+    <label id="orientation" style="position: fixed;top:40px;left: 10px;"></label>
+    <label id="pixelRatio" style="position: fixed;top:80px;left: 10px;"></label>
     <div class="flex-container">
 
         <div class="container">
@@ -22,8 +23,14 @@
     </div>
 
     <script>
-
+        document.addEventListener('DOMContentLoaded', function () {
+            ChecaDevice();
+        })
         window.addEventListener('resize', function () {
+            ChecaDevice();
+        });
+
+        function ChecaDevice() {
             if (Device.isMobile) {
                 console.log("isMobile");
             }
@@ -33,9 +40,10 @@
             if (Device.isDesktop) {
                 console.log("isDesktop");
             }
-            document.getElementById("pixelRatio").innerText = "Pixel Ratio: " + Device.pixelRatio;
-            document.getElementById("orientation").innerText = "Orientation: " + Device.orientation.type;
-        });
+            document.getElementById("tipoDevice").innerText = "Navegador: " + Device.browser.name;
+            document.getElementById("pixelRatio").innerText = "Densidade de pixels: " + Device.pixelRatio;
+            document.getElementById("orientation").innerText = "Orientação: " + Device.orientation.type;
+        }
     </script>
 </body>
 
