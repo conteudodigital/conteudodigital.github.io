@@ -84,7 +84,7 @@
   <!-- aaaaaa -->
   <div class="modal-container" style="overflow: hidden">
     <div class="modal" id="retaguardaModal" style="display: none">
-      <div class="modal-content">
+      <div class="modal-content" onclick="advanceText()">
         <div class="left-container">
           <div class="modal-title">
             <h2>Retaguarda</h2>
@@ -119,7 +119,7 @@
       </div>
     </div>
     <div class="modal" id="segundaTrincheiraModal" style="display: none">
-      <div class="modal-content">
+      <div class="modal-content" onclick="advanceText()">
         <div class="left-container">
           <div class="modal-title">
             <h2>Segunda Trincheira</h2>
@@ -155,7 +155,7 @@
       </div>
     </div>
     <div class="modal" id="tunelModal" style="display: none">
-      <div class="modal-content">
+      <div class="modal-content" onclick="advanceText()">
         <div class="left-container">
           <div class="modal-title">
             <h2>Túneis de Comunicação</h2>
@@ -186,7 +186,7 @@
       </div>
     </div>
     <div class="modal" id="primeiraTrincheiraModal" style="display: none">
-      <div class="modal-content">
+      <div class="modal-content" onclick="advanceText()">
         <div class="left-container">
           <div class="modal-title">
             <h2>Primeira Trincheira</h2>
@@ -217,7 +217,7 @@
       </div>
     </div>
     <div class="modal" id="zonaMinadaModal" style="display: none">
-      <div class="modal-content">
+      <div class="modal-content" onclick="advanceText()">
         <div class="left-container">
           <div class="modal-title">
             <h2>Zona Minada</h2>
@@ -272,7 +272,7 @@
     const btnVoltar = document.querySelector(".btn-voltar");
 
     btnVoltar.addEventListener("click", () => {
-      window.location.href = "tutorial.html"; // Volta para o tutorial
+      window.location.href = "index.html"; // Volta para o tutorial
     });
 
     let animationExecuted = {};
@@ -393,7 +393,7 @@
       };
 
       // Adiciona evento de clique no botão
-      nextButton.onclick = advanceText;
+
 
       // Adiciona evento de teclado para avançar o texto com a tecla "Enter"
       const handleKeyDown = (event) => {
