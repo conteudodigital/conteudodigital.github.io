@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/checkDevice.js"></script>
+
+
+    <title>Página Básica</title>
+</head>
+
+<body>
+    <label id="orientation" style="position: fixed;top:10px;left: 10px;"></label>
+    <label id="pixelRatio" style="position: fixed;top:30px;left: 10px;"></label>
+    <div class="flex-container">
+
+        <div class="container">
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (Device.isMobile) {
+                console.log("isMobile");
+            }
+            if (Device.isTablet) {
+                console.log("isTablet");
+            }
+            if (Device.isDesktop) {
+                console.log("isDesktop");
+            }
+            document.getElementById("pixelRatio").innerText = "Pixel Ratio: " + Device.pixelRatio;
+            document.getElementById("orientation").innerText = "Orientation: " + Device.orientation.type;
+        });
+    </script>
+</body>
+
+</html>
