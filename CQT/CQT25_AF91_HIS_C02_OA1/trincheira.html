@@ -84,7 +84,7 @@
   <!-- aaaaaa -->
   <div class="modal-container" style="overflow: hidden">
     <div class="modal" id="retaguardaModal" style="display: none">
-      <div class="modal-content" onclick="advanceText()">
+      <div class="modal-content">
         <div class="left-container">
           <div class="modal-title">
             <h2>Retaguarda</h2>
@@ -119,7 +119,7 @@
       </div>
     </div>
     <div class="modal" id="segundaTrincheiraModal" style="display: none">
-      <div class="modal-content" onclick="advanceText()">
+      <div class="modal-content">
         <div class="left-container">
           <div class="modal-title">
             <h2>Segunda Trincheira</h2>
@@ -155,7 +155,7 @@
       </div>
     </div>
     <div class="modal" id="tunelModal" style="display: none">
-      <div class="modal-content" onclick="advanceText()">
+      <div class="modal-content">
         <div class="left-container">
           <div class="modal-title">
             <h2>Túneis de Comunicação</h2>
@@ -186,7 +186,7 @@
       </div>
     </div>
     <div class="modal" id="primeiraTrincheiraModal" style="display: none">
-      <div class="modal-content" onclick="advanceText()">
+      <div class="modal-content">
         <div class="left-container">
           <div class="modal-title">
             <h2>Primeira Trincheira</h2>
@@ -217,7 +217,7 @@
       </div>
     </div>
     <div class="modal" id="zonaMinadaModal" style="display: none">
-      <div class="modal-content" onclick="advanceText()">
+      <div class="modal-content">
         <div class="left-container">
           <div class="modal-title">
             <h2>Zona Minada</h2>
@@ -365,6 +365,11 @@
       btnConhecer.disabled = true; // Desabilita o botão "Conhecer" ao abrir um modal
       btnVoltar.disabled = true; // Desabilita o botão "Voltar" ao abrir um modal
       bts.forEach((btn) => (btn.disabled = true)); // Desabilita todos os botões de interação ao abrir um modal
+
+
+      modalToOpen.onclick = () => {
+        advanceText();
+      }
 
       // Mostra o primeiro texto ao abrir o modal
       const text1 = modalToOpen.querySelector(`p[id$="Text1"]`);
