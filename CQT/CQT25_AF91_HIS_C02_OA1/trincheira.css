@@ -62,12 +62,21 @@ body {
 .btn-voltar img{
   width: 100%;
 }
-@media screen and (max-width: 768px) {
+
+@media (max-width: 768px) {
   .btn-voltar {
     width: 9vw; 
     height: 9vw; 
   }
 }
+@media (min-width: 1025px) {
+  .btn-voltar {
+    width: 4vw; 
+    height: 4vw; 
+  }
+}
+
+
 .btn-voltar:hover {
   transform: scale(1.2); /* Aumenta o botão de voltar ao passar o mouse */
 }
@@ -185,14 +194,32 @@ body {
 .fadeIn {
   animation: fadeIn 0.5s forwards;
 }
-.modal-button{
-  display: flex;
-  align-items: center; /* Centraliza os itens dentro do modal */
-}
-.modal-text{
-  height: 35vh;
-  overflow-y: auto;
 
+
+
+/* Interação do modal da professora explicando */
+.modal {
+  background: #f5e1d3;
+  border-radius: 10px;
+  display: flex;
+  padding: 20px;
+  width: 60%;
+  height: 35%;
+  z-index: 3000;
+  text-align: left;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  animation: fadeInRight 0.5s forwards;
+}
+.modal-content {
+  position: relative;
+  width: auto;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .modal-container {
   width: 100%;
@@ -205,21 +232,32 @@ body {
   align-items: center;
   overflow: hidden; /* Permite que a imagem da professora se sobressaia */
 }
-/* Interação do modal da professora explicando */
-.modal {
-  background: #f5e1d3;
-  border-radius: 10px;
+.modal-button{
   display: flex;
-  padding: 20px;
-  max-width: 80%;
-  z-index: 3000;
-  text-align: left;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  animation: fadeInRight 0.5s forwards;
+  align-items: center; /* Centraliza os itens dentro do modal */
 }
+.modal-text{
+  height: 25vh;
+  overflow-y: auto;
+
+}
+@media (max-width: 1000px) {
+  .modal {
+    width: 90%; /* Ajuste a largura conforme necessário */
+    height: 60%;
+    margin: auto; /* Centraliza o modal */
+    background-color: #f5e1d3; /* Cor de fundo */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra */
+    flex-direction: row; /* Alinha os itens na horizontal */
+  }
+  .modal-text{
+    height: 35vh;
+    overflow-y: auto;
+  
+  }
+}
+  
+
 
 .professor-image {
   width: 10vw; /* Ajuste conforme necessário */
@@ -230,7 +268,17 @@ body {
   top: 1%; /* Ajuste este valor para mover a imagem para cima */
   display: block;
 }
-
+@media (max-width: 1000px) {
+  .professor-image {
+    width: 36vh; /* Ajuste o tamanho da imagem da professora */
+    display: flex; /* Adicionado para garantir que a imagem seja tratada como um flex item */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    margin-right: 2%; /* Espaço entre a imagem e o texto */
+    position: relative; /* Sobrescreve a posição absoluta da classe externa */
+    transform: none; /* Sobrescreve a transformação da classe externa */
+  }
+}
 .left-container {
   padding-right: 2%;
   display: flex;
@@ -262,7 +310,15 @@ body {
   background: none; /* Remove o fundo branco */
   box-shadow: none; /* Remove a sombra */
 }
-
+@media (max-width: 1000px) {
+  .dialogue {
+    font-size: 16px; /* Ajuste o tamanho da fonte para mobile */
+    padding: 10px; /* Ajuste o padding para mobile */
+    text-align: left; /* Alinha o texto à esquerda */
+    margin-right: 5px; /* Espaço entre o texto e a imagem */
+   
+  }
+}
 .next-button {
   color: var(--Complementares-Ensino-fundamental-1, #de293d); /* Cor vermelha */
   font-family: "Quicksand", sans-serif; /* Fonte Quicksand */
@@ -386,13 +442,18 @@ body {
   cursor: pointer;
   top:10px;
   right: 10px;
-  height: 8vh;
+  height: 8vw;
   z-index: 1001; /* Define um z-index maior para garantir que o botão esteja acima de outros elementos */
   transition: transform 0.3s ease; /* Adiciona transição suave */
 }
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .btn-conhecer {
-    height: 12vh;
+    height: 10vw;
+  }
+}
+@media (min-width: 1025px) {
+  .btn-conhecer {
+    height: 4vw;
   }
 }
 .btn-conhecer img {
@@ -451,15 +512,12 @@ body {
   max-width: none; /* Remove o limite de largura máxima */
   max-height: none; /* Remove o limite de altura máxima */
 }
-
-.modal-content {
-  position: relative;
-  width: auto;
-  height: 90%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.conhecerConteudo{
+  position: relative; 
+  width: 70%;
+  height: 100%;
 }
+
 
 .gif-image {
   width: 100%; /* Ajusta a largura para 100% do contêiner do modal */
@@ -471,15 +529,6 @@ body {
 
 /* Estilos específicos para mobile */
 @media (max-width: 1000px) {
-  .modal {
-    width: 100%; /* Ajuste a largura conforme necessário */
-    height: 60%;
-    margin: auto; /* Centraliza o modal */
-    background-color: #f5e1d3; /* Cor de fundo */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra */
-    flex-direction: row; /* Alinha os itens na horizontal */
-  }
-
   .caption {
     position: fixed;
     margin-top: 10px;
@@ -491,25 +540,6 @@ body {
     transform: initial;
     padding: 0;
   }
-
-  .professor-image {
-    width: 36vh; /* Ajuste o tamanho da imagem da professora */
-    display: flex; /* Adicionado para garantir que a imagem seja tratada como um flex item */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    margin-right: 2%; /* Espaço entre a imagem e o texto */
-    position: relative; /* Sobrescreve a posição absoluta da classe externa */
-    transform: none; /* Sobrescreve a transformação da classe externa */
-  }
-
-  .dialogue {
-    font-size: 16px; /* Ajuste o tamanho da fonte para mobile */
-    padding: 10px; /* Ajuste o padding para mobile */
-    text-align: left; /* Alinha o texto à esquerda */
-    margin-right: 5px; /* Espaço entre o texto e a imagem */
-   
-  }
-
   .textoCaption {
     display: block;
     width: 110px;
