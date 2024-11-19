@@ -189,6 +189,11 @@ body {
   display: flex;
   align-items: center; /* Centraliza os itens dentro do modal */
 }
+.modal-text{
+  height: 35vh;
+  overflow-y: auto;
+
+}
 .modal-container {
   width: 100%;
   height: 100%;
@@ -465,18 +470,14 @@ body {
 }
 
 /* Estilos específicos para mobile */
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .modal {
-    width: 90%; /* Ajuste a largura conforme necessário */
-    max-width: 600px; /* Limite a largura máxima */
-    height: 70%;
+    width: 100%; /* Ajuste a largura conforme necessário */
+    height: 60%;
     margin: auto; /* Centraliza o modal */
-    padding: 15px; /* Ajuste o padding para mobile */
     background-color: #f5e1d3; /* Cor de fundo */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra */
     flex-direction: row; /* Alinha os itens na horizontal */
-    margin-top: 20px; /* Adiciona espaço acima do modal */
-    margin-bottom: 20px; /* Adiciona espaço abaixo do modal */
   }
 
   .caption {
@@ -506,6 +507,7 @@ body {
     padding: 10px; /* Ajuste o padding para mobile */
     text-align: left; /* Alinha o texto à esquerda */
     margin-right: 5px; /* Espaço entre o texto e a imagem */
+   
   }
 
   .textoCaption {
