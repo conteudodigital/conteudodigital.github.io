@@ -400,12 +400,12 @@ body {
   z-index: 1001; /* Define um z-index maior para garantir que o botão esteja acima de outros elementos */
   transition: transform 0.3s ease; /* Adiciona transição suave */
 }
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .btn-conhecer {
     height: 10vw;
   }
 }
-@media screen and (min-width: 1025px) {
+@media (min-width: 1025px) {
   .btn-conhecer {
     height: 4vw;
   }
@@ -465,6 +465,11 @@ body {
   height: 100%; /* Aumenta a altura do modal para 90% da tela */
   max-width: none; /* Remove o limite de largura máxima */
   max-height: none; /* Remove o limite de altura máxima */
+}
+.conhecerConteudo{
+  position: relative; 
+  width: 70%;
+  height: 100%;
 }
 
 .modal-content {

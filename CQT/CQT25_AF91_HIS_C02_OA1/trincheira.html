@@ -250,9 +250,11 @@
       </div>
     </div>
     <div id="conhecerModal" style="display: none">
-      <div>
+      <div style="display: flex;
+      align-content: center;
+      justify-content: center;">
         <!-- a div deve ser relative pra que seus filhos que estejam position absolute pege a porcentagem do pai-->
-        <div style="position: relative; width: 100%;">
+        <div class="conhecerConteudo">
           <span class="close" id="closeConhecerModal" onclick="fechaModal()">&times;</span>
           <img src="assets/images/grafico_astropas.gif" id="gifConhecer1" alt="Conhecer" class="gif-image"
             onclick="pulaConhecer()" />
