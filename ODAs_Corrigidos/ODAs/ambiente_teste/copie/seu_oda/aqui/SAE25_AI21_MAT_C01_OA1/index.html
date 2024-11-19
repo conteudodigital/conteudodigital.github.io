@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>SAE25_AI21_MAT_C01_OA1</title>
+    <link
+      href="../../../../../../geral/css/html5reset.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral1024.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral640.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/EF1/disciplinas/matematica.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../../../../../../geral/js/jquery-1.11.3.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.lib.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.lib.ods.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.geral.init.js"></script>
+    <script src="../../../../../../geral/js/jquery.professor.init.js"></script>
+    <script src="../../../../../../geral/js/jogoQuizBaloesBolhas.js"></script>
+  </head>
+  <body id="SAE25_AI21_MAT_C01_OA1" class="od ef1" lang="pt-BR">
+    <a class="rank">Avalie este OD</a>
+    <div class="rank">
+      <h2>Quantas estrelas você daria para esse OD?</h2>
+      <div class="rankEstrela">
+        <button id="botao5" value="" onclick="estrela(this)"></button>
+        <button id="botao4" value="" onclick="estrela(this)"></button>
+        <button id="botao3" value="" onclick="estrela(this)"></button>
+        <button id="botao2" value="" onclick="estrela(this)"></button>
+        <button id="botao1" value="" onclick="estrela(this)"></button>
+      </div>
+    </div>
+    <div class="rank" id="comentario" hidden="">
+      <h2>O que poderíamos fazer para ganhar mais uma estrela?</h2>
+      <textarea
+        class="commentInput"
+        id="areaTexto"
+        type="text"
+        name="comment"
+        rows="3"
+      ></textarea>
+      <button class="enviar" onclick="setCommentrank(this)">ENVIAR</button>
+    </div>
+    <a class="professor" href="#professorod1">Para o professor</a>
+    <div id="professorod1" class="professor">
+      <h2>Encaminhamento metodológico</h2>
+      <p>
+        A Realidade aumentada desta página tem o objetivo de auxiliar os alunos
+        a entenderem como se escrevem os números por extenso.
+      </p>
+    </div>
+    <h2>ESCRITA DOS NÚMEROS</h2>
+    <div id="container">
+      <p>
+        ESTOURE A BOLHA QUE APRESENTA A FORMA NUMÉRICA DOS SEGUINTES NÚMEROS:
+      </p>
+      <canvas class="alinhaCentro" id="od1" width="1280" height="780"></canvas>
+      <script>
+        var baloes = [
+          { img: "bolha.png", largura: 316, altura: 316, posTexto: 0 },
+        ];
+
+        var itens = [
+          {
+            palavra: "OITO",
+            opcoesErradas: ["8.png", "14.png", "18.png", "80.png", "19.png"],
+            opcoesCorretas: ["8.png"],
+            alturaImg: 316,
+            larguraImg: 316,
+          },
+          {
+            palavra: "QUATORZE",
+            opcoesErradas: ["14.png", "18.png", "24.png", "29.png", "19.png"],
+            opcoesCorretas: ["14.png"],
+            alturaImg: 316,
+            larguraImg: 316,
+          },
+          {
+            palavra: "DEZOITO",
+            opcoesErradas: ["8.png", "18.png", "80.png", "24.png", "19.png"],
+            opcoesCorretas: ["18.png"],
+            alturaImg: 316,
+            larguraImg: 316,
+          },
+          {
+            palavra: "VINTE E SEIS",
+            opcoesErradas: ["26.png", "18.png", "80.png", "29.png", "19.png"],
+            opcoesCorretas: ["26.png"],
+            alturaImg: 316,
+            larguraImg: 316,
+          },
+          {
+            palavra: "OITENTA",
+            opcoesErradas: ["80.png", "8.png", "18.png", "24.png", "19.png"],
+            opcoesCorretas: ["80.png"],
+            alturaImg: 316,
+            larguraImg: 316,
+          },
+          {
+            palavra: "SETENTA E SETE",
+            opcoesErradas: ["77.png", "18.png", "80.png", "24.png", "19.png"],
+            opcoesCorretas: ["77.png"],
+            alturaImg: 316,
+            larguraImg: 316,
+          },
+          {
+            palavra: "QUARENTA E DOIS",
+            opcoesErradas: ["42.png", "18.png", "80.png", "24.png", "19.png"],
+            opcoesCorretas: ["42.png"],
+            alturaImg: 316,
+            larguraImg: 316,
+          },
+          {
+            palavra: "NOVENTA",
+            opcoesErradas: ["90.png", "18.png", "80.png", "24.png", "19.png"],
+            opcoesCorretas: ["90.png"],
+            alturaImg: 316,
+            larguraImg: 316,
+          },
+          {
+            palavra: "DOZE",
+            opcoesErradas: ["12.png", "18.png", "80.png", "24.png", "19.png"],
+            opcoesCorretas: ["12.png"],
+            alturaImg: 316,
+            larguraImg: 316,
+          },
+          {
+            palavra: "CINQUENTA E DOIS",
+            opcoesErradas: ["52.png", "18.png", "80.png", "24.png", "19.png"],
+            opcoesCorretas: ["52.png"],
+            alturaImg: 316,
+            larguraImg: 316,
+          },
+          {
+            palavra: "TRINTA E QUATRO",
+            opcoesErradas: ["34.png", "18.png", "80.png", "24.png", "19.png"],
+            opcoesCorretas: ["34.png"],
+            alturaImg: 316,
+            larguraImg: 316,
+          },
+          {
+            palavra: "SESSENTA",
+            opcoesErradas: ["60.png", "18.png", "80.png", "24.png", "19.png"],
+            opcoesCorretas: ["60.png"],
+            alturaImg: 316,
+            larguraImg: 316,
+          },
+        ];
+
+        App("od1", 100, 5, 10000, 30000, baloes, itens, true, 70, true);
+        /*App(idCanvas, tamanhoPergunta, errosPermitidos, veloBolha, tempoPergunta, _bolhas, _itens, animaBolhasFundo, frequencia)*/
+      </script>
+    </div>
+  </body>
+</html>

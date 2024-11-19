@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Gerador de QRCODES por lista</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+</head>
+<style>
+  @import url('https://fonts.cdnfonts.com/css/jakob');
+
+  #qrcode {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+
+
+  * {
+    font-family: 'Jakob', sans-serif;
+    font-size: 22px;
+  }
+
+  body {
+    font-family: 'Jakob', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(226 232 240);
+  }
+
+  .cont {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .left {
+    margin-right: 20px;
+  }
+
+  .right {
+    width: 70%;
+    overflow-y: auto;
+  }
+
+  #pagesContainer {
+    display: grid;
+    /*grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));*/
+    grid-gap: 10px;
+    overflow-x: hidden;
+
+  }
+
+  textarea {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 20px;
+    margin-top: 10px;
+    width: 100%;
+    text-align: left;
+  }
+
+  input[type="number"] {
+    padding: 10px;
+    font-size: 25px;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 10px;
+    width: 35%;
+  }
+
+  .controls {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 20px;
+    left: 20px;
+    width: 28%;
+    background-color: #001236;
+    top: 0;
+    left: 0;
+    height: 100%;
+    margin-right: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #8d2be2;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 22px;
+
+  }
+
+  .roundbutton {
+    background-color: #fe8d03;
+    border: none;
+    color: white;
+    line-height: 12px;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    font-size: 16px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  .button {
+    background-color: #fe8d03;
+    border: none;
+    color: white;
+    padding: 20px;
+    line-height: 12px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    width: 50px;
+    height: 50px;
+    border-radius: 20px;
+  }
+
+  .caixaInfo {
+    background-color: #ffcc00;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  .quebraLinha {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .caixaDanger {
+    background-color: #ff0000;
+    color: white;
+  }
+
+  .popModal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%;
+    height: 30%;
+    border-radius: 20px;
+    filter: drop-shadow(0 0 0.75rem rgb(121, 41, 5));
+    background-color: #ffcc00;
+    padding: 20px;
+  }
+
+  .popContent {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+  }
+
+  .btModo {
+    width: 120px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #ffea00;
+    border-radius: 10px;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .color-palette {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .color-box {
+    width: 50px;
+    height: 50px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .pageText {
+    pointer-events: none;
+  }
+
+  .checkmark {
+    position: absolute;
+    display: inline-block;
+
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    -ms-transform: rotate(45deg);
+    /* IE 9 */
+    -webkit-transform: rotate(45deg);
+    /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+  }
+
+  .checkmark_stem {
+    position: absolute;
+    width: 6px;
+    height: 18px;
+    background-color: #ffffff;
+    left: 11px;
+    top: 0px;
+  }
+
+  .checkmark_kick {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: #ffffff;
+    left: 5px;
+    top: 12px;
+  }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #de8d00;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked+.slider {
+    background-color: #2196F3;
+  }
+
+  input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+
+  input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  .nome {
+    font-size: 15px;
+  }
+</style>
+
+<body>
+  <div class="cont">
+    <div class="controls">
+      <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
+        <img src="marca_site.png" style="width: 20%; margin-top: 20px;" alt="Marca do Site">
+      </div>
+      <div class="caixaInfo" style="display: flex; flex-wrap: wrap; flex-direction: column;">
+        <div>
+          <label for="number-input">Largura da Borda:</label>
+          <input type="number" placeholder="21" id="resBorda" min="128" value='21' />
+        </div>
+        <div>
+          <label for="number-input">Largura QRCODE:</label>
+          <input type="number" placeholder="173" id="resQRcode" min="128" value='173' />
+        </div>
+      </div>
+      <div class="caixaInfo">
+        <label class="nome">Links:</label>
+        <div style="display: flex; width: 100%; justify-content: space-evenly; align-items: center;margin-top: 10px;">
+          <textarea id="linksArea" rows="10" cols="50">https://apis.sae.digital/redirect/r/EXT212MATA07I1</textarea>
+        </div>
+
+        <button onclick="generateQRCode()" class="btn">Gerar QRCodes</button>
+      </div>
+      <div class="caixaInfo">
+        <button onclick="generateQRCode()" class="btn downAll hidden">Exportar ZIP</button>
+      </div>
+
+    </div>
+    <div class="left">
+
+    </div>
+    <div class="right" id="qrcode">
+      <!-- As divs representando as páginas serão adicionadas aqui -->
+    </div>
+  </div>
+  <div class="popModal hidden">
+    <div class="popContent">
+      <label for="base-color">Selecione a cor: </label>
+      <input type="color" value="#0091fe" id="base-color" onchange="mudaCor(this)" />
+      <button id="closeBtn" class="button" style="width: 100%;" onclick="fechaModal()">fechar</button>
+    </div>
+  </div>
+
+
+
+
+  <script>
+    const resQRcode = document.getElementById('resQRcode');
+    const resBorda = document.getElementById('resBorda');
+    var docQr=document.getElementById('qrcode');
+    var downloadAllButton = document.querySelector(".downAll");
+    var names = [];
+
+
+    function generateQRCode() {
+      downloadAllButton.classList.add("hidden");
+
+      docQr.innerHTML = "";
+      names = [];
+
+      var links = document.getElementById('linksArea').value.trim().split('\n');
+      var zip = new JSZip();
+
+      links.forEach(function (link, index) {
+        var div = document.createElement('div');
+        div.style.margin = '10px';
+        div.classList.add("qrcodegerado")
+        document.getElementById('qrcode').appendChild(div);
+        var lastString = link.split('/').pop();
+        names.push(lastString);
+        console.log("Last string of the link: " + lastString);
+
+        new QRCode(div, {
+          text: link,
+          width: resQRcode.value,
+          height: resQRcode.value
+        });
+        console.log("qrcode gerado");
+      });
+      setTimeout(() => {
+        
+        var imgs = document.querySelectorAll("canvas");
+        let index = 0;
+        docQr.innerHTML = "";
+        imgs.forEach(element => {
+          var canvas = document.createElement('canvas');
+          canvas.width = element.width + resBorda.value * 2; 
+          canvas.height = element.height + resBorda.value * 2; 
+          var context = canvas.getContext('2d');
+          context.fillStyle = "#FFFFFF";
+          context.fillRect(0, 0, canvas.width, canvas.height);
+          context.drawImage(element, resBorda.value, resBorda.value); 
+          
+          docQr.appendChild(canvas);
+
+
+          var imgData = canvas.toDataURL("image/png");
+          var base64Data = imgData.replace(/^data:image\/png;base64,/, "");
+
+
+          zip.file(names[index] + ".png", base64Data, { base64: true });
+          index++;
+        });
+
+
+        downloadAllButton.classList.remove("hidden");
+        anime({
+          targets: downloadAllButton,
+          scale: [1.25, 1]
+        });
+        downloadAllButton.onclick = function () {
+          zip.generateAsync({ type: "blob" }).then(function (content) {
+            saveAs(content, "qrcodes.zip");
+          });
+        };
+      }, 3000)
+
+    }
+  </script>
+</body>
+
+</html>

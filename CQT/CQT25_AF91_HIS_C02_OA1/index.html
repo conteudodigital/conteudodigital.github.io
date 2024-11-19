@@ -66,7 +66,6 @@
     );
 
     function iniciaJogo() {
-
       if (document.documentElement.requestFullscreen) {
         document.documentElement.requestFullscreen();
       } else if (document.documentElement.mozRequestFullScreen) { // Firefox
@@ -76,7 +75,6 @@
       } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
         document.documentElement.msRequestFullscreen();
       }
-      window.location.href = "tutorial.html"; // Redirect to tutorial.html
     }
 
     botaoVoltar.addEventListener("click", () => {

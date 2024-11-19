@@ -55,8 +55,8 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  width: 5vw; /* Aumenta o tamanho do botão */
-  height: 5vw; /* Aumenta o tamanho do botão */
+  width: 8vh; /* Aumenta o tamanho do botão */
+  height: 8vh; /* Aumenta o tamanho do botão */
   z-index: 100; /* Define um z-index maior para garantir que o botão esteja acima de outros elementos */
   transition: transform 0.3s ease; /* Adiciona transição suave */
 }
@@ -65,8 +65,8 @@ body {
 }
 @media screen and (max-width: 768px) {
   .btn-voltar {
-    width: 9vw; 
-    height: 9vw; /* Aumenta o tamanho do botão */
+    width: 17vh; 
+    height: 17vh; /* Aumenta o tamanho do botão */
   }
 }
 .btn-voltar:hover {
@@ -382,14 +382,13 @@ body {
   cursor: pointer;
   top:10px;
   right: 10px;
-  height: 8vw;
+  height: 8vh;
   z-index: 1001; /* Define um z-index maior para garantir que o botão esteja acima de outros elementos */
   transition: transform 0.3s ease; /* Adiciona transição suave */
 }
 @media screen and (max-width: 768px) {
   .btn-conhecer {
-    width: 9vw; 
-    height: 9vw; /* Aumenta o tamanho do botão */
+    height: 12vh;
   }
 }
 .btn-conhecer img {

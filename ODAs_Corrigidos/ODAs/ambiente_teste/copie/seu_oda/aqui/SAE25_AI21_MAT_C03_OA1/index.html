@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>SAE25_AI21_MAT_C03_OA1</title>
+    <link
+      href="../../../../../../geral/css/html5reset.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral1024.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/geral640.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../../../geral/css/EF1/disciplinas/matematica.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../../../../../../geral/js/jquery-1.11.3.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.lib.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.lib.ods.min.js"></script>
+    <script src="../../../../../../geral/js/jquery.geral.init.js"></script>
+    <script src="../../../../../../geral/js/jquery.professor.init.js"></script>
+
+    <script type="text/javascript">
+      var canvas;
+      var stage;
+      var content;
+      var contenttext;
+      var contentgui;
+      var clicavel = true;
+      var fundos = [];
+      var count = 0;
+      var sons = [
+        "tecla.mp3",
+        "tambor.mp3",
+        "erro.mp3",
+        "PARABENS.mp3",
+        "tentenovamente.mp3",
+        "inter.mp3",
+        "urna.mp3",
+      ];
+      var caminho = "resources/image/";
+      var ingredientes = [];
+      var subcount = 0;
+      var painel;
+      var votopartido = false;
+      var votobranco = false;
+      var voto = "";
+      var i_erros = 0;
+      var i_acertos = 0;
+      var perguntas = [34, 45, 69, 63, 85, 79, 46, 18, 29, 42, 53, 37, 95];
+
+      var imagemBts = [
+        90, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50, 60, 70, 80,
+      ];
+      var compTexto = "";
+      var soma = 0;
+
+      function init1() {
+        var index;
+        for (index in sons) {
+          var t = sons[index];
+          sons[index] = new Audio(caminho + t);
+        }
+
+        canvas = document.getElementById("od1");
+        stage = new createjs.Stage(canvas);
+        stage.enableMouseOver(10);
+        createjs.Touch.enable(stage);
+        contenttext = new createjs.Container();
+        content = new createjs.Container();
+        contentgui = new createjs.Container();
+
+        var fundo = new createjs.Bitmap(caminho + "fundo.jpg");
+        fundo.image.onload = function () {};
+        stage.addChild(fundo);
+
+        stage.addChild(content);
+        stage.addChild(contenttext);
+        stage.addChild(contentgui);
+
+        configuraIngredientes();
+
+        var btinicio = new createjs.Bitmap(caminho + "btiniciar.png");
+        btinicio.image.onload = function () {};
+        content.addChild(btinicio);
+        btinicio.on("mousedown", function (evt) {
+          content.removeChild(this);
+          animaTitulo(
+            "Você deve decompor o número: " +
+              perguntas[count] +
+              " selecionando apenas dois números"
+          );
+        });
+
+        createjs.Ticker.setFPS(30);
+        createjs.Ticker.addEventListener("tick", ticker);
+      }
+      function animaTitulo(texto) {
+        var tit = new createjs.Container();
+        content.addChild(tit);
+
+        var txt = new createjs.Text(texto, "62px VAG Rounded BT", "#000000");
+        txt.regY = 60;
+        txt.lineWidth = 1280;
+        txt.textAlign = "center";
+
+        tit.addChild(txt);
+
+        tit.x = 1280;
+        tit.y = 80;
+        createjs.Tween.get(tit).to({ x: 640 }, 300, createjs.Ease.backOut);
+      }
+      function configuraIngredientes() {
+        var i,
+          j,
+          w = 0,
+          z = 0;
+        for (j = 0; j < 4; j++) {
+          for (i = 0; i < 5; i++) {
+            var bt = new createjs.Bitmap(caminho + "b" + imagemBts[z] + ".png");
+            bt.image.onload = function () {};
+            bt.id = imagemBts[z];
+            bt.x = bt.px = i * 136 + 290;
+            bt.y = bt.py = j * 92 + 240;
+            bt.regY = 92;
+            content.addChild(bt);
+            bt.on("mousedown", function (evt) {
+              this.scaleY = 0.75;
+              this.alpha = 0.6;
+              sons[0].play();
+            });
+            bt.on("pressup", function (evt) {
+              createjs.Tween.get(this).to(
+                { scaleY: 1, alpha: 1 },
+                300,
+                createjs.Ease.backOut
+              );
+              if (clicavel) {
+                txtresposta(this.id);
+              }
+            });
+            if (w == 0 || w == 4) {
+              bt.visible = false;
+            } else {
+              z++;
+            }
+            w++;
+          }
+        }
+      }
+      function txtresposta(numero) {
+        contenttext.removeAllChildren();
+
+        if (compTexto == "") {
+          soma += numero;
+          compTexto = numero + " +";
+        } else if (compTexto.slice(-1) == "+") {
+          soma += numero;
+          compTexto += " " + numero + " = " + soma;
+          corrige();
+          clicavel = false;
+        }
+        var tit = new createjs.Container();
+        contenttext.addChild(tit);
+
+        var txt = new createjs.Text(
+          compTexto,
+          "80px VAG Rounded BT",
+          "#ffffff"
+        );
+        txt.regY = 60;
+        txt.lineWidth = 1280;
+        txt.textAlign = "center";
+
+        tit.addChild(txt);
+
+        tit.x = 1280;
+        tit.y = 654;
+        createjs.Tween.get(tit).to({ x: 640 }, 300, createjs.Ease.backOut);
+      }
+      function corrige() {
+        if (perguntas[count] == soma) {
+          animaIco("certo", 950, 630);
+          sons[1].play();
+          i_acertos++;
+        } else {
+          animaIco("errado", 950, 630);
+          sons[2].play();
+          i_erros++;
+        }
+        createjs.Tween.get(content).wait(3000).call(proximaPergunta);
+      }
+      function proximaPergunta() {
+        if (i_erros > 3) {
+          Fim();
+        } else {
+          if (count < perguntas.length - 1) {
+            count++;
+            compTexto = "";
+            soma = 0;
+            clicavel = true;
+            content.removeAllChildren();
+            contenttext.removeAllChildren();
+            animaTitulo(
+              "Você deve decompor o número: " +
+                perguntas[count] +
+                " selecionando apenas dois números"
+            );
+            shuffle(imagemBts);
+            configuraIngredientes();
+          } else {
+            Fim();
+          }
+        }
+      }
+      function apagaDica() {
+        stage.removeChild(this);
+      }
+      function ticker(event) {
+        stage.update();
+      }
+      function animaIco(qual, b, c) {
+        var ico;
+        ico = new createjs.Bitmap(caminho + qual + ".png");
+        stage.addChild(ico);
+        ico.x = b;
+        ico.y = c;
+        ico.regX = 155;
+        ico.regY = 155;
+        ico.scaleX = ico.scaleY = 0.1;
+        createjs.Tween.get(ico)
+          .to({ scaleX: 0.5, scaleY: 0.5 }, 200, createjs.Ease.quadOut)
+          .wait(600)
+          .call(deleta);
+      }
+      function deleta() {
+        stage.removeChild(this);
+      }
+      function Fim() {
+        var img;
+        var bo;
+        var continua = false;
+
+        if (i_erros > 3) {
+          img = caminho + "tentenovamente.png";
+          continua = true;
+          sons[4].play();
+        } else {
+          img = caminho + "positivo.png";
+          continua = true;
+          sons[3].play();
+        }
+        if (continua) {
+          bo = new createjs.Bitmap(img);
+          bo.image.onload = function () {};
+          bo.regX = 292 / 2;
+          bo.regY = 400 / 2;
+          bo.x = 640;
+          bo.y = 1000;
+          stage.addChild(bo);
+          createjs.Tween.get(bo)
+            .wait(200)
+            .to({ y: 350 }, 1000, createjs.Ease.bounceOut);
+          bo.on("mousedown", function (evt) {
+            stage.removeChild(this);
+            count = 0;
+            i_acertos = 0;
+            i_erros = 0;
+            proximaPergunta();
+          });
+        }
+      }
+      function shuffle(a) {
+        var j, x, i;
+        for (i = a.length; i; i -= 1) {
+          j = Math.floor(Math.random() * i);
+          x = a[i - 1];
+          a[i - 1] = a[j];
+          a[j] = x;
+        }
+      }
+    </script>
+  </head>
+  <body id="SAE25_AI21_MAT_C03_OA1" class="od ef1" lang="pt-BR">
+    <a class="professor" href="#professorod1">Para o professor</a>
+    <div id="professorod1" class="professor">
+      <h2>Encaminhamento metodológico</h2>
+      <p>
+        Para a Realidade aumentada desta página, retome o conceito de
+        agrupamentos e sua realização. Depois, solicite aos alunos que façam a
+        atividade. O objetivo dessa atividade é desenvolver a capacidade de
+        resolução de problemas de adição. Caso os alunos apresentem dificuldades
+        na interpretação, pode-se ilustrar a situação utilizando palitos para
+        fazer os agrupamentos e representar as quantidades.
+      </p>
+    </div>
+    <h2>DECOMPONDO OS NÚMEROS</h2>
+    <div class="ordenar">
+      <p>Digite a forma decomposta do número:</p>
+      <center>
+        <canvas id="od1" width="1280" height="720"></canvas>
+        <script>
+          init1();
+        </script>
+        <p class="textoCredito">SAE Digital</p>
+      </center>
+    </div>
+  </body>
+</html>
