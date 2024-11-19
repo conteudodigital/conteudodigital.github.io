@@ -8,6 +8,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .modal-container {
@@ -19,7 +20,7 @@ body {
   left: 0;
   top: 0;
   align-items: center;
-  overflow: visible; /* Permite que a imagem da professora se sobressaia */
+  overflow: hidden;
 }
 /* Interação do modal da professora explicando */
 .modal {
@@ -39,7 +40,6 @@ body {
 
 .modal-content {
   position: relative;
-  overflow: visible;
   width: auto;
   height: 90%;
   display: flex;
