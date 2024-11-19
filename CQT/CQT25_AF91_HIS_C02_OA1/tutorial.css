@@ -153,16 +153,12 @@ body {
 @media (max-width: 768px) {
   @media (max-width: 768px) {
     .modal {
-      width: 90%; /* Ajuste a largura conforme necessário */
-      max-width: 600px; /* Limite a largura máxima */
+      width: 100%; /* Ajuste a largura conforme necessário */
+      height: 60%;
       margin: auto; /* Centraliza o modal */
-      padding: 15px; /* Ajuste o padding para mobile */
       background-color: #f5e1d3; /* Cor de fundo */
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra */
       flex-direction: row; /* Alinha os itens na horizontal */
-      align-items: flex-end; /* Alinha os itens na parte inferior */
-      margin-top: 20px; /* Adiciona espaço acima do modal */
-      margin-bottom: 20px; /* Adiciona espaço abaixo do modal */
     }
 
     .professor-image {

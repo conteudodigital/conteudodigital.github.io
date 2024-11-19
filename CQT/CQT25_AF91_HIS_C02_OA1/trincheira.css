@@ -62,12 +62,21 @@ body {
 .btn-voltar img{
   width: 100%;
 }
-@media screen and (max-width: 768px) {
+
+@media (max-width: 768px) {
   .btn-voltar {
     width: 9vw; 
     height: 9vw; 
   }
 }
+@media (min-width: 1025px) {
+  .btn-voltar {
+    width: 4vw; 
+    height: 4vw; 
+  }
+}
+
+
 .btn-voltar:hover {
   transform: scale(1.2); /* Aumenta o botão de voltar ao passar o mouse */
 }
@@ -190,7 +199,7 @@ body {
   align-items: center; /* Centraliza os itens dentro do modal */
 }
 .modal-text{
-  height: 35vh;
+  height: 25vh;
   overflow-y: auto;
 
 }
@@ -211,7 +220,8 @@ body {
   border-radius: 10px;
   display: flex;
   padding: 20px;
-  max-width: 80%;
+  width: 60%;
+  height: 35%;
   z-index: 3000;
   text-align: left;
   justify-content: center;
@@ -386,13 +396,18 @@ body {
   cursor: pointer;
   top:10px;
   right: 10px;
-  height: 8vh;
+  height: 8vw;
   z-index: 1001; /* Define um z-index maior para garantir que o botão esteja acima de outros elementos */
   transition: transform 0.3s ease; /* Adiciona transição suave */
 }
 @media screen and (max-width: 768px) {
   .btn-conhecer {
-    height: 12vh;
+    height: 10vw;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .btn-conhecer {
+    height: 4vw;
   }
 }
 .btn-conhecer img {
@@ -472,12 +487,17 @@ body {
 /* Estilos específicos para mobile */
 @media (max-width: 1000px) {
   .modal {
-    width: 100%; /* Ajuste a largura conforme necessário */
+    width: 90%; /* Ajuste a largura conforme necessário */
     height: 60%;
     margin: auto; /* Centraliza o modal */
     background-color: #f5e1d3; /* Cor de fundo */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra */
     flex-direction: row; /* Alinha os itens na horizontal */
+  }
+  .modal-text{
+    height: 35vh;
+    overflow-y: auto;
+  
   }
 
   .caption {
