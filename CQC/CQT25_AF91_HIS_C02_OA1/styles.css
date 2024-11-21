@@ -39,22 +39,14 @@ body {
   margin-top: 0; /* Remover a margem superior */
   transform: translateY(-10px); /* Ajuste o valor para subir o botão */
 }
-@media screen and (max-width: 768px) {
-  .btn-container {
-    scale: 1.5;
-  }
-}
+
 .btn-image {
-  width: 17vw; /* Tamanho responsivo do botão */
+  width: 15vw; /* Tamanho responsivo do botão */
+  max-width: 90%; /* Tamanho máximo do botão */
   height: auto; /* Mantém a proporção da imagem */
   height: auto;
   cursor: pointer;
   transition: transform 0.3s ease;
-}
-@media (min-width: 1025px) {
-  .btn-image {
-    width: 12vw;
-  }
 }
 
 /* Ajustes para telas menores */
@@ -62,7 +54,22 @@ body {
   .title-image {
     width: 100vw; /* Aumentado de 80vw para 120vw para ficar maior */
     max-width: 80%; /* Aumentado de 400px para 800px para permitir imagens maiores */
+  }
+  .btn-image {
+    /*margin-top: -50%;
+    width: 20vw; /* Tamanho responsivo do botão */
+    max-width: 90%;
+  }
+  .btn-creditos {
+    width: 20vh;
+  }
+
+  .title-image {
     margin-bottom: -3%; /* Espaçamento abaixo do título */
+  }
+
+  .btn-iniciar {
+    width: 120%;
   }
 }
 
@@ -82,7 +89,7 @@ body {
   display: none; /* Inicialmente escondido */
 }
 
-@media screen and (max-width: 1025px) and (orientation: portrait) {
+@media screen and (max-width: 1100px) and (orientation: portrait) {
   .title {
     margin-bottom: 2%; /* Espaçamento abaixo do título */
   }
@@ -106,32 +113,25 @@ body {
 }
 
 .bts-creditos {
-  position: fixed; /* Posiciona o botão de créditos */
+  position: absolute; /* Posiciona o botão de créditos */
   top: 2%; /* Distância do topo */
   left: 2%; /* Distância da esquerda */
   background: none;
   border: none;
   cursor: pointer;
-  width: 8vw; /* Aumenta o tamanho do botão */
-  height: 8vw; /* Aumenta o tamanho do botão */
+  width: 5%; /* Aumenta o tamanho do botão */
+  height: 5%; /* Aumenta o tamanho do botão */
   z-index: 0; /* Coloca o botão atrás da imagem */
   cursor: pointer;
   transition: transform 0.3s ease;
 }
-@media (max-width: 768px) {
-  .bts-creditos {
-    width: 9vw;
-    height: 9vw;
-  }
-}
-@media (min-width: 1025px) {
-  .bts-creditos {
-    width: 4vw;
-    height: 4vw;
-  }
-}
+
 .bts-creditos img {
-  width: 100%;
+  width: 100%; /* Aumenta a imagem para 200% do tamanho do botão */
+  height: auto; /* Mantém a proporção da imagem */
+  position: relative; /* Permite que a imagem se posicione corretamente */
+  left: -20%; /* Ajusta a posição da imagem para centralizá-la */
+  transition: transform 0.3s ease;
 }
 
 .bts-creditos:hover {
@@ -163,8 +163,8 @@ body {
 
 .modal-content {
   position: relative; /* Para posicionar o botão de fechar */
-  width: calc(70% - 6%); /* Largura total menos 6% (3% de cada lado) */
-  height: calc(70% - 6%); /* Altura total menos 6% (3% de cada lado) */
+  width: calc(100% - 6%); /* Largura total menos 6% (3% de cada lado) */
+  height: calc(100% - 6%); /* Altura total menos 6% (3% de cada lado) */
   margin: auto; /* Centraliza o modal */
 }
 
@@ -177,7 +177,7 @@ body {
 .botaoFechar {
   position: absolute; /* Posiciona o botão de fechar */
   top: 3%; /* Distância do topo */
-  right: 3%; /* Distância da direita, ajustado para 10px */
+  right: 20%; /* Distância da direita, ajustado para 10px */
   color: white; /* Cor do botão de fechar */
   font-size: 28px; /* Tamanho da fonte */
   font-weight: bold; /* Negrito */

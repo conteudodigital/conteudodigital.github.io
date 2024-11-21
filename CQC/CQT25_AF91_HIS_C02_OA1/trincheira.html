@@ -9,9 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <script src="Device.min.js"></script>
   </head>
-
   <body>
     <div class="overlay" id="overlay"></div>
     <div class="virarTela">
@@ -38,7 +36,7 @@
         align-items: center;
       "
     >
-      <div class="frente" style="position: relative">
+      <div class="frente" style="position: relative; margin-top: 100vh">
         <img
           src="assets/images/frente.png"
           class="trincheira-image"
@@ -138,11 +136,15 @@
     </div>
 
     <button class="btn-voltar" id="btnVoltar">
-      <img src="assets/images/btn-voltar.png" alt="Voltar" />
+      <img src="assets/images/btn-voltar.png" alt="Voltar" class="btn-image" />
     </button>
 
     <button class="btn-conhecer" id="btnConhecer" style="display: none">
-      <img src="assets/images/btn-conhecer.png" alt="Conhecer" />
+      <img
+        src="assets/images/btn-conhecer.png"
+        alt="Conhecer"
+        class="btn-image"
+      />
     </button>
     <!-- aaaaaa -->
     <div class="modal-container" style="overflow: hidden">
@@ -333,42 +335,34 @@
         </div>
       </div>
       <div id="conhecerModal" style="display: none">
-        <div
-          style="display: flex; align-content: center; justify-content: center"
-        >
-          <!-- a div deve ser relative pra que seus filhos que estejam position absolute pege a porcentagem do pai-->
-          <div class="conhecerConteudo">
-            <span class="close" id="closeConhecerModal" onclick="fechaModal()"
-              >&times;</span
-            >
-            <img
-              src="assets/images/grafico_astropas.gif"
-              id="gifConhecer1"
-              alt="Conhecer"
-              class="gif-image"
-              onclick="pulaConhecer()"
-            />
-            <img
-              src="assets/images/grafico_custohumano.gif"
-              id="gifConhecer2"
-              alt="Conhecer"
-              class="gif-image"
-              style="display: none"
-              onclick="fechaModal()"
-            />
-          </div>
+        <div class="modal-content">
+          <span class="close" id="closeConhecerModal" onclick="fechaModal()"
+            >&times;</span
+          >
+          <img
+            src="assets/images/grafico_astropas.gif"
+            id="gifConhecer1"
+            alt="Conhecer"
+            class="gif-image"
+            onclick="pulaConhecer()"
+          />
+          <img
+            src="assets/images/grafico_custohumano.gif"
+            id="gifConhecer2"
+            alt="Conhecer"
+            class="gif-image"
+            style="display: none"
+            onclick="fechaModal()"
+          />
         </div>
       </div>
     </div>
 
     <script>
-      const ninetyVH = Device.screenViewport.height;
-      const newMarginTop = ninetyVH - Device.addressBar.height;
-      document.querySelector(".frente").style.marginTop = `${newMarginTop}px`;
       const btnVoltar = document.querySelector(".btn-voltar");
 
       btnVoltar.addEventListener("click", () => {
-        window.location.href = "index.html"; // Volta para o tutorial
+        window.location.href = "tutorial.html"; // Volta para o tutorial
       });
 
       let animationExecuted = {};
@@ -397,20 +391,6 @@
           // Verifica se todos os botões foram clicados
           if (clickedButtons.size === bts.length) {
             document.getElementById("btnConhecer").style.display = "block"; // Exibe o botão "Conhecer"
-          }
-          if (mobilecheckOds()) {
-            if (document.documentElement.requestFullscreen) {
-              document.documentElement.requestFullscreen();
-            } else if (document.documentElement.mozRequestFullScreen) {
-              // Firefox
-              document.documentElement.mozRequestFullScreen();
-            } else if (document.documentElement.webkitRequestFullscreen) {
-              // Chrome, Safari e Opera
-              document.documentElement.webkitRequestFullscreen();
-            } else if (document.documentElement.msRequestFullscreen) {
-              // IE/Edge
-              document.documentElement.msRequestFullscreen();
-            }
           }
         });
       });
@@ -459,20 +439,16 @@
         const overlay = document.getElementById("overlay"); // Seleciona o overlay
         const btnVoltar = document.getElementById("btnVoltar"); // Seleciona o botão "Voltar"
 
-        modalToOpen.style.display = "flex"; // Mostra o modal correspondente
-        overlay.style.display = "flex"; // Mostra o overlay
+        modalToOpen.style.display = "block"; // Mostra o modal correspondente
+        overlay.style.display = "block"; // Mostra o overlay
         btnConhecer.disabled = true; // Desabilita o botão "Conhecer" ao abrir um modal
         btnVoltar.disabled = true; // Desabilita o botão "Voltar" ao abrir um modal
         bts.forEach((btn) => (btn.disabled = true)); // Desabilita todos os botões de interação ao abrir um modal
 
-        modalToOpen.onclick = () => {
-          advanceText();
-        };
-
         // Mostra o primeiro texto ao abrir o modal
         const text1 = modalToOpen.querySelector(`p[id$="Text1"]`);
         const text2 = modalToOpen.querySelector(`p[id$="Text2"]`);
-        text1.style.display = "flex"; // Garante que o texto 1 esteja visível
+        text1.style.display = "block"; // Garante que o texto 1 esteja visível
         text2.style.display = "none"; // Garante que o texto 2 esteja oculto
 
         // Adiciona evento de clique para o botão "Pressione ENTER para continuar"
@@ -480,9 +456,9 @@
 
         // Função para avançar o texto
         const advanceText = () => {
-          if (text1.style.display === "flex") {
+          if (text1.style.display === "block") {
             text1.style.display = "none"; // Esconde o texto 1
-            text2.style.display = "flex"; // Mostra o texto 2
+            text2.style.display = "block"; // Mostra o texto 2
             nextButton.textContent = "CLIQUE para continuar"; // Altera o texto do botão para "Fechar"
           } else {
             // Fecha o modal e o overlay ao clicar no botão "x"
@@ -496,6 +472,7 @@
         };
 
         // Adiciona evento de clique no botão
+        nextButton.onclick = advanceText;
 
         // Adiciona evento de teclado para avançar o texto com a tecla "Enter"
         const handleKeyDown = (event) => {

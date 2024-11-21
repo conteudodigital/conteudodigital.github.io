@@ -2,6 +2,7 @@ body {
   overflow: hidden;
   margin: 0;
   padding: 0;
+  overflow: hidden;
   font-family: "Quicksand", sans-serif;
   background-color: #f0e4d7;
   height: 100vh;
@@ -48,36 +49,35 @@ body {
   transition: transform 0.3s ease;
 }
 .btn-voltar {
-  position: fixed;
-  top: 10px; /* Distância do topo */
-  left: 10px; /* Distância da esquerda */
+  position: absolute;
+  top: 2%; /* Distância do topo */
+  left: 2%; /* Distância da esquerda */
   background: none;
   border: none;
   cursor: pointer;
-  width: 8vw; /* Aumenta o tamanho do botão */
-  height: 8vw; /* Aumenta o tamanho do botão */
-  z-index: 10; /* Define um z-index maior para garantir que o botão esteja acima de outros elementos */
+  width: 5%; /* Aumenta o tamanho do botão */
+  height: 5%; /* Aumenta o tamanho do botão */
+  z-index: 100; /* Define um z-index maior para garantir que o botão esteja acima de outros elementos */
   transition: transform 0.3s ease; /* Adiciona transição suave */
 }
-.btn-voltar img {
-  width: 100%;
-}
 
-@media (max-width: 768px) {
-  .btn-voltar {
-    width: 9vw;
-    height: 9vw;
-  }
-}
-@media (min-width: 1025px) {
-  .btn-voltar {
-    width: 4vw;
-    height: 4vw;
-  }
+.btn-voltar img {
+  margin-top: 10%;
+  width: 200%; /* Aumenta a imagem para 200% do tamanho do botão */
+  height: auto; /* Mantém a proporção da imagem */
+  position: relative; /* Permite que a imagem se posicione corretamente */
+  left: -20%; /* Ajusta a posição da imagem para centralizá-la */
+  transition: transform 0.3s ease; /* Adiciona transição suave à imagem */
 }
 
 .btn-voltar:hover {
   transform: scale(1.2); /* Aumenta o botão de voltar ao passar o mouse */
+}
+
+.btn-voltar:hover img {
+  transform: scale(
+    1.2
+  ); /* Aumenta a imagem do botão de voltar ao passar o mouse */
 }
 
 .btn-interaction {
@@ -194,30 +194,6 @@ body {
   animation: fadeIn 0.5s forwards;
 }
 
-/* Interação do modal da professora explicando */
-.modal {
-  background: #f5e1d3;
-  border-radius: 10px;
-  display: flex;
-  padding: 20px;
-  width: 80%;
-  height: 45%;
-  z-index: 3000;
-  text-align: left;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  animation: fadeInRight 0.5s forwards;
-}
-.modal-content {
-  position: relative;
-  width: auto;
-  height: 90%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .modal-container {
   width: 100%;
   height: 100%;
@@ -227,18 +203,22 @@ body {
   left: 0;
   top: 0;
   align-items: center;
-  overflow: hidden; /* Permite que a imagem da professora se sobressaia */
+  overflow: visible; /* Permite que a imagem da professora se sobressaia */
 }
-.modal-button {
-  display: flex;
-  align-items: center; /* Centraliza os itens dentro do modal */
-}
-.modal-text {
-  height: 35vh;
-  overflow-y: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Interação do modal da professora explicando */
+.modal {
+  background: #f5e1d3;
+  border-radius: 10px;
+  display: flex; /* Usar flexbox para centralização */
+  padding: 20px;
+  max-width: 60%;
+  z-index: 3000; /* Garante que o modal fique acima do overlay */
+  text-align: left;
+  justify-content: center; /* Centralizar horizontalmente */
+  align-items: center; /* Centralizar verticalmente */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  opacity: 0; /* Opacidade inicial */
+  animation: fadeInRight 0.5s forwards; /* Animação ao aparecer */
 }
 
 .professor-image {
@@ -253,9 +233,6 @@ body {
 
 .left-container {
   padding-right: 2%;
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: column;
 }
 
 @keyframes fadeInRight {
@@ -284,6 +261,7 @@ body {
 }
 
 .next-button {
+  margin-top: 20px;
   color: var(--Complementares-Ensino-fundamental-1, #de293d); /* Cor vermelha */
   font-family: "Quicksand", sans-serif; /* Fonte Quicksand */
   font-size: 20px; /* Tamanho da fonte */
@@ -310,7 +288,7 @@ body {
 }
 
 #imageContainer2 {
-  top: 20.7%;
+  top: 20.5%;
   left: 16%;
   width: 17%;
   height: auto;
@@ -321,7 +299,7 @@ body {
 }
 
 #imageContainer3 {
-  top: 16.3%;
+  top: 17%;
   left: 31%;
   width: 17%;
   height: auto;
@@ -400,29 +378,23 @@ body {
   max-width: 90%;
 }
 .btn-conhecer {
-  position: fixed;
+  position: absolute;
+  top: -2%; /* Alinhado ao topo */
+  right: -5%; /* Alinhado à direita */
   background: none;
   border: none;
   cursor: pointer;
-  top: 10px;
-  right: 10px;
-  height: 8vw;
+  width: 15%; /* Aumenta o tamanho do botão */
+  height: 20%; /* Aumenta o tamanho do botão */
   z-index: 1001; /* Define um z-index maior para garantir que o botão esteja acima de outros elementos */
   transition: transform 0.3s ease; /* Adiciona transição suave */
 }
-@media (max-width: 768px) {
-  .btn-conhecer {
-    height: 8vw;
-  }
-}
-@media (min-width: 1025px) {
-  .btn-conhecer {
-    height: 8vw;
-  }
-}
+
 .btn-conhecer img {
-  width: auto; /* Aumenta a imagem para 200% do tamanho do botão */
-  height: 100%;
+  width: 200%; /* Aumenta a imagem para 200% do tamanho do botão */
+  height: auto; /* Mantém a proporção da imagem */
+  position: relative; /* Permite que a imagem se posicione corretamente */
+  left: -50%; /* Ajusta a posião da imagem para centralizá-la */
 }
 
 .close {
@@ -476,10 +448,15 @@ body {
   max-width: none; /* Remove o limite de largura máxima */
   max-height: none; /* Remove o limite de altura máxima */
 }
-.conhecerConteudo {
+
+.modal-content {
   position: relative;
-  width: 70%;
-  height: 100%;
+  overflow: visible; /* Permite que o conteúdo transborde */
+  width: auto; /* Ajusta a largura para 100% do contêiner do modal */
+  height: 90%; /* Ajusta a altura para 100% do continer do modal */
+  display: flex; /* Usar flexbox para o conteúdo */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
 }
 
 .gif-image {
@@ -491,31 +468,22 @@ body {
 }
 
 /* Estilos específicos para mobile */
-@media (max-width: 1000px) {
-  .professor-image {
-    width: 36vh; /* Ajuste o tamanho da imagem da professora */
-    display: flex; /* Adicionado para garantir que a imagem seja tratada como um flex item */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    margin-right: 2%; /* Espaço entre a imagem e o texto */
-    position: relative; /* Sobrescreve a posição absoluta da classe externa */
-    transform: none; /* Sobrescreve a transformação da classe externa */
-  }
+@media (max-width: 768px) {
   .modal {
     width: 90%; /* Ajuste a largura conforme necessário */
-    height: 60%;
+    max-width: 600px; /* Limite a largura máxima */
     margin: auto; /* Centraliza o modal */
+    padding: 15px; /* Ajuste o padding para mobile */
     background-color: #f5e1d3; /* Cor de fundo */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra */
     flex-direction: row; /* Alinha os itens na horizontal */
+    align-items: flex-end; /* Alinha os itens na parte inferior */
+    margin-top: 20px; /* Adiciona espaço acima do modal */
+    margin-bottom: 20px; /* Adiciona espaço abaixo do modal */
   }
-  .modal-text {
-    height: 45vh;
-  }
-  .dialogue {
-    font-size: 16px; /* Ajuste o tamanho da fonte para mobile */
-    text-align: left; /* Alinha o texto à esquerda */
-    margin-right: 5px; /* Espaço entre o texto e a imagem */
+
+  .btn-voltar img {
+    width: 300%; /* Aumenta a imagem para 200% do tamanho do botão */
   }
   .caption {
     position: fixed;
@@ -528,6 +496,24 @@ body {
     transform: initial;
     padding: 0;
   }
+
+  .professor-image {
+    width: 36vh; /* Ajuste o tamanho da imagem da professora */
+    display: flex; /* Adicionado para garantir que a imagem seja tratada como um flex item */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    margin-right: 2%; /* Espaço entre a imagem e o texto */
+    position: relative; /* Sobrescreve a posição absoluta da classe externa */
+    transform: none; /* Sobrescreve a transformação da classe externa */
+  }
+
+  .dialogue {
+    font-size: 16px; /* Ajuste o tamanho da fonte para mobile */
+    padding: 10px; /* Ajuste o padding para mobile */
+    text-align: left; /* Alinha o texto à esquerda */
+    margin-right: 5px; /* Espaço entre o texto e a imagem */
+  }
+
   .textoCaption {
     display: block;
     width: 110px;

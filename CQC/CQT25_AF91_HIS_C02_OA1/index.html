@@ -10,7 +10,6 @@
       rel="stylesheet"
     />
   </head>
-
   <body>
     <div class="virarTela">
       <div class="celular">
@@ -31,7 +30,7 @@
         />
       </div>
       <div class="btn-container">
-        <a class="btn-iniciar" onclick="iniciaJogo()">
+        <a href="tutorial.html" class="btn-iniciar">
           <img
             src="assets/images/btn-iniciar.png"
             alt="Iniciar"
@@ -48,17 +47,13 @@
 
     <!-- Modal para exibir a imagem -->
     <div class="modalCreditos" id="modalCreditos" style="display: none">
-      <div
-        style="display: flex; align-content: center; justify-content: center"
-      >
-        <div class="modal-content">
-          <img
-            src="assets/images/creditos-cqc.png"
-            alt="Créditos de um material educacional. Direção Geral: João Cunha. Direção da Produção de Conteúdo: Rodolpho Meschgrahw. Gerência Executiva de Conteúdo: Igor Junqueira de Castro. Núcleo de Conteúdo Educacional: Alessandra Atanazio, Emanoelle Almeida (Coordenação Editorial), Mariana Ramos (Design Educacional), Anne da Rocha, Clarianna Matos, Eduardo Nunes, Janayna Goulart, Jéssica Lima, Joice Tozato, Aline Veiga, Jonatan Camargo (Edição de Conteúdo). Núcleo de Arte: Thalita Costa. Interações Digitais: Nicole Ribeiro, Augusto Barbosa, Carla Oliveira, Carlos Morevi, João Depine, Juliana Aparecida, Mariana Fontoura, Matheus Ranze, Nuyara Gracioli, Rafael Vieira, Roberto Querido. Autores: Alisson Douglas de Oliveira Lima (ODA)."
-            class="imagemCreditos"
-          />
-          <span class="botaoFechar" id="botaoFecharModal">&times;</span>
-        </div>
+      <div class="modal-content">
+        <img
+          src="assets/images/creditos-cqc.png"
+          alt="Créditos de um material educacional. Direção Geral: João Cunha. Direção da Produção de Conteúdo: Rodolpho Meschgrahw. Gerência Executiva de Conteúdo: Igor Junqueira de Castro. Núcleo de Conteúdo Educacional: Alessandra Atanazio, Emanoelle Almeida (Coordenação Editorial), Mariana Ramos (Design Educacional), Anne da Rocha, Clarianna Matos, Eduardo Nunes, Janayna Goulart, Jéssica Lima, Joice Tozato, Aline Veiga, Jonatan Camargo (Edição de Conteúdo). Núcleo de Arte: Thalita Costa. Interações Digitais: Nicole Ribeiro, Augusto Barbosa, Carla Oliveira, Carlos Morevi, João Depine, Juliana Aparecida, Mariana Fontoura, Matheus Ranze, Nuyara Gracioli, Rafael Vieira, Roberto Querido. Autores: Alisson Douglas de Oliveira Lima (ODA)."
+          class="imagemCreditos"
+        />
+        <span class="botaoFechar" id="botaoFecharModal">&times;</span>
       </div>
     </div>
 
@@ -88,10 +83,6 @@
       const botaoFecharCreditos = document.getElementById(
         "botaoFecharCreditos"
       );
-
-      function iniciaJogo() {
-        window.location.href = "tutorial.html";
-      }
 
       botaoVoltar.addEventListener("click", () => {
         if (mobilecheckOds()) {
