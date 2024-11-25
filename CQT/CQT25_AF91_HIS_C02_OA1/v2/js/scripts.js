@@ -65,6 +65,19 @@ startButton.addEventListener('click', () => {
     startScreen.classList.add('hidden');
     tutorialScreen.classList.remove('hidden');
 
+//fullscreen
+            if (document.documentElement.requestFullscreen) {
+              document.documentElement.requestFullscreen();
+            } else if (document.documentElement.mozRequestFullScreen) {
+              // Firefox
+              document.documentElement.mozRequestFullScreen();
+            } else if (document.documentElement.webkitRequestFullscreen) {
+              // Chrome, Safari e Opera
+              document.documentElement.webkitRequestFullscreen();
+            } else if (document.documentElement.msRequestFullscreen) {
+              // IE/Edge
+              document.documentElement.msRequestFullscreen();
+            }
     //coloca primeiro dialogo tutorial
     index = 0;
     animaTextoDialogo();
