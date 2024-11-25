@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seleção Teias Alimentares</title>
+    <link rel="stylesheet" href="selecao.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="overlay" id="overlay"></div>
+    <div class="modal" id="modal">
+      <div class="modal-content" id="modalContent">
+        <div class="left-container">
+          <div class="dialogue" id="dialogo"></div>
+          <button class="next-button" id="nextButton">
+            CLIQUE para continuar
+          </button>
+        </div>
+        <div class="right-container">
+          <img
+            src="assets/images/professor1.png"
+            alt="Professor"
+            class="professor-image"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay-text" id="overlay-sol" style="display: none">
+      <div class="text-content">
+        <img
+          src="assets/images/sol/overlay-sol.png"
+          alt="O Sol - A fonte de energia, luz e calor"
+          class="overlay-image"
+        />
+      </div>
+    </div>
+    <div class="overlay-text" id="overlay-produtor" style="display: none">
+      <div class="text-content">
+        <img
+          src="assets/images/produtor/overlay-produtores.png"
+          alt="Produtores"
+          class="overlay-image"
+        />
+      </div>
+    </div>
+
+    <div class="overlay-text" id="overlay-primario" style="display: none">
+      <div class="text-content">
+        <img
+          src="assets/images/consumidorprimario/overlay-consumidorprimario.png"
+          alt="Consumidor Primário"
+          class="overlay-image"
+        />
+      </div>
+    </div>
+
+    <div class="overlay-text" id="overlay-secundario" style="display: none">
+      <div class="text-content">
+        <img
+          src="assets/images/consumidorsecundario/overlay-consumidorsecundario.png"
+          alt="Consumidor Secundário"
+          class="overlay-image"
+        />
+      </div>
+    </div>
+
+    <div class="overlay-text" id="overlay-terciario" style="display: none">
+      <div class="text-content">
+        <img
+          src="assets/images/consumidorterciario/overlay-consumidorterciario.png"
+          alt="Consumidor Terciário"
+          class="overlay-image"
+        />
+      </div>
+    </div>
+
+    <div class="overlay-text" id="overlay-decompositor" style="display: none">
+      <div class="text-content">
+        <img
+          src="assets/images/decompositores/overlay-decompositores.png"
+          alt="Decompositores"
+          class="overlay-image"
+        />
+      </div>
+    </div>
+
+    <div class="container">
+      <button
+        class="btn-voltar"
+        id="btnVoltar"
+        onclick="window.location.href='intro.html'"
+      >
+        <img
+          src="assets/images/btn-voltar.png"
+          alt="Voltar"
+          class="btn-image"
+        />
+      </button>
+      <img
+        src="assets/images/professor1.png"
+        alt="Professor"
+        class="professor-button"
+        id="professorButton"
+      />
+      <h1>SELECIONE</h1>
+      <div class="button-container">
+        <div class="button-row">
+          <button class="option-button" onclick="handleSolClick()">
+            <img src="assets/images/btn-sol.png" alt="O Sol" />
+          </button>
+          <button class="option-button" onclick="handlePrimarioClick()">
+            <img src="assets/images/btn-primario.png" alt="Consumidor Primário" />
+          </button>
+          <button class="option-button" onclick="handleDecompositorClick()">
+            <img src="assets/images/btn-decomposicao.png" alt="Decomposição" />
+          </button>
+          <button class="option-button" onclick="handleSecundarioClick()">
+            <img
+              src="assets/images/btn-secundario.png"
+              alt="Consumidor Secundário"
+            />
+          </button>
+
+          <button class="option-button" onclick="handleProdutorClick()">
+            <img src="assets/images/btn-produtor.png" alt="Produtor" />
+          </button>
+          <button class="option-button" onclick="handleTerciarioClick()">
+            <img
+              src="assets/images/btn-terciario.png"
+              alt="Consumidor Terciário"
+            />
+          </button>
+        
+      </div>
+    </div>
+
+    <div class="virarTela" id="virarTela">
+      <div class="celular">
+        <img
+          style="width: 120%"
+          src="assets/images/disclaimer.png"
+          alt="Aviso"
+        />
+      </div>
+    </div>
+
+    <script>
+      const modal = document.getElementById("modal");
+      const modalText = document.getElementById("modalText");
+      const nextButton = document.getElementById("nextButton");
+      const professorButton = document.getElementById("professorButton");
+
+      const dialogues = [
+        "Vamos conhecer mais sobre o sol? O Sol é uma estrela localizada a aproximadamente 150 milhões de quilômetros da Terra. Ele é uma importante fonte de energia e fundamental para a existência da vida em nosso planeta.",
+        "A luz e o calor emitidos por essa estrela chegam até nós e influenciam diversos aspectos do nosso dia a dia. Além de nos proporcionar luz e calor, o Sol é essencial para a fotossíntese, um processo vital que acontece em plantas, algas e algumas bactérias.",
+        "O Sol é composto principalmente de hidrogênio e hélio. Em seu núcleo, ocorrem reações nucleares que geram uma enorme quantidade de energia. Essa energia é liberada na forma de luz e calor.",
+        "A luz do Sol viaja pelo espaço e leva cerca de 8 minutos para alcançar a Terra. Essa luz não apenas ilumina nosso planeta, mas também é responsável por regular o clima e o ciclo das estações.",
+        "Sem o Sol, a Terra seria um lugar frio e escuro, onde a vida como conhecemos não poderia existir.",
+      ];
+
+      let currentDialogueIndex = 0; // Índice do diálogo atual
+
+      function openModal() {
+        document.getElementById("dialogo").innerText =
+          dialogues[currentDialogueIndex];
+        document.getElementById("modal").style.display = "flex";
+        document.getElementById("overlay").style.display = "block"; // Exibe o overlay
+      }
+
+      function closeModal() {
+        document.getElementById("modal").style.display = "none";
+        document.getElementById("overlay").style.display = "none"; // Oculta o overlay
+        currentDialogueIndex = 0; // Reseta o índice ao fechar o modal
+      }
+
+      document
+        .getElementById("professorButton")
+        .addEventListener("click", openModal);
+
+      // Função para avançar os diálogos
+      function advanceDialogue() {
+        currentDialogueIndex++;
+        if (currentDialogueIndex < dialogues.length) {
+          // Atualiza o texto do diálogo
+          document.getElementById("dialogo").innerText = dialogues[currentDialogueIndex];
+          
+          // Atualiza a imagem do professor (alterna entre 1, 2 e 3)
+          const professorNumber = (currentDialogueIndex % 3) + 1;
+          document.querySelector(".professor-image").src = `assets/images/professor${professorNumber}.png`;
+        } else {
+          closeModal();
+        }
+      }
+        document.getElementById("professorButton").addEventListener("click", openModal);
+
+      // Adiciona evento de clique ao document para avançar os diálogos
+      document.addEventListener("click", function(event) {
+        if (document.getElementById("modal").style.display === "flex") {
+          // Se o modal estiver visível, qualquer clique avança o diálogo
+          advanceDialogue();
+        }
+      });
+
+      // Adiciona evento de teclado para avançar os diálogos com a tecla Enter
+      document.addEventListener("keydown", function (event) {
+        if (
+          event.key === "Enter" &&
+          document.getElementById("modal").style.display === "flex"
+        ) {
+          advanceDialogue();
+        }
+      });
+
+      
+
+      function checkOrientation() {
+        const virarTela = document.getElementById("virarTela");
+        if (window.innerWidth < 1100) {
+          if (window.innerWidth < window.innerHeight) {
+            virarTela.style.display = "flex";
+          } else {
+            virarTela.style.display = "none";
+          }
+        } else {
+          virarTela.style.display = "none";
+        }
+      }
+
+      window.addEventListener("resize", checkOrientation);
+      checkOrientation();
+
+      function handleOverlayAndRedirect(overlayId, redirectUrl) {
+      const overlay = document.getElementById(overlayId);
+      overlay.style.display = 'flex';
+      
+      // Fade in
+      setTimeout(() => {
+        overlay.style.opacity = '1';
+      }, 10);
+
+      // Aguarda 2 segundos e faz o fade out
+      setTimeout(() => {
+        overlay.style.opacity = '0';
+        
+        // Aguarda o fade out terminar e redireciona
+        setTimeout(() => {
+          window.location.href = redirectUrl;
+        }, 500);
+      }, 2000);
+    }
+
+    function handleSolClick() {
+      handleOverlayAndRedirect('overlay-sol', 'sol.html');
+    }
+
+    function handleProdutorClick() {
+      handleOverlayAndRedirect('overlay-produtor', 'produtor.html');
+    }
+
+    function handlePrimarioClick() {
+      handleOverlayAndRedirect('overlay-primario', 'consumidorprimario.html');
+    }
+
+    function handleSecundarioClick() {
+      handleOverlayAndRedirect('overlay-secundario', 'consumidorsecundario.html');
+    }
+
+    function handleTerciarioClick() {
+      handleOverlayAndRedirect('overlay-terciario', 'consumidorterciario.html');
+    }
+
+    function handleDecompositorClick() {
+      handleOverlayAndRedirect('overlay-decompositor', 'decompositores.html');
+    }
+    </script>
+  </body>
+</html>

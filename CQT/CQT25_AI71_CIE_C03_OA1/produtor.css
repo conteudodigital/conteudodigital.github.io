@@ -1,0 +1,251 @@
+body {
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+  background-image: url("assets/images/produtor/background-produtor.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.titulo-container {
+  display: flex;
+  justify-content: center;
+  margin: 0; /* Remove margens */
+  padding: 0; /* Remove padding */
+  position: absolute;
+  top: 0; /* Alinha o contêiner ao topo */
+  width: 100%;
+}
+
+.titulo-produtor {
+  width: 50%;
+  height: auto;
+  margin-top: 1%; /* Remove qualquer margem superior */
+}
+
+.setas {
+  position: absolute;
+  top: 15%; /* Ajuste a posição vertical das setas */
+  width: 50%; /* Define uma largura para o contêiner das setas */
+  text-align: center;
+}
+
+.seta-esquerda {
+  width: 30%; /* Tamanho da seta esquerda */
+  height: auto;
+  margin-right: 15%; /* Espaço entre a seta esquerda e a direita */
+}
+
+.seta-direita {
+  width: 20%; /* Tamanho da seta direita */
+  height: auto;
+  vertical-align: top;
+  margin-left: 5%;
+}
+
+.btn-interaction {
+  position: absolute; /* Mantenha os botões em relação ao contêiner pai */
+  width: 100px; /* Ajuste de acordo com o tamanho desejado */
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+#botao1 {
+  top: 68%;
+  left: 25%;
+}
+
+#botao2 {
+  top: 28%;
+  left: 68%;
+}
+
+.btn-interaction:hover {
+  transform: scale(1.1);
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.botao {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.botao img {
+  width: 100%;
+  height: auto;
+}
+
+.modal {
+  background: #f5e1d3;
+  border-radius: 10px;
+  width: 80% !important;
+  height: 160px !important; /* Reduzido a altura total do modal */
+  z-index: 3000;
+  position: fixed;
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+}
+
+.modal-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.left-container {
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.right-container {
+  flex: 0.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialogue {
+  color: #000;
+  font-family: "Quicksand", sans-serif;
+  font-size: 16px;
+  width: 100%;
+  height: 80px; /* Reduzido a altura do diálogo */
+  overflow-y: none;
+  margin-bottom: 10px; /* Reduzido o espaço entre o diálogo e o botão */
+}
+
+.professor-image {
+  width: 120px;
+  height: auto;
+  transform: translate(50%, -40%);
+}
+
+.next-button {
+  color: #4283aa;
+  font-family: "Quicksand", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 0;
+  margin-left: 0;
+}
+
+.professor-button {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  width: 8%;
+  cursor: pointer;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.professor-button:hover {
+  transform: scale(1.1);
+}
+
+.close {
+  cursor: pointer;
+  float: right;
+  font-size: 20px;
+}
+
+.btn-interaction {
+  position: absolute;
+  width: 100px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-interaction:hover {
+  transform: scale(1.1);
+}
+
+.seta {
+  width: 100%;
+  height: auto;
+  margin: 0 20px;
+}
+
+.seta:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s;
+}
+
+.btn-retornar {
+  position: absolute;
+  bottom: 5%; /* Botão na parte inferior */
+  width: 12%;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-retornar:hover {
+  transform: scale(1.1);
+}
+
+/* Adiciona os estilos para o aviso de virar a tela */
+.virarTela {
+  display: none;
+}
+
+@media screen and (max-width: 1100px) and (orientation: portrait) {
+  .virarTela {
+    display: flex;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  .virarTela img {
+    max-width: 90%;
+    max-height: 90%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .next-button {
+    margin-top: 5%;
+  }
+}

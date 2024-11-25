@@ -1,0 +1,303 @@
+body {
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+  background-image: url("assets/images/produtor/background-produtor.png"); /* Certifique-se de que o caminho está correto */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+  background-color: #fffad7;
+  padding: 10vh 2vw; /* Padding relativo à altura e largura da viewport */
+  border-radius: 2vw;
+  box-shadow: 0 0.2vw 1vw rgba(0, 0, 0, 0.2);
+  width: 40vw;
+  max-width: 80%; /* Largura máxima para telas grandes */
+  height: auto; /* Altura automática para se ajustar ao conteúdo */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2% auto; /* Centralizar */
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin: 0 0 30px 0;
+  color: #000;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  width: 100%;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap; /* Permitir que os botões se movam para a próxima linha */
+  justify-content: center; /* Centralizar os botões */
+  width: 100%; /* Largura total do container */
+}
+
+.option-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  transition: transform 0.2s;
+  width: 100%;
+  height: 100%;
+  max-width: 150%;
+  flex: 1 1 45%; /* Permitir que os botões cresçam e encolham */
+  padding: 10px; /* Padding para aumentar a área clicável */
+}
+
+.option-button img {
+  width: 100%;
+  height: auto;
+}
+
+.option-button:hover {
+  transform: scale(1.02);
+}
+
+.professor-button {
+  position: fixed;
+  top: 2%;
+  right: 2%;
+  width: 8%;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.professor-button:hover {
+  transform: scale(1.1);
+}
+
+.btn-voltar {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 60px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-voltar:hover {
+  transform: scale(1.1);
+}
+
+.btn-voltar img {
+  width: 100%;
+  height: auto;
+}
+
+.modal {
+  background: #f5e1d3;
+  border-radius: 10px;
+  width: 80% !important;
+  height: 160px !important; /* Reduzido a altura total do modal */
+  z-index: 3000;
+  position: fixed;
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+}
+
+.modal-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.left-container {
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.right-container {
+  flex: 0.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialogue {
+  color: #000;
+  font-family: "Quicksand", sans-serif;
+  font-size: 16px;
+  width: 100%;
+  height: 80px; /* Reduzido a altura do diálogo */
+  overflow-y: auto;
+  margin-bottom: 10px; /* Reduzido o espaço entre o diálogo e o botão */
+}
+
+.professor-image {
+  width: 120px;
+  height: auto;
+  transform: translate(50%, -40%);
+}
+
+.next-button {
+  color: #4283aa;
+  font-family: "Quicksand", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 0;
+  margin-left: 0;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2999; /* Um a menos que o z-index do modal */
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.virarTela {
+  display: none; /* Inicialmente escondido */
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
+}
+
+.celular {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+
+.modal-professor-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.modal-professor-img {
+  width: 100px;
+  height: auto;
+}
+
+/* Media Queries para responsividade */
+@media (max-width: 768px) {
+  .container {
+    width: 90%; /* Diminuir a largura do container para 90% */
+    padding: 15px; /* Ajustar o padding se necessário */
+  }
+
+  h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+
+  .button-row {
+    flex-direction: row; /* Manter a direção em linha */
+    justify-content: space-between; /* Espaçar os botões */
+  }
+
+  .option-button {
+    flex: 1 1 48%; /* Permitir que os botões ocupem 48% da largura */
+    max-width: none; /* Remover a largura máxima para permitir flexibilidade */
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 95%;
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  .option-button {
+    width: 90%;
+    max-width: 200px;
+  }
+}
+
+.overlay-text {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 21, 45, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.text-content {
+  text-align: center;
+}
+
+.overlay-image {
+  max-width: 80%;
+  height: auto;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

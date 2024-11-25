@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="produtor.css" />
+ 
+    <title>Produtos</title>
+  </head>
+  <body>
+    <div class="virarTela" id="virarTela">
+      <div class="celular">
+        <img
+          style="width: 120%"
+          src="assets/images/disclaimer.png"
+          alt="Aviso"
+          class="disclaimer"
+        />
+      </div>
+    </div>
+
+    <div class="titulo-container">
+      <img
+        src="assets/images/produtor/titulo-produtor.png"
+        alt="Título"
+        class="titulo-produtor"
+      />
+    </div>
+
+    <div class="setas">
+      <img
+        src="assets/images/produtor/setabranca-esquerda.png"
+        alt="Seta Esquerda"
+        class="seta-esquerda"
+        id="seta1"
+      />
+      <img
+        src="assets/images/produtor/setabranca-direita.png"
+        alt="Seta Direita"
+        class="seta-direita"
+        id="seta2"
+      />
+    </div>
+
+    <div class="button-container">
+      <img
+        src="assets/images/produtor/btn-interaction.png"
+        alt="Interagir"
+        class="btn-interaction"
+        id="botao1"
+      />
+      <img
+        src="assets/images/produtor/btn-interaction.png"
+        alt="Interagir"
+        class="btn-interaction"
+        id="botao2"
+      />
+    </div>
+
+    <img
+      src="assets/images/professor1.png"
+      alt="Professor"
+      class="professor-button"
+      id="professorButton"
+    />
+
+    <div class="overlay" id="overlay"></div>
+
+      <div class="modal" id="modal">
+        <div class="modal-content" id="modalContent">
+          <div class="left-container">
+            <div class="dialogue" id="dialogo"></div>
+            <button class="next-button" id="nextButton">
+              CLIQUE para continuar
+            </button>
+          </div>
+          <div class="right-container">
+            <img
+              src="assets/images/professor1.png"
+              alt="Professor"
+              class="professor-image"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <img
+      src="assets/images/produtor/btn-retornar.png"
+      alt="Retornar"
+      class="btn-retornar"
+      onclick="window.location.href='selecao.html'"
+    />
+
+    <script>
+
+      // Função para fazer o botão piscar
+function startBlinking(button) {
+  const btnImage = button;
+  let imageIndex = 0;
+  const images = [
+    "assets/images/btn1-interaction.png",
+    "assets/images/btn2-interaction.png",
+    "assets/images/btn3-interaction.png",
+    "assets/images/btn4-interaction.png",
+    "assets/images/btn5-interaction.png",
+    "assets/images/btn6-interaction.png",
+    "assets/images/btn7-interaction.png",
+    "assets/images/btn8-interaction.png",
+    "assets/images/btn9-interaction.png",
+    "assets/images/btn10-interaction.png",
+    "assets/images/btn11-interaction.png",
+    "assets/images/btn12-interaction.png",
+  ];
+
+  setInterval(() => {
+    btnImage.src = images[imageIndex];
+    imageIndex = (imageIndex + 1) % images.length;
+  }, 100);
+}
+
+// Inicia o piscar para todos os botões de interação
+const interactionButtons = document.querySelectorAll(".btn-interaction");
+interactionButtons.forEach((button) => startBlinking(button));
+      // Textos sobre fotossíntese
+      const dialogues = [
+        "A fotossíntese é muito mais do que um proacesso realizado pelas plantas para produzir seu próprio alimento. Ela é a base de toda a cadeia alimentar na Terra!",
+        "Durante a fotossíntese, as plantas capturam a luz solar e a utilizam para transformar água e dióxido de carbono em glicose (um tipo de açúcar) e oxigênio.",
+        "Essa glicose é a fonte de energia que alimenta as plantas e, consequentemente, muitos outros seres vivos que dependem delas, incluindo os seres humanos.",
+        "As plantas são chamadas de 'produtoras' porque produzem seu próprio alimento. Elas servem como fonte de energia para outros organismos que se alimentam delas, como os herbívoros (coelhos e vacas, por exemplo).",
+        "Ou seja, cada nível da cadeia alimentar depende das plantas e da energia que elas obtêm do Sol. Portanto, a fotossíntese não só fornece alimento diretamente para as plantas, mas também sustenta toda a vida no planeta.",
+        "Sendo assim, os organismos produtores ocupam o primeiro nível trófico.",
+      ];
+
+      let currentDialogueIndex = 0; // Índice do diálogo atual
+      let currentButtonIndex = null; // Índice do botão clicado
+
+      // Função para alternar a cor da seta
+      function toggleArrow(arrowId, whiteSrc, pinkSrc) {
+        const arrow = document.getElementById(arrowId);
+        // Alterna entre as imagens
+        if (arrow.src.includes(whiteSrc)) {
+          arrow.src = arrow.src.replace(whiteSrc, pinkSrc);
+        } else {
+          arrow.src = arrow.src.replace(pinkSrc, whiteSrc);
+        }
+      }
+
+      document.getElementById("botao1").addEventListener("click", function () {
+        currentButtonIndex = 0;
+        currentDialogueIndex = 0;
+
+        // Alternar a seta esquerda
+        toggleArrow(
+          "seta1",
+          "setabranca-esquerda.png",
+          "setarosa-esquerda.png"
+        );
+        // Manter a seta direita branca
+        document.getElementById("seta2").src =
+          "assets/images/produtor/setabranca-direita.png"; // Garante que a seta direita fique branca
+      });
+
+      document.getElementById("botao2").addEventListener("click", function () {
+        currentButtonIndex = 1;
+        currentDialogueIndex = 0;
+
+        // Alternar a seta direita
+        toggleArrow("seta2", "setabranca-direita.png", "setarosa-direita.png");
+        // Manter a seta esquerda branca
+        document.getElementById("seta1").src =
+          "assets/images/produtor/setabranca-esquerda.png"; // Garante que a seta esquerda fique branca
+      });
+
+      function openModal() {
+        document.getElementById("dialogo").innerText =
+          dialogues[currentDialogueIndex];
+        document.getElementById("modal").style.display = "flex";
+        document.getElementById("overlay").style.display = "block"; // Exibe o overlay
+      }
+
+      function closeModal() {
+        document.getElementById("modal").style.display = "none";
+        document.getElementById("overlay").style.display = "none"; // Oculta o overlay
+        currentDialogueIndex = 0; // Reseta o índice ao fechar o modal
+      }
+
+      // Função para avançar os diálogos
+      function advanceDialogue() {
+        currentDialogueIndex++;
+        if (currentDialogueIndex < dialogues.length) {
+          // Atualiza o texto do diálogo
+          document.getElementById("dialogo").innerText =
+            dialogues[currentDialogueIndex];
+
+          // Atualiza a imagem do professor (alterna entre 1, 2 e 3)
+          const professorNumber = (currentDialogueIndex % 3) + 1;
+          document.querySelector(
+            ".professor-image"
+          ).src = `assets/images/professor${professorNumber}.png`;
+        } else {
+          closeModal();
+        }
+      }
+      document
+        .getElementById("professorButton")
+        .addEventListener("click", openModal);
+
+      // Adiciona evento de clique ao document para avançar os diálogos
+      // Adiciona evento de clique ao document para avançar os diálogos
+      document.addEventListener("click", function (event) {
+        // Verifica se o modal está visível E se o clique não foi no botão que abre o modal
+        if (
+          document.getElementById("modal").style.display === "flex" &&
+          !event.target.matches("#professorButton, #botao-sol")
+        ) {
+          advanceDialogue();
+        }
+      });
+
+      // Adiciona evento de teclado para avançar os diálogos com a tecla Enter
+      document.addEventListener("keydown", function (event) {
+        if (
+          event.key === "Enter" &&
+          document.getElementById("modal").style.display === "flex"
+        ) {
+          advanceDialogue();
+        }
+      });
+
+      function changeArrows() {
+        document.getElementById("seta1").src =
+          "assets/images/produtor/setarosa-esquerda.png"; // Muda a seta esquerda para rosa
+        document.getElementById("seta2").src =
+          "assets/images/produtor/setarosa-direita.png"; // Muda a seta direita para rosa
+      }
+    </script>
+  </body>
+</html>

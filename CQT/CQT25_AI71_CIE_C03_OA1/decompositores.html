@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="decompositores.css" />
+    <title>Decompositores</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="titulo-container">
+        <img
+          src="assets/images/decompositores/titulo-decompositor.png"
+          alt="Título"
+          class="titulo-decompositor"
+        />
+      </div>
+
+      <div class="virarTela" id="virarTela">
+        <div class="celular">
+          <img
+            style="width: 120%"
+            src="assets/images/disclaimer.png"
+            alt="Aviso"
+            class="disclaimer"
+          />
+        </div>
+      </div>
+
+      <div class="animais">
+        <div class="animal-container" id="ave-container">
+          <img
+            src="assets/images/decompositores/ave.png"
+            alt="Ave"
+            class="animal"
+            id="ave"
+          />
+        </div>
+        <div class="animal-container" id="puma-container">
+          <img
+            src="assets/images/decompositores/puma.png"
+            alt="Puma"
+            class="animal"
+            id="puma"
+          />
+        </div>
+        <div class="animal-container" id="esquilo-container">
+          <img
+            src="assets/images/decompositores/esquilo.png"
+            alt="Esquilo"
+            class="animal"
+            id="esquilo"
+          />
+        </div>
+        <div class="animal-container" id="cogumelo-container">
+          <img
+            src="assets/images/decompositores/cogumelo.png"
+            alt="Cogumelo"
+            class="animal"
+            id="cogumelo"
+          />
+        </div>
+        <div class="animal-container" id="coelho-container">
+          <img
+            src="assets/images/decompositores/coelho.png"
+            alt="Coelho"
+            class="animal"
+            id="coelho"
+          />
+        </div>
+        <div class="animal-container" id="raposa-container">
+          <img
+            src="assets/images/decompositores/raposa.png"
+            alt="Raposa"
+            class="animal"
+            id="raposa"
+          />
+        </div>
+
+        <div class="setas-e-botoes">
+          <div class="setas">
+            <div class="seta-container" id="seta1-container">
+              <img
+                src="assets/images/decompositores/seta1-branca.png"
+                alt="Seta 1"
+                class="seta"
+                id="seta1"
+              />
+            </div>
+            <div class="seta-container" id="seta2-container">
+              <img
+                src="assets/images/decompositores/seta2-branca.png"
+                alt="Seta 2"
+                class="seta"
+                id="seta2"
+              />
+            </div>
+            <div class="seta-container" id="seta3-container">
+              <img
+                src="assets/images/decompositores/seta3-branca.png"
+                alt="Seta 3"
+                class="seta"
+                id="seta3"
+              />
+            </div>
+            <div class="seta-container" id="seta4-container">
+              <img
+                src="assets/images/decompositores/seta4-branca.png"
+                alt="Seta 4"
+                class="seta"
+                id="seta4"
+              />
+            </div>
+            <div class="seta-container" id="seta5-container">
+              <img
+                src="assets/images/decompositores/seta5-branca.png"
+                alt="Seta 5"
+                class="seta"
+                id="seta5"
+              />
+            </div>
+            <div class="seta-container" id="seta6-container">
+              <img
+                src="assets/images/decompositores/seta6-branca.png"
+                alt="Seta 6"
+                class="seta"
+                id="seta6"
+              />
+            </div>
+            <div class="seta-container" id="seta7-container">
+              <img
+                src="assets/images/decompositores/seta7-branca.png"
+                alt="Seta 7"
+                class="seta"
+                id="seta7"
+              />
+            </div>
+          </div>
+          <div class="botoes">
+            <img
+              src="assets/images/produtor/btn-interaction.png"
+              alt="Interagir com Cogumelo"
+              class="btn-interaction"
+              id="botao-cogumelo"
+              onclick="toggleArrows()"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-container">
+        <img
+          src="assets/images/consumidorsecundario/btn-retornar.png"
+          alt="Retornar"
+          class="btn-retornar"
+          onclick="window.location.href='selecao.html'"
+        />
+      </div>
+    </div>
+
+    <img
+      src="assets/images/professor1.png"
+      alt="Professor"
+      class="professor-button"
+      id="professorButton"
+    />
+
+    <div class="overlay" id="overlay"></div>
+    <div class="modal" id="modal">
+      <div class="modal-content" id="modalContent">
+        <div class="left-container">
+          <div class="dialogue" id="dialogo"></div>
+          <button class="next-button" id="nextButton">
+            CLIQUE para continuar
+          </button>
+        </div>
+        <div class="right-container">
+          <img
+            src="assets/images/professor1.png"
+            alt="Professor"
+            class="professor-image"
+          />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function resetArrows() {
+        const arrows = [
+          "seta1",
+          "seta2",
+          "seta3",
+          "seta4",
+          "seta5",
+          "seta6",
+          "seta7",
+        ];
+        arrows.forEach((arrowId) => {
+          const arrow = document.getElementById(arrowId);
+          if (arrow.src.includes("rosa")) {
+            arrow.src = arrow.src.replace("rosa", "branca");
+          }
+        });
+      }
+
+      function toggleArrows() {
+        const arrow1 = document.getElementById("seta1");
+        const arrow2 = document.getElementById("seta2");
+        const arrow3 = document.getElementById("seta3");
+        const arrow4 = document.getElementById("seta4");
+        const arrow5 = document.getElementById("seta5");
+        const arrow6 = document.getElementById("seta6");
+        const arrow7 = document.getElementById("seta7");
+        if (arrow1.src.includes("rosa") || arrow2.src.includes("rosa")) {
+          resetArrows(); // Desativa se já estiver ativo
+        } else {
+          resetArrows(); // Redefine todas as setas
+          toggleArrow("seta1", "seta1-branca.png", "seta1-rosa.png");
+          toggleArrow("seta2", "seta2-branca.png", "seta2-rosa.png");
+          toggleArrow("seta3", "seta3-branca.png", "seta3-rosa.png");
+          toggleArrow("seta4", "seta4-branca.png", "seta4-rosa.png");
+          toggleArrow("seta5", "seta5-branca.png", "seta5-rosa.png");
+          toggleArrow("seta6", "seta6-branca.png", "seta6-rosa.png");
+          toggleArrow("seta7", "seta7-branca.png", "seta7-rosa.png");
+        }
+      }
+
+      function toggleArrow(arrowId, whiteImage, pinkImage) {
+        const arrow = document.getElementById(arrowId);
+        if (arrow.src.includes("branca")) {
+          arrow.src = arrow.src.replace("branca", "rosa");
+        } else {
+          arrow.src = arrow.src.replace("rosa", "branca");
+        }
+      }
+
+      // Função para fazer o botão piscar
+      function startBlinking(button) {
+        const btnImage = button; // A imagem é o próprio botão
+        let imageIndex = 0; // Controla qual imagem está sendo exibida
+        const images = [
+          "assets/images/btn1-interaction.png",
+          "assets/images/btn2-interaction.png",
+          "assets/images/btn3-interaction.png",
+          "assets/images/btn4-interaction.png",
+          "assets/images/btn5-interaction.png",
+          "assets/images/btn6-interaction.png",
+          "assets/images/btn7-interaction.png",
+          "assets/images/btn8-interaction.png",
+          "assets/images/btn9-interaction.png",
+          "assets/images/btn10-interaction.png",
+          "assets/images/btn11-interaction.png",
+          "assets/images/btn12-interaction.png",
+        ];
+
+        setInterval(() => {
+          btnImage.src = images[imageIndex]; // Altera para a próxima imagem
+          imageIndex = (imageIndex + 1) % images.length; // Incrementa o índice e volta ao início se necessário
+        }, 100); // Altera a cada 100 milissegundos
+      }
+
+      // Inicia o piscar para todos os botões de interação
+      const interactionButtons = document.querySelectorAll(".btn-interaction");
+      interactionButtons.forEach((button) => startBlinking(button));
+
+      const dialogues = [
+        "Os decompositores desempenham um papel vital na cadeia alimentar e no ecossistema como um todo. Eles são organismos que transformam a matéria orgânica, como folhas, plantas e até mesmo animais mortos, em nutrientes essenciais que retornam ao solo.",
+        "Os principais decompositores são os fungos e as bactérias. Quando uma planta ou um animal morre, os decompositores se alimentam dessa matéria orgânica, utilizando-a como fonte de energia. Pode-se dizer, portanto, que eles “reciclam” os nutrientes na natureza.",
+        "Afinal, ao decompor a matéria orgânica, esses organismos liberam nutrientes, como nitrogênio, fósforo e potássio, de volta ao solo. Isso é essencial para o crescimento das plantas, que utilizam esses nutrientes durante a fotossíntese.",
+        "Sem os decompositores, o acúmulo de matéria orgânica morta poderia causar problemas no ambiente, como a escassez de nutrientes disponíveis para as plantas. Eles ajudam a manter o equilíbrio do ecossistema, permitindo que as novas gerações de plantas cresçam saudáveis.",
+        "Os decompositores fecham um ciclo, ligando o final de uma vida ao início de outra. Ao decompor restos orgânicos, eles garantem que a energia e os nutrientes sejam reutilizados, sustentando toda a rede alimentar.",
+        "Juntos, produtores, consumidores e decompositores formam um sistema interconectado e equilibrado, no qual cada organismo desempenha um papel fundamental para a manutenção da vida.",
+        "A teia alimentar é, portanto, uma rede complexa e interconectada. Cada nível depende do anterior para sobreviver. Se um nível for afetado, todo o sistema pode sofrer consequências.",
+        "Desse modo, os seres vivos garantem a transferência de energia, a saúde das populações e a diversidade da vida na Terra.",
+      ];
+
+      let currentDialogueIndex = 0; // Índice do diálogo atual
+
+      function openModal() {
+        document.getElementById("dialogo").innerText =
+          dialogues[currentDialogueIndex];
+        document.getElementById("modal").style.display = "flex";
+        document.getElementById("overlay").style.display = "block"; // Exibe o overlay
+      }
+
+      function closeModal() {
+        document.getElementById("modal").style.display = "none";
+        document.getElementById("overlay").style.display = "none"; // Oculta o overlay
+        currentDialogueIndex = 0; // Reseta o índice ao fechar o modal
+      }
+
+      // Função para avançar os diálogos
+      function advanceDialogue() {
+        currentDialogueIndex++;
+        if (currentDialogueIndex < dialogues.length) {
+          // Atualiza o texto do diálogo
+          document.getElementById("dialogo").innerText =
+            dialogues[currentDialogueIndex];
+
+          // Atualiza a imagem do professor (alterna entre 1, 2 e 3)
+          const professorNumber = (currentDialogueIndex % 3) + 1;
+          document.querySelector(
+            ".professor-image"
+          ).src = `assets/images/professor${professorNumber}.png`;
+        } else {
+          closeModal();
+        }
+      }
+      document
+        .getElementById("professorButton")
+        .addEventListener("click", openModal);
+
+      // Adiciona evento de clique ao document para avançar os diálogos
+      // Adiciona evento de clique ao document para avançar os diálogos
+      document.addEventListener("click", function (event) {
+        // Verifica se o modal está visível E se o clique não foi no botão que abre o modal
+        if (
+          document.getElementById("modal").style.display === "flex" &&
+          !event.target.matches("#professorButton, #botao-sol")
+        ) {
+          advanceDialogue();
+        }
+      });
+
+      // Adiciona evento de teclado para avançar os diálogos com a tecla Enter
+      document.addEventListener("keydown", function (event) {
+        if (
+          event.key === "Enter" &&
+          document.getElementById("modal").style.display === "flex"
+        ) {
+          advanceDialogue();
+        }
+      });
+    </script>
+  </body>
+</html>

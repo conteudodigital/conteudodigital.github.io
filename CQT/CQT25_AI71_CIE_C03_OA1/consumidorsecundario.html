@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="consumidorsecundario.css" />
+    <title>Consumidores Secundários</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="titulo-container">
+        <img
+          src="assets/images/consumidorsecundario/titulo-consumidor2.png"
+          alt="Título"
+          class="titulo-consumidor"
+        />
+      </div>
+
+      <div class="virarTela" id="virarTela">
+        <div class="celular">
+          <img
+            style="width: 120%"
+            src="assets/images/disclaimer.png"
+            alt="Aviso"
+            class="disclaimer"
+          />
+        </div>
+      </div>
+
+      <div class="animais">
+        <div class="animal-container" id="ave-container">
+          <img
+            src="assets/images/consumidorsecundario/ave.png"
+            alt="Ave"
+            class="animal"
+            id="ave"
+          />
+        </div>
+        <div class="animal-container" id="puma-container">
+          <img
+            src="assets/images/consumidorsecundario/puma.png"
+            alt="Puma"
+            class="animal"
+            id="puma"
+          />
+        </div>
+        <div class="animal-container" id="esquilo1-container">
+          <img
+            src="assets/images/consumidorsecundario/esquilo1.png"
+            alt="Esquilo 1"
+            class="animal"
+            id="esquilo1"
+          />
+        </div>
+        <div class="animal-container" id="esquilo2-container">
+          <img
+            src="assets/images/consumidorsecundario/esquilo2.png"
+            alt="Esquilo 2"
+            class="animal"
+            id="esquilo2"
+          />
+        </div>
+        <div class="animal-container" id="coelho-container">
+          <img
+            src="assets/images/consumidorsecundario/coelho.png"
+            alt="Coelho"
+            class="animal"
+            id="coelho"
+          />
+        </div>
+        <div class="animal-container" id="raposa-container">
+          <img
+            src="assets/images/consumidorsecundario/raposa.png"
+            alt="Raposa"
+            class="animal"
+            id="raposa"
+          />
+        </div>
+
+        <div class="setas-e-botoes">
+          <div class="setas">
+            <div class="seta-container" id="seta1-container">
+              <img
+                src="assets/images/consumidorsecundario/seta1-branca.png"
+                alt="Seta 1"
+                class="seta"
+                id="seta1"
+              />
+            </div>
+            <div class="seta-container" id="seta2-container">
+              <img
+                src="assets/images/consumidorsecundario/seta2-branca.png"
+                alt="Seta 2"
+                class="seta"
+                id="seta2"
+              />
+            </div>
+            <div class="seta-container" id="seta3-container">
+              <img
+                src="assets/images/consumidorsecundario/seta3-branca.png"
+                alt="Seta 3"
+                class="seta"
+                id="seta3"
+              />
+            </div>
+            <div class="seta-container" id="seta4-container">
+              <img
+                src="assets/images/consumidorsecundario/seta4-branca.png"
+                alt="Seta 4"
+                class="seta"
+                id="seta4"
+              />
+            </div>
+            <div class="seta-container" id="seta5-container">
+              <img
+                src="assets/images/consumidorsecundario/seta5-branca.png"
+                alt="Seta 5"
+                class="seta"
+                id="seta5"
+              />
+            </div>
+            <div class="seta-container" id="seta6-container">
+              <img
+                src="assets/images/consumidorsecundario/seta6-branca.png"
+                alt="Seta 6"
+                class="seta"
+                id="seta6"
+              />
+            </div>
+          </div>
+          <div class="botoes">
+            <img
+              src="assets/images/produtor/btn-interaction.png"
+              alt="Interagir com Raposa"
+              class="btn-interaction"
+              id="botao-raposa"
+              onclick="toggleFoxArrows()"
+            />
+            <img
+              src="assets/images/produtor/btn-interaction.png"
+              alt="Interagir com Ave"
+              class="btn-interaction"
+              id="botao-ave"
+              onclick="toggleBirdArrows()"
+            />
+            <img
+              src="assets/images/produtor/btn-interaction.png"
+              alt="Interagir com Puma"
+              class="btn-interaction"
+              id="botao-puma"
+              onclick="togglePumaArrows()"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-container">
+        <img
+          src="assets/images/consumidorsecundario/btn-retornar.png"
+          alt="Retornar"
+          class="btn-retornar"
+          onclick="window.location.href='selecao.html'"
+        />
+      </div>
+    </div>
+
+    <img
+      src="assets/images/professor1.png"
+      alt="Professor"
+      class="professor-button"
+      id="professorButton"
+    />
+
+    <div class="overlay" id="overlay"></div>
+    <div class="modal" id="modal">
+      <div class="modal-content" id="modalContent">
+        <div class="left-container">
+          <div class="dialogue" id="dialogo"></div>
+          <button class="next-button" id="nextButton">
+            CLIQUE para continuar
+          </button>
+        </div>
+        <div class="right-container">
+          <img
+            src="assets/images/professor1.png"
+            alt="Professor"
+            class="professor-image"
+          />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function resetArrows() {
+        const arrows = ["seta1", "seta2", "seta3", "seta4", "seta5", "seta6"];
+        arrows.forEach((arrowId) => {
+          const arrow = document.getElementById(arrowId);
+          if (arrow.src.includes("rosa")) {
+            arrow.src = arrow.src.replace("rosa", "branca");
+          }
+        });
+      }
+
+      function toggleFoxArrows() {
+        const arrow1 = document.getElementById("seta1");
+        const arrow2 = document.getElementById("seta2");
+        if (arrow1.src.includes("rosa") || arrow2.src.includes("rosa")) {
+          resetArrows(); // Desativa se já estiver ativo
+        } else {
+          resetArrows(); // Redefine todas as setas
+          toggleArrow("seta1", "seta1-branca.png", "seta1-rosa.png");
+          toggleArrow("seta2", "seta2-branca.png", "seta2-rosa.png");
+        }
+      }
+
+      function toggleBirdArrows() {
+        const arrow3 = document.getElementById("seta5");
+        const arrow4 = document.getElementById("seta4");
+        if (arrow3.src.includes("rosa") || arrow4.src.includes("rosa")) {
+          resetArrows(); // Desativa se já estiver ativo
+        } else {
+          resetArrows(); // Redefine todas as setas
+          toggleArrow("seta5", "seta5-branca.png", "seta5-rosa.png");
+          toggleArrow("seta4", "seta4-branca.png", "seta4-rosa.png");
+        }
+      }
+
+      function togglePumaArrows() {
+        const arrow5 = document.getElementById("seta3");
+        const arrow6 = document.getElementById("seta6");
+        if (arrow5.src.includes("rosa") || arrow6.src.includes("rosa")) {
+          resetArrows(); // Desativa se já estiver ativo
+        } else {
+          resetArrows(); // Redefine todas as setas
+          toggleArrow("seta3", "seta3-branca.png", "seta3-rosa.png");
+          toggleArrow("seta6", "seta6-branca.png", "seta6-rosa.png");
+        }
+      }
+
+      function toggleArrow(arrowId, whiteImage, pinkImage) {
+        const arrow = document.getElementById(arrowId);
+        if (arrow.src.includes("branca")) {
+          arrow.src = arrow.src.replace("branca", "rosa");
+        } else {
+          arrow.src = arrow.src.replace("rosa", "branca");
+        }
+      }
+
+      // Função para fazer o botão piscar
+      function startBlinking(button) {
+        const btnImage = button; // A imagem é o próprio botão
+        let imageIndex = 0; // Controla qual imagem está sendo exibida
+        const images = [
+          "assets/images/btn1-interaction.png",
+          "assets/images/btn2-interaction.png",
+          "assets/images/btn3-interaction.png",
+          "assets/images/btn4-interaction.png",
+          "assets/images/btn5-interaction.png",
+          "assets/images/btn6-interaction.png",
+          "assets/images/btn7-interaction.png",
+          "assets/images/btn8-interaction.png",
+          "assets/images/btn9-interaction.png",
+          "assets/images/btn10-interaction.png",
+          "assets/images/btn11-interaction.png",
+          "assets/images/btn12-interaction.png",
+        ];
+
+        setInterval(() => {
+          btnImage.src = images[imageIndex]; // Altera para a próxima imagem
+          imageIndex = (imageIndex + 1) % images.length; // Incrementa o índice e volta ao início se necessário
+        }, 100); // Altera a cada 100 milissegundos
+      }
+
+      // Inicia o piscar para todos os botões de interação
+      const interactionButtons = document.querySelectorAll(".btn-interaction");
+      interactionButtons.forEach((button) => startBlinking(button));
+
+      const dialogues = [
+        "Os consumidores secundários e terciários desempenham papéis tão importantes quanto os de consumidores primários na cadeia alimentar. Esse grupo é composto de carnívoros que se alimentam de consumidores primários (herbívoros), como raposas, felinos e aves de rapina.",
+        "Esses predadores ajudam a controlar as populações de herbívoros, garantindo que não haja superpopulação, o que poderia prejudicar o crescimento das plantas.",
+        "Ao se alimentarem dos consumidores primários, os consumidores secundários também transferem a energia que obtiveram das plantas para os níveis superiores da cadeia.",
+        "Eles são essenciais para manter a saúde do ecossistema, pois a presença de predadores pode estimular a diversidade entre as populações de herbívoros, fazendo com que eles se espalhem e se alimentem de diferentes tipos de plantas.",
+        "Sendo assim, os consumidores secundários ocupam o terceiro nível trófico.",
+      ];
+
+      let currentDialogueIndex = 0; // Índice do diálogo atual
+
+      function openModal() {
+        document.getElementById("dialogo").innerText =
+          dialogues[currentDialogueIndex];
+        document.getElementById("modal").style.display = "flex";
+        document.getElementById("overlay").style.display = "block"; // Exibe o overlay
+      }
+
+      function closeModal() {
+        document.getElementById("modal").style.display = "none";
+        document.getElementById("overlay").style.display = "none"; // Oculta o overlay
+        currentDialogueIndex = 0; // Reseta o índice ao fechar o modal
+      }
+
+      // Função para avançar os diálogos
+      function advanceDialogue() {
+        currentDialogueIndex++;
+        if (currentDialogueIndex < dialogues.length) {
+          // Atualiza o texto do diálogo
+          document.getElementById("dialogo").innerText =
+            dialogues[currentDialogueIndex];
+
+          // Atualiza a imagem do professor (alterna entre 1, 2 e 3)
+          const professorNumber = (currentDialogueIndex % 3) + 1;
+          document.querySelector(
+            ".professor-image"
+          ).src = `assets/images/professor${professorNumber}.png`;
+        } else {
+          closeModal();
+        }
+      }
+      document
+        .getElementById("professorButton")
+        .addEventListener("click", openModal);
+
+      // Adiciona evento de clique ao document para avançar os diálogos
+      // Adiciona evento de clique ao document para avançar os diálogos
+      document.addEventListener("click", function (event) {
+        // Verifica se o modal está visível E se o clique não foi no botão que abre o modal
+        if (
+          document.getElementById("modal").style.display === "flex" &&
+          !event.target.matches("#professorButton, #botao-sol")
+        ) {
+          advanceDialogue();
+        }
+      });
+
+      // Adiciona evento de teclado para avançar os diálogos com a tecla Enter
+      document.addEventListener("keydown", function (event) {
+        if (
+          event.key === "Enter" &&
+          document.getElementById("modal").style.display === "flex"
+        ) {
+          advanceDialogue();
+        }
+      });
+    </script>
+  </body>
+</html>

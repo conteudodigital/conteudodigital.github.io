@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="consumidorprimario.css" />
+    <title>Consumidores Primários</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="titulo-container">
+        <img
+          src="assets/images/consumidorprimario/titulo-consumidor1.png"
+          alt="Título"
+          class="titulo-consumidor"
+        />
+      </div>
+
+      <div class="virarTela" id="virarTela">
+        <div class="celular">
+          <img
+            style="width: 120%"
+            src="assets/images/disclaimer.png"
+            alt="Aviso"
+            class="disclaimer"
+          />
+        </div>
+      </div>
+
+      <div class="animais">
+        <div class="animal-container" id="coelho-container">
+          <img
+            src="assets/images/consumidorprimario/coelho.png"
+            alt="Coelho"
+            class="animal"
+            id="coelho"
+          />
+        </div>
+        <div class="animal-container" id="esquilo-container">
+          <img
+            src="assets/images/consumidorprimario/esquilo.png"
+            alt="Esquilo"
+            class="animal"
+            id="esquilo"
+          />
+        </div>
+
+        <div class="setas-e-botoes">
+          <div class="setas">
+            <div class="seta-container" id="seta1-container">
+              <img
+                src="assets/images/consumidorprimario/seta1-branca.png"
+                alt="Seta 1"
+                class="seta"
+                id="seta1"
+              />
+            </div>
+            <div class="seta-container" id="seta2-container">
+              <img
+                src="assets/images/consumidorprimario/seta2-branca.png"
+                alt="Seta 2"
+                class="seta"
+                id="seta2"
+              />
+            </div>
+            <div class="seta-container" id="seta3-container">
+              <img
+                src="assets/images/consumidorprimario/seta3-branca.png"
+                alt="Seta 3"
+                class="seta"
+                id="seta3"
+              />
+            </div>
+            <div class="seta-container" id="seta4-container">
+              <img
+                src="assets/images/consumidorprimario/seta4-branca.png"
+                alt="Seta 4"
+                class="seta"
+                id="seta4"
+              />
+            </div>
+            <img
+              src="assets/images/produtor/btn-interaction.png"
+              alt="Interagir com Esquilo"
+              class="btn-interaction"
+              id="botao-esquilo"
+            />
+            <img
+              src="assets/images/produtor/btn-interaction.png"
+              alt="Interagir com Coelho"
+              class="btn-interaction"
+              id="botao-coelho"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-container">
+        <img
+          src="assets/images/consumidorprimario/btn-retornar.png"
+          alt="Retornar"
+          class="btn-retornar"
+          onclick="window.location.href='selecao.html'"
+        />
+      </div>
+
+      <img
+        src="assets/images/professor1.png"
+        alt="Professor"
+        class="professor-button"
+        id="professorButton"
+      />
+
+      <div class="overlay" id="overlay"></div>
+      <div class="modal" id="modal">
+        <div class="modal-content" id="modalContent">
+          <div class="left-container">
+            <div class="dialogue" id="dialogo"></div>
+            <button class="next-button" id="nextButton">
+              CLIQUE para continuar
+            </button>
+          </div>
+          <div class="right-container">
+            <img
+              src="assets/images/professor1.png"
+              alt="Professor"
+              class="professor-image"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Função para alternar a cor das setas
+      function toggleArrow(arrowId, whiteSrc, pinkSrc) {
+        const arrow = document.getElementById(arrowId);
+        // Alterna entre as imagens
+        if (arrow.src.includes(whiteSrc)) {
+          arrow.src = arrow.src.replace(whiteSrc, pinkSrc);
+        } else {
+          arrow.src = arrow.src.replace(pinkSrc, whiteSrc);
+        }
+      }
+
+      // Adicione eventos de clique para as imagens dos botões
+      document
+        .getElementById("botao-coelho")
+        .addEventListener("click", function () {
+          // Desativar setas do esquilo
+          document.getElementById("seta1").src =
+            "assets/images/consumidorprimario/seta1-branca.png";
+          document.getElementById("seta4").src =
+            "assets/images/consumidorprimario/seta4-branca.png";
+
+          // Ativar setas do coelho
+          toggleArrow("seta2", "seta2-branca.png", "seta2-rosa.png");
+          toggleArrow("seta3", "seta3-branca.png", "seta3-rosa.png");
+        });
+
+      document
+        .getElementById("botao-esquilo")
+        .addEventListener("click", function () {
+          // Desativar setas do coelho
+          document.getElementById("seta2").src =
+            "assets/images/consumidorprimario/seta2-branca.png";
+          document.getElementById("seta3").src =
+            "assets/images/consumidorprimario/seta3-branca.png";
+
+          // Ativar setas do esquilo
+          toggleArrow("seta1", "seta1-branca.png", "seta1-rosa.png");
+          toggleArrow("seta4", "seta4-branca.png", "seta4-rosa.png");
+        });
+
+      // Função para fazer o botão piscar
+      function startBlinking(button) {
+        const btnImage = button; // A imagem é o próprio botão
+        let imageIndex = 0; // Controla qual imagem está sendo exibida
+        const images = [
+          "assets/images/btn1-interaction.png",
+          "assets/images/btn2-interaction.png",
+          "assets/images/btn3-interaction.png",
+          "assets/images/btn4-interaction.png",
+          "assets/images/btn5-interaction.png",
+          "assets/images/btn6-interaction.png",
+          "assets/images/btn7-interaction.png",
+          "assets/images/btn8-interaction.png",
+          "assets/images/btn9-interaction.png",
+          "assets/images/btn10-interaction.png",
+          "assets/images/btn11-interaction.png",
+          "assets/images/btn12-interaction.png",
+        ];
+
+        setInterval(() => {
+          btnImage.src = images[imageIndex]; // Altera para a próxima imagem
+          imageIndex = (imageIndex + 1) % images.length; // Incrementa o índice e volta ao início se necessário
+        }, 100); // Altera a cada 500 milissegundos (0.5 segundos)
+      }
+
+      // Inicia o piscar para todos os botões de interação
+      const interactionButtons = document.querySelectorAll(".btn-interaction");
+      interactionButtons.forEach((button) => startBlinking(button));
+
+      // Textos sobre consumidores primários
+      const dialogues = [
+        "Os consumidores primários são os organismos que se alimentam diretamente dos produtores, ou seja, das plantas. Eles desempenham um papel importante na cadeia alimentar, pois conectam a energia capturada pela fotossíntese ao restante do ecossistema.",
+        "Os consumidores primários são, na sua maioria, herbívoros. Isso inclui uma variedade de animais, como coelhos, esquilos, girafas, vacas, gafanhotos e muitos outros.",
+        "Esses animais se alimentam de folhas, frutas, sementes e outras partes das plantas, obtendo assim a energia e os nutrientes necessários para crescer e se reproduzir",
+        "Os consumidores primários são fundamentais por várias razões: 1. Eles transferem a energia armazenada nas plantas para os níveis seguintes da cadeia alimentar, como os consumidores secundários (carnívoros que se alimentam de herbívoros).",
+        "2. Ao se alimentarem das plantas, esses consumidores ajudam a manter o equilíbrio do ecossistema. Se não houvesse consumidores primários, as populações de plantas poderiam crescer descontroladamente, o que poderia prejudicar a diversidade de outras espécies.",
+        "3. Quando os consumidores primários se alimentam das plantas, eles também contribuem para a decomposição e ciclagem de nutrientes. 4. Eles garantem que a energia capturada pela fotossíntese chegue aos níveis superiores da cadeia, mantendo a dinâmica dos ecossistemas e contribuindo para a biodiversidade da Terra.",
+        "Sem eles, o ciclo de energia que sustenta a vida não funcionaria. Sendo assim, os consumidores primários ocupam o segundo nível trófico.",
+      ];
+
+      let currentDialogueIndex = 0; // Índice do diálogo atual
+
+      function openModal() {
+        document.getElementById("dialogo").innerText =
+          dialogues[currentDialogueIndex];
+        document.getElementById("modal").style.display = "flex";
+        document.getElementById("overlay").style.display = "block"; // Exibe o overlay
+      }
+
+      function closeModal() {
+        document.getElementById("modal").style.display = "none";
+        document.getElementById("overlay").style.display = "none"; // Oculta o overlay
+        currentDialogueIndex = 0; // Reseta o índice ao fechar o modal
+      }
+
+      // Função para avançar os diálogos
+      function advanceDialogue() {
+        currentDialogueIndex++;
+        if (currentDialogueIndex < dialogues.length) {
+          // Atualiza o texto do diálogo
+          document.getElementById("dialogo").innerText =
+            dialogues[currentDialogueIndex];
+
+          // Atualiza a imagem do professor (alterna entre 1, 2 e 3)
+          const professorNumber = (currentDialogueIndex % 3) + 1;
+          document.querySelector(
+            ".professor-image"
+          ).src = `assets/images/professor${professorNumber}.png`;
+        } else {
+          closeModal();
+        }
+      }
+      document
+        .getElementById("professorButton")
+        .addEventListener("click", openModal);
+
+      // Adiciona evento de clique ao document para avançar os diálogos
+      // Adiciona evento de clique ao document para avançar os diálogos
+      document.addEventListener("click", function (event) {
+        // Verifica se o modal está visível E se o clique não foi no botão que abre o modal
+        if (
+          document.getElementById("modal").style.display === "flex" &&
+          !event.target.matches("#professorButton, #botao-sol")
+        ) {
+          advanceDialogue();
+        }
+      });
+
+      // Adiciona evento de teclado para avançar os diálogos com a tecla Enter
+      document.addEventListener("keydown", function (event) {
+        if (
+          event.key === "Enter" &&
+          document.getElementById("modal").style.display === "flex"
+        ) {
+          advanceDialogue();
+        }
+      });
+    </script>
+  </body>
+</html>

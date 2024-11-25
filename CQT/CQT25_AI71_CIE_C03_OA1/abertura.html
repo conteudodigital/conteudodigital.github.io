@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abertura - A Grande Guerra</title>
+    <link rel="stylesheet" href="abertura.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Adicione aqui o conteúdo específico da sua página de abertura -->
+    </div>
+
+    <img
+      src="assets/images/professor1.png"
+      alt="Professor"
+      class="professor-button"
+      id="professorButton"
+      style="
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 60px;
+        cursor: pointer;
+        display: none;
+      "
+    />
+
+    <div class="overlay" id="overlay"></div>
+    <div class="modal" id="modal">
+      <div class="modal-content" id="modalContent">
+        <div class="left-container">
+          <div class="dialogue" id="dialogo"></div>
+          <button class="next-button" id="nextButton">
+            CLIQUE para continuar
+          </button>
+        </div>
+        <div class="right-container">
+          <img
+            src="assets/images/professor1.png"
+            alt="Professor"
+            class="professor-image"
+          />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const dialogues = [
+        "Entender cadeias e teias alimentares é importante para proteger o meio ambiente. Cada espécie cumpre seu papel e, se uma delas for afetada, toda a rede pode ser comprometida. Vamos entender um pouco melhor sobre isso na prática?",
+        "A seguir você encontrará alguns cenários com diferentes seres vivos. Interaja com as relações alimentares que ocorrerão entre eles e observe o fluxo de energia no ecossistema.",
+        "Se quiser saber mais sobre o assunto abordado nos fluxos selecionados, clique sobre o ícone da 'conversa com o professor' e eu vou aparecer novamente para te explicar o assunto em detalhes!",
+      ];
+
+      let currentDialogueIndex = 0;
+
+      function openModal() {
+        document.getElementById("dialogo").innerText =
+          dialogues[currentDialogueIndex];
+        document.getElementById("modal").style.display = "flex";
+        document.getElementById("overlay").style.display = "block";
+      }
+
+      function closeModal() {
+        document.getElementById("modal").style.display = "none";
+        document.getElementById("overlay").style.display = "none";
+        currentDialogueIndex = 0;
+      }
+
+      function advanceDialogue() {
+        currentDialogueIndex++;
+        if (currentDialogueIndex < dialogues.length) {
+          document.getElementById("dialogo").innerText =
+            dialogues[currentDialogueIndex];
+          const professorNumber = (currentDialogueIndex % 3) + 1;
+          document.querySelector(
+            ".professor-image"
+          ).src = `assets/images/professor${professorNumber}.png`;
+        } else {
+          window.location.href = "selecao.html";
+        }
+      }
+
+      document
+        .getElementById("professorButton")
+        .addEventListener("click", openModal);
+
+      document.addEventListener("click", function (event) {
+        if (
+          document.getElementById("modal").style.display === "flex" &&
+          !event.target.matches("#professorButton")
+        ) {
+          advanceDialogue();
+        }
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (
+          event.key === "Enter" &&
+          document.getElementById("modal").style.display === "flex"
+        ) {
+          advanceDialogue();
+        }
+      });
+
+      // Abre o modal automaticamente quando a página carrega
+      window.addEventListener("load", openModal);
+    </script>
+  </body>
+</html>

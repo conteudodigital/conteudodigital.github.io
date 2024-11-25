@@ -1,0 +1,373 @@
+body {
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+  background-image: url("assets/images/consumidorprimario/background-consumidor1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  position: relative;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.titulo-container {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 3%;
+  width: 100%;
+}
+
+.titulo-consumidor {
+  width: 40%;
+  height: auto;
+}
+
+.animais {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.animal-container {
+  position: absolute;
+}
+
+.animal {
+  width: 10vw;
+  height: auto;
+}
+
+#coelho-container {
+  left: 50%;
+  top: 75%;
+  transform: translate(-50%, -50%);
+}
+
+#esquilo-container {
+  left: 25%;
+  top: 15%;
+}
+
+.setas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.seta-container {
+  position: absolute;
+}
+
+#seta1-container {
+  left: 33%;
+  top: 26%;
+}
+
+#seta2-container {
+  left: 52%;
+  top: 53%;
+}
+
+#seta3-container {
+  left: 35%;
+  top: 59%;
+}
+
+#seta4-container {
+  left: 20%;
+  top: 35%;
+}
+
+.btn-container {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.btn-retornar {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-retornar:hover {
+  transform: scale(1.1);
+}
+
+.btn-interaction {
+  position: absolute;
+  z-index: 50; /* Maior que qualquer seta */
+  pointer-events: auto; /* Garante que o botão receba eventos de clique */
+}
+
+#botao-coelho {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 20;
+}
+
+#botao-esquilo {
+  position: absolute;
+  top: 28%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 20;
+}
+
+.modal {
+  background: #f5e1d3;
+  border-radius: 10px;
+  width: 80% !important;
+  height: 160px !important; /* Reduzido a altura total do modal */
+  z-index: 3000;
+  position: fixed;
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+}
+
+.modal-content {
+  position: relative;
+  width: 100%;
+  height: 120%;
+  display: flex;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.left-container {
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.right-container {
+  flex: 0.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialogue {
+  color: #000;
+  font-family: "Quicksand", sans-serif;
+  font-size: 16px;
+  width: 100%;
+  height: 80px; /* Reduzido a altura do diálogo */
+  overflow-y: none;
+  margin-bottom: 10px; /* Reduzido o espaço entre o diálogo e o botão */
+}
+
+.professor-image {
+  width: 120px;
+  height: auto;
+  transform: translate(50%, -40%);
+}
+
+.next-button {
+  color: #4283aa;
+  font-family: "Quicksand", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 0;
+  margin-left: 0;
+}
+
+.professor-button {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  width: 8%;
+  cursor: pointer;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+.professor-button:hover {
+  transform: scale(1.1);
+}
+
+/* Media Query para telas de 1366px */
+@media (max-width: 1366px) {
+  .seta {
+    width: 10vw; /* Ajuste o tamanho das setas para telas de 1366px */
+  }
+
+  #seta1 {
+    width: 28vw;
+  }
+  #coelho-container {
+    top: 75%; /* Ajuste conforme necessário */
+  }
+
+  #botao-coelho {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 20;
+  }
+
+  #esquilo-container {
+    top: 20%; /* Ajuste conforme necessário */
+    left: 27%;
+  }
+
+  #botao-esquilo {
+    position: absolute;
+    top: 34%;
+    left: 32%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 20;
+  }
+
+  #seta1-container {
+    top: 27%; /* Ajuste conforme necessário */
+    left: 35%;
+  }
+
+  #seta2-container {
+    top: 53%; /* Ajuste conforme necessário */
+  }
+
+  #seta3-container {
+    top: 58%; /* Ajuste conforme necessário */
+  }
+
+  #seta4-container {
+    top: 42%; /* Ajuste conforme necessário */
+    left: 23%;
+  }
+  .btn-container {
+    position: absolute; /* Mantenha a posição absoluta */
+    bottom: 3%; /* Ajuste conforme necessário */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajusta a posição para o centro */
+    width: 15%; /* Ajuste o tamanho do botão se necessário */
+  }
+
+  .btn-retornar {
+    cursor: pointer;
+    transition: transform 0.2s;
+    width: 100%;
+  }
+
+  .btn-retornar:hover {
+    transform: scale(1.1);
+  }
+}
+
+.virarTela {
+  display: none;
+}
+
+@media screen and (max-width: 1100px) and (orientation: portrait) {
+  .virarTela {
+    display: flex;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  .virarTela img {
+    max-width: 90%;
+    max-height: 90%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+/* Media Query para telas inferiores a 1000px (mobile) */
+@media (max-width: 900px) {
+  .seta {
+    width: 12vw; /* Ajuste o tamanho das setas para telas de 1366px */
+  }
+
+  #seta1 {
+    width: 30vw;
+  }
+
+  #coelho-container {
+    top: 73%; /* Ajuste conforme necessário */
+  }
+  #esquilo-container {
+    top: 15%; /* Ajuste conforme necessário */
+  }
+
+  #seta1-container {
+    top: 22%; /* Ajuste conforme necessário */
+  }
+
+  #seta2-container {
+    top: 47%; /* Ajuste conforme necessário */
+  }
+
+  #seta3-container {
+    top: 55%; /* Ajuste conforme necessário */
+    left: 33%;
+  }
+
+  #seta4-container {
+    top: 36%; /* Ajuste conforme necessário */
+  }
+
+  .btn-container {
+    bottom: 3%; /* Ajuste conforme necessário */
+  }
+  #botao-coelho {
+    position: absolute;
+    top: 75%;
+    left: 49%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 20;
+  }
+
+  #botao-esquilo {
+    position: absolute;
+    top: 28%;
+    left: 32%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 20;
+  }
+
+  .next-button {
+    margin-top: 5%;
+  }
+}

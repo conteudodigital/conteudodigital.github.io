@@ -1,0 +1,523 @@
+body {
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+  background-image: url("assets/images/decompositores/background-decompositor.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  position: relative;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.titulo-container {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 3%;
+  width: 100%;
+}
+
+.titulo-decompositor {
+  width: 45%;
+  height: auto;
+}
+
+.animais {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.animal-container {
+  position: absolute;
+}
+
+.animal {
+  width: 100%;
+  height: auto;
+}
+
+#ave-container {
+  width: 10vw;
+  height: auto;
+  left: 20%;
+  top: 14%;
+}
+
+#puma-container {
+  width: 12vw;
+  height: auto;
+  left: 70%;
+  top: 67%;
+}
+
+#esquilo-container {
+  width: 7vw;
+  height: auto;
+  left: 77%;
+  top: 8%;
+}
+
+#cogumelo-container {
+  width: 20vw;
+  height: auto;
+  left: 38%;
+  top: 32%;
+}
+
+#coelho-container {
+  width: 10vw;
+  height: auto;
+  left: 45%;
+  top: 68%;
+}
+
+#raposa-container {
+  width: 15vw;
+  height: auto;
+  left: 22%; /* Posição horizontal */
+  top: 70%; /* Posição vertical */
+}
+
+.setas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.seta-container {
+  position: absolute;
+}
+
+#seta1-container {
+  left: 30%;
+  top: 20%;
+}
+
+#seta2-container {
+  left: 56%;
+  top: 10%;
+}
+
+#seta3-container {
+  left: 59%;
+  top: 28%;
+}
+
+#seta4-container {
+  left: 54%;
+  top: 44%;
+}
+
+#seta5-container {
+  left: 50%;
+  top: 52%;
+}
+
+#seta6-container {
+  left: 35%;
+  top: 55%;
+}
+#seta7-container {
+  left: 21%;
+  top: 46%;
+}
+
+.btn-container {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.btn-retornar {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-retornar:hover {
+  transform: scale(1.1);
+}
+
+.btn-interaction {
+  position: absolute;
+  z-index: 50;
+  pointer-events: auto;
+}
+
+#botao-cogumelo {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-58%, -50%);
+  cursor: pointer;
+  z-index: 20;
+}
+
+.modal {
+  background: #f5e1d3;
+  border-radius: 10px;
+  width: 80% !important;
+  height: 160px !important; /* Reduzido a altura total do modal */
+  z-index: 3000;
+  position: fixed;
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+}
+
+.modal-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.left-container {
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.right-container {
+  flex: 0.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialogue {
+  color: #000;
+  font-family: "Quicksand", sans-serif;
+  font-size: 16px;
+  width: 100%;
+  height: 80px; /* Reduzido a altura do diálogo */
+  overflow-y: none;
+  margin-bottom: 10px; /* Reduzido o espaço entre o diálogo e o botão */
+}
+
+.professor-image {
+  width: 120px;
+  height: auto;
+  transform: translate(50%, -40%);
+}
+
+.next-button {
+  color: #4283aa;
+  font-family: "Quicksand", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 0;
+  margin-left: 0;
+}
+
+.professor-button {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  width: 8%;
+  cursor: pointer;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.professor-button:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 1366px) {
+  .titulo-decompositor {
+    width: 40%;
+    height: auto;
+  }
+  .seta {
+    width: 20vw;
+  }
+  #seta6,
+  #seta1,
+  #seta3,
+  #seta5 {
+    width: 10vw;
+  }
+
+  #seta6 {
+    width: 8vw;
+  }
+
+  #seta2 {
+    width: 16vw;
+  }
+
+  .btn-container {
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15%;
+  }
+
+  .btn-retornar {
+    cursor: pointer;
+    transition: transform 0.2s;
+    width: 100%;
+  }
+
+  .btn-retornar:hover {
+    transform: scale(1.1);
+  }
+
+  #ave-container {
+    width: 10vw;
+    height: auto;
+    left: 20%;
+    top: 14%;
+  }
+
+  #puma-container {
+    width: 12vw;
+    height: auto;
+    left: 70%;
+    top: 67%;
+  }
+
+  #esquilo-container {
+    width: 7vw;
+    height: auto;
+    left: 68%;
+    top: 10%;
+  }
+
+  #cogumelo-container {
+    width: 20vw;
+    height: auto;
+    left: 38%;
+    top: 32%;
+  }
+
+  #coelho-container {
+    width: 10vw;
+    height: auto;
+    left: 45%;
+    top: 68%;
+  }
+
+  #raposa-container {
+    width: 15vw;
+    height: auto;
+    left: 22%; /* Posição horizontal */
+    top: 70%; /* Posição vertical */
+  }
+
+  .setas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .seta-container {
+    position: absolute;
+  }
+
+  #seta1-container {
+    left: 30%;
+    top: 20%;
+  }
+
+  #seta2-container {
+    left: 53%;
+    top: 12%;
+  }
+
+  #seta3-container {
+    left: 59%;
+    top: 28%;
+  }
+
+  #seta4-container {
+    left: 54%;
+    top: 44%;
+  }
+
+  #seta5-container {
+    left: 50%;
+    top: 52%;
+  }
+
+  #seta6-container {
+    left: 35%;
+    top: 55%;
+  }
+  #seta7-container {
+    left: 23%;
+    top: 46%;
+  }
+}
+
+.virarTela {
+  display: none;
+}
+
+@media screen and (max-width: 1100px) and (orientation: portrait) {
+  .virarTela {
+    display: flex;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  .virarTela img {
+    max-width: 90%;
+    max-height: 90%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (max-width: 900px) {
+  .next-button {
+    margin-top: 5%;
+  }
+  .btn-container {
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15%;
+  }
+
+  .btn-retornar {
+    cursor: pointer;
+    transition: transform 0.2s;
+    width: 100%;
+  }
+
+  .btn-retornar:hover {
+    transform: scale(1.1);
+  }
+
+  .titulo-decompositor {
+    width: 55%;
+    height: auto;
+  }
+  #ave-container {
+    width: 10vw;
+    height: auto;
+    left: 20%;
+    top: 18%;
+  }
+
+  #puma-container {
+    width: 12vw;
+    height: auto;
+    left: 70%;
+    top: 67%;
+  }
+
+  #esquilo-container {
+    width: 7vw;
+    height: auto;
+    left: 75%;
+    top: 14%;
+  }
+
+  #cogumelo-container {
+    width: 20vw;
+    height: auto;
+    left: 38%;
+    top: 32%;
+  }
+
+  #coelho-container {
+    width: 10vw;
+    height: auto;
+    left: 45%;
+    top: 68%;
+  }
+
+  #raposa-container {
+    width: 15vw;
+    height: auto;
+    left: 22%; /* Posição horizontal */
+    top: 70%; /* Posição vertical */
+  }
+
+  .setas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .seta-container {
+    position: absolute;
+  }
+
+  #seta2 {
+    width: 19vw;
+  }
+  #seta1-container {
+    left: 30%;
+    top: 20%;
+  }
+
+  #seta2-container {
+    left: 57%;
+    top: 14%;
+  }
+
+  #seta3-container {
+    left: 59%;
+    top: 32%;
+  }
+
+  #seta4-container {
+    left: 54%;
+    top: 44%;
+  }
+
+  #seta5-container {
+    left: 50%;
+    top: 52%;
+  }
+
+  #seta6-container {
+    left: 35%;
+    top: 55%;
+  }
+  #seta7-container {
+    left: 23%;
+    top: 46%;
+  }
+}

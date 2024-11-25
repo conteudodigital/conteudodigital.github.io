@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ciências 7 Ano</title>
+    <link rel="stylesheet" href="intro.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="virarTela" id="virarTela">
+      <div class="celular">
+        <img
+          style="width: 120%"
+          src="assets/images/disclaimer.png"
+          alt="Aviso"
+          class="disclaimer"
+        />
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="title">
+        <img
+          src="assets/images/titulo-iniciar.png"
+          alt="A Grande Guerra"
+          class="title-image"
+        />
+      </div>
+      <div class="btn-container">
+        <a href="abertura.html" class="btn-iniciar">
+          <img
+            src="assets/images/btn-iniciar.png"
+            alt="Iniciar"
+            class="btn-image"
+          />
+        </a>
+      </div>
+    </div>
+
+    <!-- Botão de créditos -->
+    <button class="bts-creditos" id="botaoVoltar">
+      <img
+        src="assets/images/btn-creditos.png"
+        alt="Voltar"
+        class="btn-image"
+      />
+    </button>
+
+    <!-- Modal para exibir a imagem -->
+    <div class="modalCreditos" id="modalCreditos" style="display: none">
+      <div class="modal-content">
+        <img
+          src="assets/images/creditos-cqc.png"
+          alt="Créditos de um material educacional..."
+          class="imagemCreditos"
+        />
+        <span class="botaoFechar" id="botaoFecharModal">&times;</span>
+      </div>
+    </div>
+
+    <!-- Imagem de créditos que aparece atrás do disclaimer -->
+    <img
+      src="assets/images/creditos-cqc.png"
+      alt="Créditos"
+      class="backgroundCreditos"
+      style="display: none"
+    />
+
+    <!-- Imagem de créditos que aparece atrás do disclaimer para mobile -->
+    <div class="backgroundCreditosMobile" style="display: none">
+      <button class="botaoFecharCreditos" id="botaoFecharCreditos">
+        &times;
+      </button>
+      <div class="scroll-container">
+        <img
+          src="assets/images/creditosMobile-cqc.png"
+          alt="Créditos Mobile"
+          class="imagemCreditosMobile"
+        />
+      </div>
+    </div>
+
+    <script>
+      const botaoVoltar = document.getElementById("botaoVoltar");
+      const modalCreditos = document.getElementById("modalCreditos");
+      const botaoFecharModal = document.getElementById("botaoFecharModal");
+      const backgroundCreditos = document.querySelector(".backgroundCreditos");
+      const backgroundCreditosMobile = document.querySelector(
+        ".backgroundCreditosMobile"
+      );
+      const botaoFecharCreditos = document.getElementById(
+        "botaoFecharCreditos"
+      );
+
+      botaoVoltar.addEventListener("click", () => {
+        if (window.innerWidth <= 768) {
+          backgroundCreditosMobile.style.display = "block";
+          backgroundCreditos.style.display = "none";
+          modalCreditos.style.display = "none";
+        } else {
+          modalCreditos.style.display = "flex";
+          backgroundCreditos.style.display = "none";
+          backgroundCreditosMobile.style.display = "none";
+        }
+      });
+
+      botaoFecharModal.addEventListener("click", () => {
+        modalCreditos.style.display = "none";
+      });
+
+      botaoFecharCreditos.addEventListener("click", () => {
+        backgroundCreditosMobile.style.display = "none";
+      });
+
+      window.addEventListener("click", (event) => {
+        if (event.target === modalCreditos) {
+          modalCreditos.style.display = "none";
+        }
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 768) {
+          backgroundCreditos.style.display = "none";
+          backgroundCreditosMobile.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>
