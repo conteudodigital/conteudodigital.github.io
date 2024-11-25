@@ -99,7 +99,7 @@ h1 {
 }
 
 .btn-voltar img {
-  width: 100%;
+  width: 140%;
   height: auto;
 }
 
@@ -142,7 +142,7 @@ h1 {
 .dialogue {
   color: #000;
   font-family: "Quicksand", sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   width: 100%;
   height: 80px; /* Reduzido a altura do diálogo */
   overflow-y: auto;
@@ -222,10 +222,19 @@ h1 {
 }
 
 /* Media Queries para responsividade */
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .container {
     width: 90%; /* Diminuir a largura do container para 90% */
     padding: 15px; /* Ajustar o padding se necessário */
+  }
+  .dialogue {
+    color: #000;
+    font-family: "Quicksand", sans-serif;
+    font-size: 16px;
+    width: 100%;
+    height: 80px; /* Reduzido a altura do diálogo */
+    overflow-y: none;
+    margin-bottom: 10px; /* Reduzido o espaço entre o diálogo e o botão */
   }
 
   h1 {
@@ -244,7 +253,7 @@ h1 {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 1366px) {
   .container {
     width: 95%;
     padding: 15px;

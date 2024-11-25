@@ -63,7 +63,7 @@ body {
 
 #botao2 {
   top: 28%;
-  left: 68%;
+  left: 70%;
 }
 
 .btn-interaction:hover {
@@ -106,7 +106,7 @@ body {
   width: 100%;
   height: 100%;
   display: flex;
-  padding: 20px;
+  padding: 10px 20px;
   box-sizing: border-box;
 }
 
@@ -127,7 +127,7 @@ body {
 .dialogue {
   color: #000;
   font-family: "Quicksand", sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   width: 100%;
   height: 80px; /* Reduzido a altura do diálogo */
   overflow-y: none;
@@ -221,8 +221,23 @@ body {
 .virarTela {
   display: none;
 }
+@media (max-width: 980px) {
+  .next-button {
+    margin-top: 8%;
+  }
+}
 
 @media screen and (max-width: 1100px) and (orientation: portrait) {
+  .dialogue {
+    color: #000;
+    font-family: "Quicksand", sans-serif;
+    font-size: 16px;
+    width: 100%;
+    height: 80px; /* Reduzido a altura do diálogo */
+    overflow-y: none;
+    margin-bottom: 10px; /* Reduzido o espaço entre o diálogo e o botão */
+  }
+
   .virarTela {
     display: flex;
     position: fixed;
@@ -243,9 +258,5 @@ body {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-  }
-
-  .next-button {
-    margin-top: 5%;
   }
 }

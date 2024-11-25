@@ -129,7 +129,7 @@ body {
 .modal {
   background: #f5e1d3;
   border-radius: 10px;
-  width: 80% !important;
+  width: 70% !important;
   height: 160px !important; /* Reduzido a altura total do modal */
   z-index: 3000;
   position: fixed;
@@ -165,7 +165,7 @@ body {
 .dialogue {
   color: #000;
   font-family: "Quicksand", sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   width: 100%;
   height: 80px; /* Reduzido a altura do diálogo */
   overflow-y: none;
@@ -314,6 +314,15 @@ body {
 }
 /* Media Query para telas inferiores a 1000px (mobile) */
 @media (max-width: 900px) {
+  .dialogue {
+    color: #000;
+    font-family: "Quicksand", sans-serif;
+    font-size: 16px;
+    width: 100%;
+    height: 80px; /* Reduzido a altura do diálogo */
+    overflow-y: none;
+    margin-bottom: 10px; /* Reduzido o espaço entre o diálogo e o botão */
+  }
   .seta {
     width: 12vw; /* Ajuste o tamanho das setas para telas de 1366px */
   }

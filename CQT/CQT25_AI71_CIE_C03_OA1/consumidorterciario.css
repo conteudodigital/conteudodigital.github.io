@@ -156,7 +156,7 @@ body {
 .dialogue {
   color: #000;
   font-family: "Quicksand", sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   width: 100%;
   height: 80px; /* Reduzido a altura do diálogo */
   overflow-y: none;
@@ -270,6 +270,15 @@ body {
 }
 
 @media (max-width: 900px) {
+  .dialogue {
+    color: #000;
+    font-family: "Quicksand", sans-serif;
+    font-size: 16px;
+    width: 100%;
+    height: 80px; /* Reduzido a altura do diálogo */
+    overflow-y: none;
+    margin-bottom: 10px; /* Reduzido o espaço entre o diálogo e o botão */
+  }
   .next-button {
     margin-top: 5%;
   }
