@@ -1,0 +1,207 @@
+/* styles.css */
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100%;
+    font-family: "Quicksand";
+    font-size: 21px;
+}
+
+/* Screens */
+.screen {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Start Screen Styling */
+#start-screen {
+    background: url('../assets/background-iniciar.png') no-repeat center center/cover;
+}
+
+.caixaDialogo {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.fundoDialogo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    height: 50%;
+    gap: 10px;
+    position: absolute;
+    background: #F7EEE4;
+    border-radius: 20px;
+}
+
+.imgDialogo {
+    width: 29vh;
+    right: 11vh;
+    top: 20vh;
+    position: absolute;
+}
+
+.textoDialogo {
+    font-family: "Quicksand";
+    width: calc(75vw - 142px);
+    /*porcentagem menos o tamanho da imagem da professora*/
+    font-size: 4.5vh;
+    left: 12vw;
+    top: 30vh;
+    position: absolute;
+}
+.textoDialogoJogo {
+    font-family: "Quicksand";
+    width: calc(75vw - 142px);
+    /*porcentagem menos o tamanho da imagem da professora*/
+    font-size: 4.5vh;
+    left: 12vw;
+    top: 30vh;
+    position: absolute;
+}
+
+.btnDialogo {
+    font-family: "Quicksand";
+    font-size: 4.5vh;
+    width: 60vw;
+    left: 12vw;
+    bottom: 30vh;
+    position: absolute;
+    color: #DE293D;
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px #000;
+}
+
+
+/* Modal Styling */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    z-index: 100;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Black w/ opacity */
+}
+
+.modal-content {
+    position: relative;
+    margin: 3% auto;
+    width: 80%;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+}
+
+.modal-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Game Screen Styling */
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info-btn {
+    position: absolute;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    transform: translate(-50%, -50%);
+}
+
+.top-right-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 8px 16px;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    background-color: #17a2b8;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.top-right-btn:hover {
+    background-color: #138496;
+}
+
+.game-flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.game-absolute-container {
+    height: 100%;
+    aspect-ratio: 16 / 9;
+    position: relative;
+}

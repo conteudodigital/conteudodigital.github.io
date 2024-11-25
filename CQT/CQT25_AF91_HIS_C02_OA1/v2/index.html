@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OED HIS 91 | A Grande Guerra</title>
+    <link rel="stylesheet" href="css/cqt.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome for icons (optional) -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnH1zPqgKzjKlv2Nty6uFktFkLKl18lu2rRWcIqLRe+H74o5B/ANnZjIbSAgf6NsdcoHvpOYg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <!-- Tela inicial -->
+    <div id="start-screen" class="screen">
+        <div class="overlay">
+            <img src="assets/oda-titulo.png" alt="" style="width: 80vw;">
+
+            <button class="btn" id="start-button">
+                <span class="btn-text">INICIAR</span>
+                <span class="btn-icon"><img src="assets/icon-play.png" style="width: 15px;margin-left: 10px;"></span>
+            </button>
+        </div>
+        <button id="credit-button" class="btn-creditos"><img src="assets/icon-info.png" alt=""
+                style="width: 15px;"></button>
+    </div>
+
+    <!-- Creditos Modal -->
+    <div id="credits-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img src="assets/creditos-cqc.png" alt="Credits" class="modal-image">
+        </div>
+    </div>
+    <!-- Tela TUTORIAL-->
+    <div id="tutorial-screen" class="screen hidden">
+        <img src="assets/tutorial-background.png" alt="Battlefield" class="background-image">
+
+        <div class="caixaDialogo">
+            <div class="fundoDialogo"></div>
+            <div class="textoDialogo"></div>
+            <div class="btnDialogo" onclick="continuaDialogoTutorial()"><b>CLIQUE para continuar</b></div>
+            <div class="imgDialogo"><img src="assets/intro1-professora.png" style="width: 100%"></div>
+        </div>
+
+    </div>
+    <!-- Tela JOGO-->
+    <div id="game-screen" class="screen hidden">
+        <div class="game-flex-container">
+            <div class="game-absolute-container">
+                <img src="assets/background-trincheira.png" alt="Battlefield" style="width: 100%; height: 100%; object-fit: cover;">
+                <img id="a1" src="assets/retaguarda.png" alt="Retaguarda" style="display:none;top:33%;left: 5%;position: absolute;width: 35vh;">
+                <img id="b1" src="assets/retaguarda_txt.png" alt="Retaguarda" style="display:none;top:58%;left: 12%;position: absolute;height: 7vh;transform: translate(-50%, -50%);">
+                <button class="info-btn" data-info="1" style="top: 40%; left: 10%;"><img src="assets/pin.png" style="width: 100%;"></button>
+                <img id="a2" src="assets/segunda.png" alt="Segunda Trincheira" style="display:none;top:65%;left: 25%;position: absolute;width: 8vh;">
+                <img id="b2" src="assets/segunda_txt.png" alt="Segunda Trincheira" style="display:none;top:91%;left: 28%;position: absolute;height: 7vh;transform: translate(-50%, -50%);">
+                <button class="info-btn" data-info="2" style="top: 80%; left: 28%;"><img src="assets/pin.png" style="width: 100%;"></button> 
+                <img id="a3" src="assets/tuneis.png" alt="Retaguarda" style="display:none;top:62%;left: 40%;position: absolute;width: 15vh;">
+                <img id="b3" src="assets/tuneis_txt.png" alt="Retaguarda" style="display:none;top:82%;left: 50%;position: absolute;height: 12vh;transform: translate(-50%, -50%);">
+                <button class="info-btn" data-info="3" style="top: 65%; left: 50%;"><img src="assets/pin.png" style="width: 100%;"></button>
+                <img id="a4" src="assets/primeira.png" alt="Retaguarda" style="display:none;top:50%;left: 61%;position: absolute;width: 13vh;">
+                <img id="b4" src="assets/primeira_txt.png" alt="Retaguarda" style="display:none;top:78%;left: 72%;position: absolute;height: 7vh;transform: translate(-50%, -50%);">
+                <button class="info-btn" data-info="4" style="top: 60%; left: 60%;"><img src="assets/pin.png" style="width: 100%;"></button>
+                <img id="a5" src="assets/zonaminada.png" alt="Retaguarda" style="display:none;top:39%;left: 75%;position: absolute;width: 40vh;">
+                <img id="b5" src="assets/zonaminada_txt.png" alt="Retaguarda" style="display:none;top:63%;left: 85%;position: absolute;height: 7vh;transform: translate(-50%, -50%);">
+                <button class="info-btn" data-info="5" style="top: 40%; left: 87%;"><img src="assets/pin.png" style="width: 100%;"></button>
+            </div>
+        </div>
+        
+        
+        <!-- Botao com mais infos no final do jogo -->
+        <button class="btn btn-maisInfo hidden" id="more-info-button">
+            <span class="btn-text">CONHEÇA MAIS</span>
+        </button>
+    </div>
+
+    <!-- Modal Dialogo Jogo-->
+    <div id="info-modal" class="modal">
+        <div class="caixaDialogo">
+            <div class="fundoDialogo"></div>
+            <div class="textoDialogoJogo"></div>
+            <div class="btnDialogo" onclick="continuaDialogo()"><b>CLIQUE para continuar</b></div>
+            <div class="imgDialogo"><img src="assets/intro1-professora.png" style="width: 100%"></div>
+        </div>
+    </div>
+
+    <!-- Modal infos Final -->
+    <div id="more-info-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img src="assets/creditos-cqc.png" alt="Mais informações" class="modal-image">
+        </div>
+    </div>
+
+    <!-- Logica do jogo -->
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

@@ -21,7 +21,7 @@ body {
     background-repeat: no-repeat;
 
 }
-/* Desktop Styles, dependendo da resolução do tablet ou celular pode cair aqui tambem */
+/* Desktop Styles, dependendo da resolução do tablet ou celular pode cair aqui tambem, pode-se detectar a densidade de pixel tbm aqui */
 @media (min-width: 1024px) {
     body {
         background-color: rgb(117, 194, 140), 244, 244;
