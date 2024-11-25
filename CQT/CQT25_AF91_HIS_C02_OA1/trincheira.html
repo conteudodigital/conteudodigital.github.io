@@ -157,11 +157,14 @@
                 <p id="retaguardaText1">
                   Na retaguarda, ficavam as áreas de apoio logístico, onde
                   suprimentos, munições e reforços eram preparados para garantir
-                  a manutenção da linha de frente. Os soldados na retaguarda
-                  desempenhavam um papel essencial, pois sem eles a sustentação
-                  das operações de combate seria impossível.
+                  a manutenção da linha de frente.
                 </p>
                 <p id="retaguardaText2" style="display: none">
+                  Os soldados na retaguarda desempenhavam um papel essencial,
+                  pois sem eles a sustentação das operações de combate seria
+                  impossível.
+                </p>
+                <p id="retaguardaText3" style="display: none">
                   Atrás das linhas de frente, a retaguarda era um pouco mais
                   segura. Ali, os soldados descansavam e se preparavam para a
                   próxima batalha. Mas a tranquilidade era relativa, pois a
@@ -197,11 +200,13 @@
                   Avançando para as segundas trincheiras, havia um nível
                   adicional de defesa. Essas trincheiras estavam posicionadas
                   mais atrás e serviam como uma linha de proteção caso a linha
-                  de frente fosse comprometida. Elas eram mais profundas e
-                  fortificadas, preparadas para abrigar tropas e permitir um
-                  contra-ataque, se necessário.
+                  de frente fosse comprometida.
                 </p>
                 <p id="segundaTrincheiraText2" style="display: none">
+                  Elas eram mais profundas e fortificadas, preparadas para
+                  abrigar tropas e permitir um contra-ataque, se necessário.
+                </p>
+                <p id="segundaTrincheiraText3" style="display: none">
                   Além disso, eram equipadas com abrigos, armazéns de
                   suprimentos e áreas para descanso, proporcionando um espaço
                   onde os soldados podiam se recuperar das difíceis condições de
@@ -234,12 +239,14 @@
             <div class="modal-text">
               <div class="dialogue" id="tunelDialogue">
                 <p id="tunelText1">
-                  Conectando essas áreas, havia os túneis. Esses corredores
-                  subterrâneos permitiam que os soldados se movimentassem de
-                  forma segura entre as trincheiras, evitando a exposição ao
-                  fogo inimigo.
+                  Conectando essas áreas, havia os túneis de comunicação.
                 </p>
                 <p id="tunelText2" style="display: none">
+                  Esses corredores subterrâneos permitiam que os soldados se
+                  movimentassem de forma segura entre as trincheiras, evitando a
+                  exposição ao fogo inimigo.
+                </p>
+                <p id="tunelText3" style="display: none">
                   Além de oferecerem proteção, os túneis funcionavam como
                   sistemas de transporte de munição, alimentos e feridos.
                 </p>
@@ -270,11 +277,14 @@
               <div class="dialogue" id="primeiraTrincheiraDialogue">
                 <p id="primeiraTrincheiraText1">
                   Chegamos à linha de frente, a primeira trincheira. Aqui, os
-                  soldados enfrentavam o horror do combate direto. Esse era o
-                  ponto mais próximo do inimigo, onde as condições eram extremas
-                  e o perigo estava sempre à espreita.
+                  soldados enfrentavam o horror do combate direto.
                 </p>
                 <p id="primeiraTrincheiraText2" style="display: none">
+                  Esse era o ponto mais próximo do inimigo, onde as condições
+                  eram extremas e o perigo estava sempre à espreita.
+                </p>
+
+                <p id="primeiraTrincheiraText3" style="display: none">
                   A coragem era testada diariamente, e a amizade entre os
                   soldados era um pilar fundamental para a sobrevivência.
                 </p>
@@ -306,13 +316,16 @@
                 <p id="zonaMinadaText1">
                   E o que havia entre uma trincheira e outra? Uma faixa de terra
                   devastada, repleta de crateras, arame farpado e, muitas vezes,
-                  minas terrestres. Essa era a chamada “terra de ninguém”, um
-                  lugar perigoso onde os soldados avançavam em ataques.
+                  minas terrestres.
                 </p>
                 <p id="zonaMinadaText2" style="display: none">
+                  Essa era a chamada “terra de ninguém”, um lugar perigoso onde
+                  os soldados avançavam em ataques.
+                </p>
+                <p id="zonaMinadaText3" style="display: none">
                   Esses terrenos minados e abandonados se transformaram em um
                   cenário de desolação, onde qualquer movimento poderia ser
-                  fatal. A terra de ninguém” era a representação dos custos
+                  fatal. A "terra de ninguém” era a representação dos custos
                   humanos causados pela guerra.
                 </p>
               </div>
@@ -458,7 +471,6 @@
         const overlay = document.getElementById("overlay");
         const btnVoltar = document.getElementById("btnVoltar");
 
-        // Configurações iniciais ao abrir o modal
         modalToOpen.style.display = "flex";
         overlay.style.display = "flex";
         btnConhecer.disabled = true;
@@ -468,11 +480,13 @@
         // Seleciona os textos do modal
         const text1 = modalToOpen.querySelector(`p[id$="Text1"]`);
         const text2 = modalToOpen.querySelector(`p[id$="Text2"]`);
+        const text3 = modalToOpen.querySelector(`p[id$="Text3"]`);
         const nextButton = modalToOpen.querySelector(".next-button");
 
         // Inicializa os textos
         text1.style.display = "flex";
         text2.style.display = "none";
+        if (text3) text3.style.display = "none";
 
         // Função para avançar o texto
         const advanceText = () => {
@@ -480,12 +494,16 @@
             text1.style.display = "none";
             text2.style.display = "flex";
             nextButton.textContent = "CLIQUE aqui para continuar";
+          } else if (text2.style.display === "flex" && text3) {
+            text2.style.display = "none";
+            text3.style.display = "flex";
+            nextButton.textContent = "CLIQUE aqui para continuar";
           } else {
             closeModal();
           }
         };
 
-        // Função para fechar o modal e restaurar estados
+        // Função para fechar o modal
         const closeModal = () => {
           modalToOpen.style.display = "none";
           overlay.style.display = "none";
@@ -498,13 +516,12 @@
 
         // Handler para cliques no modal
         const modalClickHandler = (event) => {
-          // Verifica se o clique foi fora do botão "CLIQUE para continuar"
           if (!nextButton.contains(event.target)) {
             advanceText();
           }
         };
 
-        // Adiciona o evento de clique no modal
+        // Adiciona evento de clique no modal
         modalToOpen.addEventListener("click", modalClickHandler);
 
         // Gerencia o clique no botão "CLIQUE para continuar"
@@ -520,17 +537,25 @@
         };
         window.addEventListener("keydown", handleKeyDown);
 
-        // Gerencia o clique no overlay (fecha o modal apenas se o texto 2 estiver visível)
+        // Gerencia o clique no overlay
         overlay.onclick = () => {
-          if (text2.style.display === "flex") {
+          if (
+            (text3 && text3.style.display === "flex") ||
+            (!text3 && text2.style.display === "flex")
+          ) {
             closeModal();
           }
         };
 
-        // Garante que o overlay seja interativo apenas após a visualização completa
+        // Gerencia a interatividade do overlay
         overlay.style.pointerEvents = "none";
         nextButton.addEventListener("click", () => {
-          overlay.style.pointerEvents = "auto";
+          if (
+            (text3 && text3.style.display === "flex") ||
+            (!text3 && text2.style.display === "flex")
+          ) {
+            overlay.style.pointerEvents = "auto";
+          }
         });
       }
 

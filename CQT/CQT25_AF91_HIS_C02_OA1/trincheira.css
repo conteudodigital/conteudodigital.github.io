@@ -194,7 +194,6 @@ body {
   animation: fadeIn 0.5s forwards;
 }
 
-/* Interação do modal da professora explicando */
 .modal-container {
   width: 100%;
   height: 100%;
@@ -204,28 +203,81 @@ body {
   left: 0;
   top: 0;
   align-items: center;
-  overflow: visible; /* Permite que a imagem da professora se sobressaia */
+  overflow: visible;
 }
-/* Interação do modal da professora explicando */
+
 .modal {
   background: #f5e1d3;
   border-radius: 10px;
-  display: flex; /* Usar flexbox para centralização */
-  padding: 20px;
-  max-width: 60%;
-  z-index: 3000; /* Garante que o modal fique acima do overlay */
-  text-align: left;
-  justify-content: center; /* Centralizar horizontalmente */
-  align-items: center; /* Centralizar verticalmente */
+  display: flex; /* Alterado para flex */
+  padding: 30px;
+  width: 800px; /* Largura fixa */
+  min-height: 300px; /* Altura mínima fixa */
+  z-index: 3000;
+  position: relative;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  opacity: 0; /* Opacidade inicial */
-  animation: fadeInRight 0.5s forwards; /* Animação ao aparecer */
+  opacity: 0;
+  animation: fadeInRight 0.5s forwards;
+}
+
+.modal-content {
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.left-container {
+  width: 80%;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-title {
+  margin-bottom: 20px;
+}
+
+.modal-text {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 15px;
+}
+
+.dialogue {
+  margin: 0;
+  color: #000;
+  font-family: "Quicksand", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.modal-button {
+  margin-top: auto;
+  padding: 15px 0;
+}
+
+.next-button {
+  width: 100%;
+  color: #de293d;
+  font-family: "Quicksand", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 10px 0;
 }
 
 .professor-image {
   width: 10vw; /* Ajuste conforme necessário */
   position: absolute;
-  transform: translate(30%, -180%);
+  transform: translate(150%, -50%);
   z-index: 3000; /* Certifique-se de que o z-index seja maior que o modal */
   right: -5%; /* Ajuste para posicionar sobre o modal */
   top: 1%; /* Ajuste este valor para mover a imagem para cima */
@@ -245,35 +297,6 @@ body {
     opacity: 1;
     transform: translateX(0); /* Termina na posição original */
   }
-}
-
-.dialogue {
-  margin-top: -10px; /* Espaço para a imagem da professora */
-  color: #000; /* Cor do texto */
-  font-family: "Quicksand", sans-serif; /* Fonte Quicksand */
-  font-size: 20px; /* Tamanho da fonte */
-  font-style: normal; /* Estilo da fonte */
-  font-weight: 400; /* Peso da fonte */
-  line-height: normal; /* Altura da linha */
-  padding: 15px 45px 15px 0; /* Padding: top, right, bottom, left */
-  border-radius: 10px; /* Bordas arredondadas */
-  background: none; /* Remove o fundo branco */
-  box-shadow: none; /* Remove a sombra */
-}
-
-.next-button {
-  margin-top: 20px;
-  color: var(--Complementares-Ensino-fundamental-1, #de293d); /* Cor vermelha */
-  font-family: "Quicksand", sans-serif; /* Fonte Quicksand */
-  font-size: 20px; /* Tamanho da fonte */
-  font-style: normal; /* Estilo da fonte */
-  font-weight: 700; /* Peso da fonte */
-  line-height: normal; /* Altura da linha */
-  text-align: center; /* Centraliza o texto */
-  cursor: pointer; /* Muda o cursor para indicar que é clicável */
-  background: none; /* Remove qualquer fundo */
-  border: none; /* Remove bordas */
-  padding: 0 0 15px 0; /* Remove padding do topo */
 }
 
 /* Ajuste os tamanhos específicos para as imagens nos containers de interação */
@@ -472,25 +495,62 @@ body {
 
 /* Estilos específicos para mobile */
 @media (max-width: 1000px) {
+  .modal {
+    background: #f5e1d3;
+    border-radius: 10px;
+    display: flex; /* Alterado para flex */
+    padding: 30px;
+    width: 600px; /* Largura fixa */
+    min-height: 100 px; /* Altura mínima fixa */
+    z-index: 3000;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    animation: fadeInRight 0.5s forwards;
+  }
+  .btn-conhecer img {
+    height: 80%;
+    margin-top: 15%;
+  }
+  .modal-content {
+    width: 100%;
+    display: flex;
+    position: relative;
+  }
+  .modal-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    align-items: center;
+    overflow: hidden; /* Permite que a imagem da professora se sobressaia */
+  }
+  .modal-button {
+    display: flex;
+    align-items: center; /* Centraliza os itens dentro do modal */
+  }
+  .modal-text {
+    height: 1%;
+    overflow-y: none;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+  }
+
   .professor-image {
     width: 36vh; /* Ajuste o tamanho da imagem da professora */
     display: flex; /* Adicionado para garantir que a imagem seja tratada como um flex item */
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center; /* Centraliza verticalmente */
     margin-right: 2%; /* Espaço entre a imagem e o texto */
-    position: relative; /* Sobrescreve a posição absoluta da classe externa */
-    transform: none; /* Sobrescreve a transformação da classe externa */
+    transform: translate(100%, 20%);
   }
-  .modal {
-    width: 90%; /* Ajuste a largura conforme necessário */
-    height: 60%;
-    margin: auto; /* Centraliza o modal */
-    background-color: #f5e1d3; /* Cor de fundo */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra */
-    flex-direction: row; /* Alinha os itens na horizontal */
-  }
-  .modal-text {
-    height: 45vh;
+
+  .next-button {
+    margin-top: 0;
   }
   .dialogue {
     font-size: 16px; /* Ajuste o tamanho da fonte para mobile */
