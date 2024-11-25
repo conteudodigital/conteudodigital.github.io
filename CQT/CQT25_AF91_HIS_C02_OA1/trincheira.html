@@ -446,7 +446,6 @@
         }
       }
 
-      // Função para abrir o modal
       function openModal(index) {
         const modals = [
           "retaguardaModal",
@@ -456,80 +455,83 @@
           "zonaMinadaModal",
         ];
         const modalToOpen = document.getElementById(modals[index]);
-        const overlay = document.getElementById("overlay"); // Seleciona o overlay
-        const btnVoltar = document.getElementById("btnVoltar"); // Seleciona o botão "Voltar"
+        const overlay = document.getElementById("overlay");
+        const btnVoltar = document.getElementById("btnVoltar");
 
-        modalToOpen.style.display = "flex"; // Mostra o modal correspondente
-        overlay.style.display = "flex"; // Mostra o overlay
-        btnConhecer.disabled = true; // Desabilita o botão "Conhecer" ao abrir um modal
-        btnVoltar.disabled = true; // Desabilita o botão "Voltar" ao abrir um modal
-        bts.forEach((btn) => (btn.disabled = true)); // Desabilita todos os botões de interação ao abrir um modal
+        // Configurações iniciais ao abrir o modal
+        modalToOpen.style.display = "flex";
+        overlay.style.display = "flex";
+        btnConhecer.disabled = true;
+        btnVoltar.disabled = true;
+        bts.forEach((btn) => (btn.disabled = true));
 
-        modalToOpen.onclick = () => {
-          advanceText();
-        };
-
-        // Mostra o primeiro texto ao abrir o modal
+        // Seleciona os textos do modal
         const text1 = modalToOpen.querySelector(`p[id$="Text1"]`);
         const text2 = modalToOpen.querySelector(`p[id$="Text2"]`);
-        text1.style.display = "flex"; // Garante que o texto 1 esteja visível
-        text2.style.display = "none"; // Garante que o texto 2 esteja oculto
-
-        // Adiciona evento de clique para o botão "Pressione ENTER para continuar"
         const nextButton = modalToOpen.querySelector(".next-button");
+
+        // Inicializa os textos
+        text1.style.display = "flex";
+        text2.style.display = "none";
 
         // Função para avançar o texto
         const advanceText = () => {
           if (text1.style.display === "flex") {
-            text1.style.display = "none"; // Esconde o texto 1
-            text2.style.display = "flex"; // Mostra o texto 2
-            nextButton.textContent = "CLIQUE para continuar"; // Altera o texto do botão para "Fechar"
+            text1.style.display = "none";
+            text2.style.display = "flex";
+            nextButton.textContent = "CLIQUE para continuar";
           } else {
-            // Fecha o modal e o overlay ao clicar no botão "x"
-            modalToOpen.style.display = "none"; // Esconde o modal
-            overlay.style.display = "none"; // Esconde o overlay
-            btnVoltar.disabled = false; // Reabilita o botão "Voltar" ao fechar o modal
-            bts.forEach((btn) => (btn.disabled = false)); // Reabilita todos os botões de interação
-            btnConhecer.disabled = false; // Habilita o botão "Conhecer" ao fechar o modal
-            window.removeEventListener("keydown", handleKeyDown); // Remove o listener ao fechar
+            closeModal();
           }
         };
 
-        // Adiciona evento de clique no botão
+        // Função para fechar o modal e restaurar estados
+        const closeModal = () => {
+          modalToOpen.style.display = "none";
+          overlay.style.display = "none";
+          btnVoltar.disabled = false;
+          bts.forEach((btn) => (btn.disabled = false));
+          btnConhecer.disabled = false;
+          window.removeEventListener("keydown", handleKeyDown);
+          modalToOpen.removeEventListener("click", modalClickHandler);
+        };
 
-        // Adiciona evento de teclado para avançar o texto com a tecla "Enter"
+        // Handler para cliques no modal
+        const modalClickHandler = (event) => {
+          // Verifica se o clique foi fora do botão "CLIQUE para continuar"
+          if (!nextButton.contains(event.target)) {
+            advanceText();
+          }
+        };
+
+        // Adiciona o evento de clique no modal
+        modalToOpen.addEventListener("click", modalClickHandler);
+
+        // Gerencia o clique no botão "CLIQUE para continuar"
+        nextButton.onclick = () => {
+          advanceText();
+        };
+
+        // Adiciona evento de teclado para avançar texto com Enter
         const handleKeyDown = (event) => {
           if (event.key === "Enter") {
             advanceText();
           }
         };
-
-        // Adiciona o evento de teclado
         window.addEventListener("keydown", handleKeyDown);
 
-        // Desabilita o clique no overlay até que o modal tenha sido completamente visualizado
-        overlay.style.pointerEvents = "none"; // Desabilita a interação com o overlay
-
-        // Função para habilitar o clique no overlay após a visualização completa
-        const enableOverlayClick = () => {
-          overlay.style.pointerEvents = "auto"; // Habilita a interação com o overlay
-        };
-
-        // Fecha o modal e o overlay ao clicar no overlay
+        // Gerencia o clique no overlay (fecha o modal apenas se o texto 2 estiver visível)
         overlay.onclick = () => {
-          if (text2.style.display === "block") {
-            // Verifica se o texto 2 está visível
-            modalToOpen.style.display = "none"; // Esconde o modal
-            overlay.style.display = "none"; // Esconde o overlay
-            btnVoltar.disabled = false; // Reabilita o botão "Voltar" ao fechar o modal
-            bts.forEach((btn) => (btn.disabled = false)); // Reabilita todos os botões de interação
-            btnConhecer.disabled = false; // Habilita o botão "Conhecer" ao fechar o modal
-            window.removeEventListener("keydown", handleKeyDown); // Remove o listener ao fechar
+          if (text2.style.display === "flex") {
+            closeModal();
           }
         };
 
-        // Habilita o clique no overlay após a visualização completa
-        nextButton.addEventListener("click", enableOverlayClick);
+        // Garante que o overlay seja interativo apenas após a visualização completa
+        overlay.style.pointerEvents = "none";
+        nextButton.addEventListener("click", () => {
+          overlay.style.pointerEvents = "auto";
+        });
       }
 
       // Função para fazer o botão piscar
