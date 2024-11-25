@@ -501,7 +501,7 @@ body {
     display: flex; /* Alterado para flex */
     padding: 30px;
     width: 600px; /* Largura fixa */
-    min-height: 100 px; /* Altura mínima fixa */
+    min-height: 100 px; /* Altuasra mínima fixa */
     z-index: 3000;
     position: relative;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);

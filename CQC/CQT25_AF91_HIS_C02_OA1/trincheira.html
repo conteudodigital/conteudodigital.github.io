@@ -628,3 +628,684 @@
     </script>
   </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trincheira - A Grande Guerra</title>
+    <link rel="stylesheet" href="trincheira.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="Device.min.js"></script>
+  </head>
+
+  <body>
+    <div class="overlay" id="overlay"></div>
+    <div class="virarTela">
+      <div class="celular">
+        <img
+          src="assets/images/disclaimer.png"
+          alt="Aviso"
+          style="width: 100%"
+        />
+      </div>
+    </div>
+    <img
+      src="assets/images/tras.png"
+      alt="Cenário da Trincheira"
+      class="background-trincheira"
+    />
+    <div
+      class="frente-container"
+      style="
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <div class="frente" style="position: relative">
+        <img
+          src="assets/images/frente.png"
+          class="trincheira-image"
+          alt="Imagem da Trincheira"
+        />
+
+        <div class="image-container" id="imageContainer1" style="display: none">
+          <img
+            src="assets/images/retaguarda.png"
+            alt="Retaguarda"
+            class="interaction-image"
+          />
+          <div class="caption posRetaguarda" id="Retaguarda">Retaguarda</div>
+        </div>
+        <div class="image-container" id="imageContainer2" style="display: none">
+          <img
+            src="assets/images/segunda-trincheira.png"
+            alt="Segunda Trincheira"
+            class="interaction-image"
+          />
+          <div class="caption posSegundaTrincheira" id="SegundaTrincheira">
+            <label class="textoCaption">Segunda Trincheira</label>
+          </div>
+        </div>
+        <div class="image-container" id="imageContainer3" style="display: none">
+          <img
+            src="assets/images/tunel.png"
+            alt="Túneis de Comunicação"
+            class="interaction-image"
+          />
+          <div class="caption posTunel" id="Tunel">
+            <label class="textoCaption"> Túneis de Comunicação</label>
+          </div>
+        </div>
+        <div class="image-container" id="imageContainer4" style="display: none">
+          <img
+            src="assets/images/primeira-trincheira.png"
+            alt="Primeira Trincheira"
+            class="interaction-image"
+          />
+          <div class="caption posPrimeiraTrincheira" id="PrimeiraTrincheira">
+            <label class="textoCaption"> Primeira Trincheira</label>
+          </div>
+        </div>
+        <div class="image-container" id="imageContainer5" style="display: none">
+          <img
+            src="assets/images/cerca.png"
+            alt="Cerca"
+            class="interaction-image"
+          />
+          <img
+            src="assets/images/zona-minada.png"
+            alt="Zona Minada"
+            style="width: 60%"
+            class="interaction-image"
+          />
+          <div class="titulo5-container">
+            <div class="caption" id="ZonaMinada">Zona Minada</div>
+          </div>
+        </div>
+        <button class="btn-interaction" id="btnInteraction1">
+          <img
+            src="assets/images/btn1-interaction.png"
+            alt="Interagir"
+            class="btn-image"
+          />
+        </button>
+        <button class="btn-interaction" id="btnInteraction2">
+          <img
+            src="assets/images/btn1-interaction.png"
+            alt="Interagir"
+            class="btn-image"
+          />
+        </button>
+        <button class="btn-interaction" id="btnInteraction3">
+          <img
+            src="assets/images/btn1-interaction.png"
+            alt="Interagir"
+            class="btn-image"
+          />
+        </button>
+        <button class="btn-interaction" id="btnInteraction4">
+          <img
+            src="assets/images/btn1-interaction.png"
+            alt="Interagir"
+            class="btn-image"
+          />
+        </button>
+        <button class="btn-interaction" id="btnInteraction5">
+          <img
+            src="assets/images/btn1-interaction.png"
+            alt="Interagir"
+            class="btn-image"
+          />
+        </button>
+      </div>
+    </div>
+
+    <button class="btn-voltar" id="btnVoltar">
+      <img src="assets/images/btn-voltar.png" alt="Voltar" />
+    </button>
+
+    <button class="btn-conhecer" id="btnConhecer" style="display: none">
+      <img src="assets/images/btn-conhecer.png" alt="Conhecer" />
+    </button>
+    <!-- aaaaaa -->
+    <div class="modal-container" style="overflow: hidden">
+      <div class="modal" id="retaguardaModal" style="display: none">
+        <div class="modal-content">
+          <div class="left-container">
+            <div class="modal-title">
+              <h2>Retaguarda</h2>
+            </div>
+            <div class="modal-text">
+              <div class="dialogue" id="retaguardaDialogue">
+                <p id="retaguardaText1">
+                  Na retaguarda, ficavam as áreas de apoio logístico, onde
+                  suprimentos, munições e reforços eram preparados para garantir
+                  a manutenção da linha de frente.
+                </p>
+                <p id="retaguardaText2" style="display: none">
+                  Os soldados na retaguarda desempenhavam um papel essencial,
+                  pois sem eles a sustentação das operações de combate seria
+                  impossível.
+                </p>
+                <p id="retaguardaText3" style="display: none">
+                  Atrás das linhas de frente, a retaguarda era um pouco mais
+                  segura. Ali, os soldados descansavam e se preparavam para a
+                  próxima batalha. Mas a tranquilidade era relativa, pois a
+                  qualquer momento eles poderiam ser chamados para a linha de
+                  frente.
+                </p>
+              </div>
+            </div>
+            <div class="modal-button">
+              <button class="next-button" id="nextRetaguarda">
+                CLIQUE aqui para continuar
+              </button>
+            </div>
+          </div>
+          <div class="right-container" style="position: relative">
+            <img
+              src="assets/images/intro1-professora.png"
+              alt="Professora"
+              class="professor-image"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="modal" id="segundaTrincheiraModal" style="display: none">
+        <div class="modal-content">
+          <div class="left-container">
+            <div class="modal-title">
+              <h2>Segunda Trincheira</h2>
+            </div>
+            <div class="modal-text">
+              <div class="dialogue" id="segundaTrincheiraDialogue">
+                <p id="segundaTrincheiraText1">
+                  Avançando para as segundas trincheiras, havia um nível
+                  adicional de defesa. Essas trincheiras estavam posicionadas
+                  mais atrás e serviam como uma linha de proteção caso a linha
+                  de frente fosse comprometida.
+                </p>
+                <p id="segundaTrincheiraText2" style="display: none">
+                  Elas eram mais profundas e fortificadas, preparadas para
+                  abrigar tropas e permitir um contra-ataque, se necessário.
+                </p>
+                <p id="segundaTrincheiraText3" style="display: none">
+                  Além disso, eram equipadas com abrigos, armazéns de
+                  suprimentos e áreas para descanso, proporcionando um espaço
+                  onde os soldados podiam se recuperar das difíceis condições de
+                  combate. As trincheiras alemãs chegaram a ter até 15 metros de
+                  profundidade.
+                </p>
+              </div>
+            </div>
+            <div class="modal-button">
+              <button class="next-button" id="nextSegundaTrincheira">
+                CLIQUE aqui para continuar
+              </button>
+            </div>
+          </div>
+          <div class="right-container" style="position: relative">
+            <img
+              src="assets/images/intro2-professora.png"
+              alt="Professora"
+              class="professor-image"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="modal" id="tunelModal" style="display: none">
+        <div class="modal-content">
+          <div class="left-container">
+            <div class="modal-title">
+              <h2>Túneis de Comunicação</h2>
+            </div>
+            <div class="modal-text">
+              <div class="dialogue" id="tunelDialogue">
+                <p id="tunelText1">
+                  Conectando essas áreas, havia os túneis de comunicação.
+                </p>
+                <p id="tunelText2" style="display: none">
+                  Esses corredores subterrâneos permitiam que os soldados se
+                  movimentassem de forma segura entre as trincheiras, evitando a
+                  exposição ao fogo inimigo.
+                </p>
+                <p id="tunelText3" style="display: none">
+                  Além de oferecerem proteção, os túneis funcionavam como
+                  sistemas de transporte de munição, alimentos e feridos.
+                </p>
+              </div>
+            </div>
+            <div class="modal-button">
+              <button class="next-button" id="nextTunel">
+                CLIQUE aqui para continuar
+              </button>
+            </div>
+          </div>
+          <div class="right-container" style="position: relative">
+            <img
+              src="assets/images/intro1-professora.png"
+              alt="Professora"
+              class="professor-image"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="modal" id="primeiraTrincheiraModal" style="display: none">
+        <div class="modal-content">
+          <div class="left-container">
+            <div class="modal-title">
+              <h2>Primeira Trincheira</h2>
+            </div>
+            <div class="modal-text">
+              <div class="dialogue" id="primeiraTrincheiraDialogue">
+                <p id="primeiraTrincheiraText1">
+                  Chegamos à linha de frente, a primeira trincheira. Aqui, os
+                  soldados enfrentavam o horror do combate direto.
+                </p>
+                <p id="primeiraTrincheiraText2" style="display: none">
+                  Esse era o ponto mais próximo do inimigo, onde as condições
+                  eram extremas e o perigo estava sempre à espreita.
+                </p>
+
+                <p id="primeiraTrincheiraText3" style="display: none">
+                  A coragem era testada diariamente, e a amizade entre os
+                  soldados era um pilar fundamental para a sobrevivência.
+                </p>
+              </div>
+            </div>
+            <div class="modal-button">
+              <button class="next-button" id="nextPrimeiraTrincheira">
+                CLIQUE aqui para continuar
+              </button>
+            </div>
+          </div>
+          <div class="right-container" style="position: relative">
+            <img
+              src="assets/images/intro2-professora.png"
+              alt="Professora"
+              class="professor-image"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="modal" id="zonaMinadaModal" style="display: none">
+        <div class="modal-content">
+          <div class="left-container">
+            <div class="modal-title">
+              <h2>Zona Minada</h2>
+            </div>
+            <div class="modal-text">
+              <div class="dialogue" id="zonaMinadaDialogue">
+                <p id="zonaMinadaText1">
+                  E o que havia entre uma trincheira e outra? Uma faixa de terra
+                  devastada, repleta de crateras, arame farpado e, muitas vezes,
+                  minas terrestres.
+                </p>
+                <p id="zonaMinadaText2" style="display: none">
+                  Essa era a chamada “terra de ninguém”, um lugar perigoso onde
+                  os soldados avançavam em ataques.
+                </p>
+                <p id="zonaMinadaText3" style="display: none">
+                  Esses terrenos minados e abandonados se transformaram em um
+                  cenário de desolação, onde qualquer movimento poderia ser
+                  fatal. A "terra de ninguém” era a representação dos custos
+                  humanos causados pela guerra.
+                </p>
+              </div>
+            </div>
+            <div class="modal-button">
+              <button class="next-button" id="closeZonaMinadaModal">
+                CLIQUE aqui para continuar
+              </button>
+            </div>
+          </div>
+          <div class="right-container" style="position: relative">
+            <img
+              src="assets/images/intro1-professora.png"
+              alt="Professora"
+              class="professor-image"
+            />
+          </div>
+        </div>
+      </div>
+      <div id="conhecerModal" style="display: none">
+        <div
+          style="display: flex; align-content: center; justify-content: center"
+        >
+          <!-- a div deve ser relative pra que seus filhos que estejam position absolute pege a porcentagem do pai-->
+          <div class="conhecerConteudo">
+            <span class="close" id="closeConhecerModal" onclick="fechaModal()"
+              >&times;</span
+            >
+            <img
+              src="assets/images/grafico_astropas.gif"
+              id="gifConhecer1"
+              alt="Conhecer"
+              class="gif-image"
+              onclick="pulaConhecer()"
+            />
+            <img
+              src="assets/images/grafico_custohumano.gif"
+              id="gifConhecer2"
+              alt="Conhecer"
+              class="gif-image"
+              style="display: none"
+              onclick="fechaModal()"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const ninetyVH = Device.screenViewport.height;
+      const newMarginTop = ninetyVH - Device.addressBar.height;
+      document.querySelector(".frente").style.marginTop = `${newMarginTop}px`;
+      const btnVoltar = document.querySelector(".btn-voltar");
+
+      btnVoltar.addEventListener("click", () => {
+        window.location.href = "index.html"; // Volta para o tutorial
+      });
+
+      let animationExecuted = {};
+      const bts = document.querySelectorAll(".btn-interaction");
+      for (let i = 0; i < bts.length; i++) {
+        animationExecuted[`btnInteraction${i + 1}`] = false;
+      }
+
+      const clickedButtons = new Set(); // Conjunto para rastrear botões clicados
+
+      bts.forEach((button, index) => {
+        button.addEventListener("click", () => {
+          toggleInteraction(
+            button,
+            `imageContainer${index + 1}`,
+            `btnInteraction${index + 1}`,
+            `assets/images/${button
+              .querySelector(".btn-image")
+              .src.split("/")
+              .pop()}`,
+            index
+          );
+
+          clickedButtons.add(`btnInteraction${index + 1}`); // Adiciona o botão clicado ao conjunto
+
+          // Verifica se todos os botões foram clicados
+          if (clickedButtons.size === bts.length) {
+            document.getElementById("btnConhecer").style.display = "block"; // Exibe o botão "Conhecer"
+          }
+          if (mobilecheckOds()) {
+            if (document.documentElement.requestFullscreen) {
+              document.documentElement.requestFullscreen();
+            } else if (document.documentElement.mozRequestFullScreen) {
+              // Firefox
+              document.documentElement.mozRequestFullScreen();
+            } else if (document.documentElement.webkitRequestFullscreen) {
+              // Chrome, Safari e Opera
+              document.documentElement.webkitRequestFullscreen();
+            } else if (document.documentElement.msRequestFullscreen) {
+              // IE/Edge
+              document.documentElement.msRequestFullscreen();
+            }
+          }
+        });
+      });
+
+      function toggleInteraction(
+        button,
+        imageContainerId,
+        buttonId,
+        imagePath,
+        index
+      ) {
+        const imageContainer = document.getElementById(imageContainerId);
+        const btnImage = button.querySelector(".btn-image");
+
+        if (!animationExecuted[buttonId]) {
+          // Desabilita todos os botões de interação
+          bts.forEach((btn) => (btn.disabled = true));
+
+          // Executa a animação da imagem correspondente
+          imageContainer.style.display = "block"; // Mostra a imagem e a legenda
+          imageContainer.classList.add("fadeIn"); // Adiciona animação
+          btnImage.src = "assets/images/btn2-interaction.png"; // Altera para a nova imagem
+
+          // Após a animação, abre o modal correspondente
+          setTimeout(() => {
+            openModal(index); // Chama a função para abrir o modal correto
+          }, 1000); // Tempo da animação (ajuste conforme necessário)
+
+          animationExecuted[buttonId] = true; // Marca a animação como executada para este botão
+        } else {
+          // Apenas abre o modal correspondente
+          openModal(index);
+        }
+      }
+
+      function openModal(index) {
+        const modals = [
+          "retaguardaModal",
+          "segundaTrincheiraModal",
+          "tunelModal",
+          "primeiraTrincheiraModal",
+          "zonaMinadaModal",
+        ];
+        const modalToOpen = document.getElementById(modals[index]);
+        const overlay = document.getElementById("overlay");
+        const btnVoltar = document.getElementById("btnVoltar");
+
+        modalToOpen.style.display = "flex";
+        overlay.style.display = "flex";
+        btnConhecer.disabled = true;
+        btnVoltar.disabled = true;
+        bts.forEach((btn) => (btn.disabled = true));
+
+        // Seleciona os textos do modal
+        const text1 = modalToOpen.querySelector(`p[id$="Text1"]`);
+        const text2 = modalToOpen.querySelector(`p[id$="Text2"]`);
+        const text3 = modalToOpen.querySelector(`p[id$="Text3"]`);
+        const nextButton = modalToOpen.querySelector(".next-button");
+
+        // Inicializa os textos
+        text1.style.display = "flex";
+        text2.style.display = "none";
+        if (text3) text3.style.display = "none";
+
+        // Função para avançar o texto
+        const advanceText = () => {
+          if (text1.style.display === "flex") {
+            text1.style.display = "none";
+            text2.style.display = "flex";
+            nextButton.textContent = "CLIQUE aqui para continuar";
+          } else if (text2.style.display === "flex" && text3) {
+            text2.style.display = "none";
+            text3.style.display = "flex";
+            nextButton.textContent = "CLIQUE aqui para continuar";
+          } else {
+            closeModal();
+          }
+        };
+
+        // Função para fechar o modal
+        const closeModal = () => {
+          modalToOpen.style.display = "none";
+          overlay.style.display = "none";
+          btnVoltar.disabled = false;
+          bts.forEach((btn) => (btn.disabled = false));
+          btnConhecer.disabled = false;
+          window.removeEventListener("keydown", handleKeyDown);
+          modalToOpen.removeEventListener("click", modalClickHandler);
+        };
+
+        // Handler para cliques no modal
+        const modalClickHandler = (event) => {
+          if (!nextButton.contains(event.target)) {
+            advanceText();
+          }
+        };
+
+        // Adiciona evento de clique no modal
+        modalToOpen.addEventListener("click", modalClickHandler);
+
+        // Gerencia o clique no botão "CLIQUE para continuar"
+        nextButton.onclick = () => {
+          advanceText();
+        };
+
+        // Adiciona evento de teclado para avançar texto com Enter
+        const handleKeyDown = (event) => {
+          if (event.key === "Enter") {
+            advanceText();
+          }
+        };
+        window.addEventListener("keydown", handleKeyDown);
+
+        // Gerencia o clique no overlay
+        overlay.onclick = () => {
+          if (
+            (text3 && text3.style.display === "flex") ||
+            (!text3 && text2.style.display === "flex")
+          ) {
+            closeModal();
+          }
+        };
+
+        // Gerencia a interatividade do overlay
+        overlay.style.pointerEvents = "none";
+        nextButton.addEventListener("click", () => {
+          if (
+            (text3 && text3.style.display === "flex") ||
+            (!text3 && text2.style.display === "flex")
+          ) {
+            overlay.style.pointerEvents = "auto";
+          }
+        });
+      }
+
+      // Função para fazer o botão piscar
+      function startBlinking(button) {
+        const btnImage = button.querySelector(".btn-image");
+        let imageIndex = 0; // Controla qual imagem está sendo exibida
+        const images = [
+          "assets/images/btn-interaction.png",
+          "assets/images/btn1-interaction.png",
+          "assets/images/btn2-interaction.png",
+          "assets/images/btn3-interaction.png",
+          "assets/images/btn4-interaction.png",
+          "assets/images/btn5-interaction.png",
+          "assets/images/btn6-interaction.png",
+          "assets/images/btn7-interaction.png",
+          "assets/images/btn8-interaction.png",
+          "assets/images/btn9-interaction.png",
+          "assets/images/btn10-interaction.png",
+          "assets/images/btn11-interaction.png",
+          "assets/images/btn12-interaction.png",
+        ];
+
+        setInterval(() => {
+          btnImage.src = images[imageIndex]; // Altera para a próxima imagem
+          imageIndex = (imageIndex + 1) % images.length; // Incrementa o índice e volta ao início se necessário
+        }, 75); // Altera a cada 75 milissegundos (0.075 segundos)
+      }
+
+      // Inicia o piscar para todos os botões de interação
+      startBlinking(btnInteraction1);
+      startBlinking(btnInteraction2);
+      startBlinking(btnInteraction3);
+      startBlinking(btnInteraction4);
+      startBlinking(btnInteraction5);
+
+      // Seleciona os elementos do modal e do botão
+      const btnConhecer = document.getElementById("btnConhecer");
+      const conhecerModal = document.getElementById("conhecerModal");
+      const closeConhecerModal = document.getElementById("closeConhecerModal");
+
+      // Abre o modal ao clicar no botão "Conhecer"
+      btnConhecer.addEventListener("click", () => {
+        // Verifica se algum botão de interação está ativo
+        gifConhecer1.style.display = "block";
+        gifConhecer2.style.display = "none";
+        const anyInteractionActive = Array.from(bts).some(
+          (btn) => btn.disabled
+        );
+        if (!anyInteractionActive) {
+          // Apenas abre o modal se nenhum botão de interação estiver ativo
+          conhecerModal.style.display = "flex"; // Mostra o modal
+          bts.forEach((btn) => (btn.disabled = true)); // Desabilita todos os botões de interação
+          btnVoltar.disabled = true; // Desabilita o botão "Voltar" ao abrir o modal
+          overlay.style.display = "block"; // Mostra o overlay
+
+          // Desabilita o clique no overlay até que o modal tenha sido completamente visualizado
+          overlay.style.pointerEvents = "none"; // Desabilita a interação com o overlay
+
+          // Função para habilitar o clique no overlay após a visualização completa
+          const enableOverlayClick = () => {
+            overlay.style.pointerEvents = "auto"; // Habilita a interação com o overlay
+          };
+
+          // Habilita o clique no overlay após a visualização completa
+          //nextButton.addEventListener("click", enableOverlayClick);
+        }
+      });
+
+      // Fecha o modal e o overlay ao clicar no "x"
+      closeConhecerModal.addEventListener("click", fechaModal());
+
+      function pulaConhecer() {
+        gifConhecer1.style.display = "none";
+        gifConhecer2.style.display = "block";
+      }
+      function fechaModal() {
+        conhecerModal.style.display = "none"; // Esconde o modal
+        overlay.style.display = "none"; // Esconde o overlay
+        bts.forEach((btn) => (btn.disabled = false)); // Reabilita todos os botões de interação
+        btnVoltar.disabled = false; // Habilita o botão "Voltar" ao fechar o modal
+      }
+
+      function mobilecheckOds() {
+        var check = false;
+
+        (function (a) {
+          if (
+            /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(
+              a
+            ) ||
+            /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(
+              a.substr(0, 4)
+            )
+          )
+            check = true;
+        })(navigator.userAgent || navigator.vendor || window.opera);
+        return check;
+      }
+      if (mobilecheckOds()) {
+        console.log("mobile");
+        bts.forEach((btn) => {
+          btn.style.width = "20vh";
+        });
+      }
+
+      window.addEventListener("resize", function () {
+        if (mobilecheckOds()) {
+          console.log("mobile");
+          bts.forEach((btn) => {
+            btn.style.width = "20vh";
+          });
+        } else {
+          console.log("desktop");
+          bts.forEach((btn) => {
+            btn.style.width = "15vh";
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
