@@ -1,0 +1,185 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url("assets/images/tutorial-background.png"); /* Imagem de fundo */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  align-items: center;
+  overflow: visible; /* Permite que a imagem da professora se sobressaia */
+}
+/* Interação do modal da professora explicando */
+.modal {
+  background: #f5e1d3;
+  border-radius: 10px;
+  display: flex;
+  padding: 20px;
+  max-width: 80%;
+  z-index: 3000;
+  text-align: left;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  animation: fadeInRight 0.5s forwards;
+}
+
+.modal-content {
+  position: relative;
+  overflow: visible;
+  width: auto;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-container {
+  overflow: visible; /* Permite que a imagem transborde do container */
+}
+
+.professor-image {
+  width: 8vw; /* Ajuste conforme necessário */
+  position: absolute;
+  transform: translate(60%, -110%);
+  z-index: 3000; /* Certifique-se de que o z-index seja maior que o modal */
+  right: -5%; /* Ajuste para posicionar sobre o modal */
+  top: 1%; /* Ajuste este valor para mover a imagem para cima */
+  display: block;
+}
+
+.left-container {
+  padding-right: 2%;
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%); /* Começa fora da tela à direita */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0); /* Termina na posição original */
+  }
+}
+
+.caption {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #000;
+}
+
+.dialogue {
+  margin-top: -10px; /* Espaço para a imagem da professora */
+  color: #000; /* Cor do texto */
+  font-family: "Quicksand", sans-serif; /* Fonte Quicksand */
+  font-size: 20px; /* Tamanho da fonte */
+  font-style: normal; /* Estilo da fonte */
+  font-weight: 400; /* Peso da fonte */
+  line-height: normal; /* Altura da linha */
+  padding: 15px 50px 15px 0; /* Padding: top, right, bottom, left */
+  border-radius: 10px; /* Bordas arredondadas */
+  background: none; /* Remove o fundo branco */
+  box-shadow: none; /* Remove a sombra */
+}
+
+.next-button {
+  margin-top: 20px;
+  color: var(--Complementares-Ensino-fundamental-1, #de293d); /* Cor vermelha */
+  font-family: "Quicksand", sans-serif; /* Fonte Quicksand */
+  font-size: 20px; /* Tamanho da fonte */
+  font-style: normal; /* Estilo da fonte */
+  font-weight: 700; /* Peso da fonte */
+  line-height: normal; /* Altura da linha */
+  text-align: center; /* Centraliza o texto */
+  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+  background: none; /* Remove qualquer fundo */
+  border: none; /* Remove bordas */
+  padding: 0 0 15px 0; /* Remove padding do topo */
+}
+
+.virarTela {
+  display: none; /* Inicialmente escondido */
+}
+
+@media screen and (max-width: 1100px) and (orientation: portrait) {
+  .virarTela {
+    display: flex; /* Exibe a tela de aviso */
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  .virarTela img {
+    max-width: 90%; /* Reduz o tamanho da imagem para 90% da tela */
+    max-height: 90%; /* Reduz o tamanho da imagem para 90% da tela */
+    position: absolute; /* Permite que a imagem se posicione corretamente */
+    left: 50%; /* Ajusta a posição da imagem para centralizá-la */
+    top: 50%; /* Ajusta a posição da imagem para centralizá-la */
+    transform: translate(-50%, -50%); /* Centraliza a imagem */
+  }
+  .professor-image {
+    width: 10vw; /* Ajuste conforme necessário */
+    position: absolute;
+    transform: translate(
+      60%,
+      -150%
+    ); /* Ajuste para posicionar a imagem corretamente */
+    z-index: 3000; /* Certifique-se de que o z-index seja maior que o modal */
+    right: -5%; /* Ajuste para posicionar sobre o modal */
+    top: 1%; /* Ajuste este valor para mover a imagem para cima */
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  @media (max-width: 768px) {
+    .modal {
+      width: 90%; /* Ajuste a largura conforme necessário */
+      max-width: 600px; /* Limite a largura máxima */
+      margin: auto; /* Centraliza o modal */
+      padding: 15px; /* Ajuste o padding para mobile */
+      background-color: #f5e1d3; /* Cor de fundo */
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra */
+      flex-direction: row; /* Alinha os itens na horizontal */
+      align-items: flex-end; /* Alinha os itens na parte inferior */
+      margin-top: 20px; /* Adiciona espaço acima do modal */
+      margin-bottom: 20px; /* Adiciona espaço abaixo do modal */
+    }
+
+    .professor-image {
+      width: 36vh; /* Ajuste o tamanho da imagem da professora */
+      display: flex; /* Adicionado para garantir que a imagem seja tratada como um flex item */
+      justify-content: center; /* Centraliza horizontalmente */
+      align-items: center; /* Centraliza verticalmente */
+      margin-right: 2%; /* Espaço entre a imagem e o texto */
+      position: relative; /* Sobrescreve a posição absoluta da classe externa */
+      transform: none; /* Sobrescreve a transformação da classe externa */
+    }
+
+    .dialogue {
+      font-size: 16px; /* Ajuste o tamanho da fonte para mobile */
+      padding: 10px; /* Ajuste o padding para mobile */
+      text-align: left; /* Alinha o texto à esquerda */
+      margin-right: 5px; /* Espaço entre o texto e a imagem */
+    }
+  }
+}
