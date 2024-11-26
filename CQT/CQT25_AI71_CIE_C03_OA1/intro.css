@@ -266,3 +266,24 @@ body {
     padding: 10px 20px;
   }
 }
+
+@media (max-width: 960px) {
+  .container {
+    margin-top: 0;
+  }
+  .bts-creditos {
+    position: absolute;
+    top: 2%;
+    left: 5%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 10%;
+    height: auto;
+    z-index: 10;
+  }
+
+  .imagemCreditosMobile {
+    z-index: 20;
+  }
+}

@@ -221,7 +221,7 @@ h1 {
 /* Media Queries para responsividade */
 @media (max-width: 1000px) {
   .container {
-    width: 100%;
+    width: 80vw;
     padding: 15px;
     margin-top: 2vh; /* Espaço para os botões fixos no topo */
   }
@@ -270,6 +270,10 @@ h1 {
 
 /* Ajuste adicional para telas muito pequenas */
 @media (max-width: 900px) {
+  
+  .container {
+    width: 60vw;
+  }
   .next-button {
     margin-top: 2%;
   }
@@ -319,11 +323,24 @@ h1 {
     width: 80px;
     transform: translate(50%, -40%);
   }
+
+  .overlay-image {
+    width: 50%;
+  }
+  .overlay-image-primario {
+    width: 80%;
+  }
+  .overlay-image-secundario {
+    width: 80%;
+  }
+  .overlay-image-terciario {
+    width: 80%;
+  }
 }
 
 @media (max-width: 1366px) {
   .container {
-    width: 50vw; /* Ajustado para melhor proporção */
+    width: 80vw; /* Ajustado para melhor proporção */
   }
 
   .button-container {

@@ -325,7 +325,7 @@ body {
   }
 
   #ave-container {
-    top: 12%;
+    top: 16%;
   }
   #seta2 {
     width: 26vw;
@@ -352,5 +352,44 @@ body {
 
   .btn-retornar:hover {
     transform: scale(1.1);
+  }
+}
+
+/* Esconde o botão voltar por padrão (desktop) */
+.btn-voltar {
+  display: none;
+}
+
+/* Media Query para mobile */
+@media (max-width: 900px) {
+  .btn-voltar {
+    display: block;
+    position: fixed;
+    top: 10px;
+    left: 20px;
+    width: 50px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+    z-index: 1000;
+  }
+
+  .btn-voltar:hover {
+    transform: scale(1.1);
+  }
+
+  .btn-voltar img {
+    width: 140%;
+    height: auto;
+  }
+
+  /* Esconde o botão retornar original em mobile */
+  .btn-retornar {
+    display: none;
+  }
+
+  .titulo-consumidor {
+    width: 60%;
   }
 }

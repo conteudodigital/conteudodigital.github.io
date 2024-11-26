@@ -187,46 +187,14 @@ body {
   }
 
   .dialogue {
-    font-size: 13px;
-    height: 65px;
-    margin-bottom: 8px;
-  }
-
-  .next-button {
-    font-size: 13px;
-  }
-
-  .professor-image {
-    width: 80px;
-    transform: translate(50%, -40%);
-  }
-}
-
-@media (max-width: 768px) {
-  .modal {
-    width: 90% !important; /* Usa porcentagem para ser mais flexível */
-    height: 130px !important;
-    top: 5%;
-  }
-
-  .modal-content {
-    padding: 15px;
-  }
-
-  .left-container {
-    flex: 3;
-    padding-right: 15px;
-  }
-
-  .dialogue {
     font-size: 16px;
     height: 65px;
     margin-bottom: 8px;
   }
 
   .next-button {
-    font-size: 16px;
-    margin-top: 3%;
+    font-size: 13px;
+    margin-top: 2%;
   }
 
   .professor-image {
