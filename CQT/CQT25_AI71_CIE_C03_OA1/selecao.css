@@ -11,20 +11,20 @@ body {
 .container {
   text-align: center;
   background-color: #fffad7;
-  padding: 10vh 2vw; /* Padding relativo à altura e largura da viewport */
+  padding: 5vh 2vw; /* Padding relativo à altura e largura da viewport */
   border-radius: 2vw;
   box-shadow: 0 0.2vw 1vw rgba(0, 0, 0, 0.2);
   width: 40vw;
-  max-width: 80%; /* Largura máxima para telas grandes */
+  max-width: 60%; /* Largura máxima para telas grandes */
   height: auto; /* Altura automática para se ajustar ao conteúdo */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 2% auto; /* Centralizar */
-  position: relative;
-  background-size: cover;
-  background-position: center;
+  position: absolute; /* Mudado para absolute para centralização */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centraliza perfeitamente */
 }
 
 h1 {
@@ -38,32 +38,29 @@ h1 {
   flex-direction: column;
   gap: 15px;
   align-items: center;
-  width: 100%;
+  width: 90%; /* Reduzido um pouco */
 }
 
 .button-row {
-  display: flex;
-  flex-wrap: wrap; /* Permitir que os botões se movam para a próxima linha */
-  justify-content: center; /* Centralizar os botões */
-  width: 100%; /* Largura total do container */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 35px;
+  width: 100%;
 }
 
 .option-button {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 10px;
   transition: transform 0.2s;
   width: 100%;
-  height: 100%;
-  max-width: 150%;
-  flex: 1 1 45%; /* Permitir que os botões cresçam e encolham */
-  padding: 10px; /* Padding para aumentar a área clicável */
+  padding: 5px;
 }
 
 .option-button img {
   width: 100%;
   height: auto;
+  transform: scale(1.1); /* Reduzido o scale para 1920px */
 }
 
 .option-button:hover {
@@ -224,8 +221,9 @@ h1 {
 /* Media Queries para responsividade */
 @media (max-width: 1000px) {
   .container {
-    width: 90%; /* Diminuir a largura do container para 90% */
-    padding: 15px; /* Ajustar o padding se necessário */
+    width: 100%;
+    padding: 15px;
+    margin-top: 2vh; /* Espaço para os botões fixos no topo */
   }
   .dialogue {
     color: #000;
@@ -237,35 +235,63 @@ h1 {
     margin-bottom: 10px; /* Reduzido o espaço entre o diálogo e o botão */
   }
 
+  .button-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Mantém 2 colunas */
+    gap: 15px;
+    width: 100%;
+  }
+
+  .option-button {
+    width: 100%;
+    padding: 5px;
+  }
+
+  .option-button img {
+    width: 100%;
+    height: auto;
+    transform: scale(0.9); /* Reduz um pouco o tamanho das imagens */
+  }
+
+  /* Ajustes para os botões fixos */
+  .professor-button {
+    width: 12%;
+  }
+
+  .btn-voltar {
+    width: 50px;
+  }
+
   h1 {
     font-size: 2em;
     margin-bottom: 20px;
   }
+}
 
-  .button-row {
-    flex-direction: row; /* Manter a direção em linha */
-    justify-content: space-between; /* Espaçar os botões */
-  }
-
-  .option-button {
-    flex: 1 1 48%; /* Permitir que os botões ocupem 48% da largura */
-    max-width: none; /* Remover a largura máxima para permitir flexibilidade */
+/* Ajuste adicional para telas muito pequenas */
+@media (max-width: 600px) {
+  .option-button img {
+    transform: scale(0.8); /* Reduz ainda mais para telas muito pequenas */
   }
 }
 
 @media (max-width: 1366px) {
   .container {
-    width: 95%;
-    padding: 15px;
+    width: 50vw; /* Ajustado para melhor proporção */
   }
 
-  h1 {
-    font-size: 1.8em;
+  .button-container {
+    width: 100%;
   }
 
-  .option-button {
-    width: 90%;
-    max-width: 200px;
+  .button-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    width: 100%;
+  }
+
+  .option-button img {
+    transform: scale(1); /* Sem scale adicional para 1366px */
   }
 }
 

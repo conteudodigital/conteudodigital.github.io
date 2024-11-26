@@ -11,6 +11,60 @@
     />
   </head>
   <body>
+    <button
+      class="btn-voltar"
+      id="btnVoltar"
+      onclick="window.location.href='intro.html'"
+    >
+      <img src="assets/images/btn-voltar.png" alt="Voltar" class="btn-image" />
+    </button>
+
+    <img
+      src="assets/images/professor1.png"
+      alt="Professor"
+      class="professor-button"
+      id="professorButton"
+    />
+
+    <div class="container">
+      <h1>SELECIONE</h1>
+      <div class="button-container">
+        <div class="button-row">
+          <button class="option-button" onclick="handleSolClick()">
+            <img src="assets/images/btn-sol.png" alt="O Sol" />
+          </button>
+          <button class="option-button" onclick="handleSecundarioClick()">
+            <img
+              src="assets/images/btn-secundario.png"
+              alt="Consumidor Secundário"
+            />
+          </button>
+          <button
+            class="option-button"
+            id="botaoProdutor"
+            onclick="handleProdutorClick()"
+          >
+            <img src="assets/images/btn-produtor.png" alt="Produtor" />
+          </button>
+          <button class="option-button" onclick="handleTerciarioClick()">
+            <img
+              src="assets/images/btn-terciario.png"
+              alt="Consumidor Terciário"
+            />
+          </button>
+          <button class="option-button" onclick="handlePrimarioClick()">
+            <img
+              src="assets/images/btn-primario.png"
+              alt="Consumidor Primário"
+            />
+          </button>
+          <button class="option-button" onclick="handleDecompositorClick()">
+            <img src="assets/images/btn-decomposicao.png" alt="Decomposição" />
+          </button>
+        </div>
+      </div>
+    </div>
+
     <div class="overlay" id="overlay"></div>
     <div class="modal" id="modal">
       <div class="modal-content" id="modalContent">
@@ -89,55 +143,6 @@
       </div>
     </div>
 
-    <div class="container">
-      <button
-        class="btn-voltar"
-        id="btnVoltar"
-        onclick="window.location.href='intro.html'"
-      >
-        <img
-          src="assets/images/btn-voltar.png"
-          alt="Voltar"
-          class="btn-image"
-        />
-      </button>
-      <img
-        src="assets/images/professor1.png"
-        alt="Professor"
-        class="professor-button"
-        id="professorButton"
-      />
-      <h1>SELECIONE</h1>
-      <div class="button-container">
-        <div class="button-row">
-          <button class="option-button" onclick="handleSolClick()">
-            <img src="assets/images/btn-sol.png" alt="O Sol" />
-          </button>
-          <button class="option-button" onclick="handleSecundarioClick()">
-            <img
-              src="assets/images/btn-secundario.png"
-              alt="Consumidor Secundário"
-            />
-          </button>
-          <button class="option-button" id="botaoProdutor" onclick="handleProdutorClick()">
-            <img src="assets/images/btn-produtor.png" alt="Produtor" />
-          </button>
-          <button class="option-button" onclick="handleTerciarioClick()">
-            <img
-              src="assets/images/btn-terciario.png"
-              alt="Consumidor Terciário"
-            />
-          </button>
-          <button class="option-button" onclick="handlePrimarioClick()">
-            <img src="assets/images/btn-primario.png" alt="Consumidor Primário" />
-          </button>
-          <button class="option-button" onclick="handleDecompositorClick()">
-            <img src="assets/images/btn-decomposicao.png" alt="Decomposição" />
-          </button>
-        
-      </div>
-    </div>
-
     <div class="virarTela" id="virarTela">
       <div class="celular">
         <img
@@ -186,19 +191,24 @@
         currentDialogueIndex++;
         if (currentDialogueIndex < dialogues.length) {
           // Atualiza o texto do diálogo
-          document.getElementById("dialogo").innerText = dialogues[currentDialogueIndex];
-          
+          document.getElementById("dialogo").innerText =
+            dialogues[currentDialogueIndex];
+
           // Atualiza a imagem do professor (alterna entre 1, 2 e 3)
           const professorNumber = (currentDialogueIndex % 3) + 1;
-          document.querySelector(".professor-image").src = `assets/images/professor${professorNumber}.png`;
+          document.querySelector(
+            ".professor-image"
+          ).src = `assets/images/professor${professorNumber}.png`;
         } else {
           closeModal();
         }
       }
-        document.getElementById("professorButton").addEventListener("click", openModal);
+      document
+        .getElementById("professorButton")
+        .addEventListener("click", openModal);
 
       // Adiciona evento de clique ao document para avançar os diálogos
-      document.addEventListener("click", function(event) {
+      document.addEventListener("click", function (event) {
         if (document.getElementById("modal").style.display === "flex") {
           // Se o modal estiver visível, qualquer clique avança o diálogo
           advanceDialogue();
@@ -214,8 +224,6 @@
           advanceDialogue();
         }
       });
-
-      
 
       function checkOrientation() {
         const virarTela = document.getElementById("virarTela");
@@ -234,48 +242,54 @@
       checkOrientation();
 
       function handleOverlayAndRedirect(overlayId, redirectUrl) {
-      const overlay = document.getElementById(overlayId);
-      overlay.style.display = 'flex';
-      
-      // Fade in
-      setTimeout(() => {
-        overlay.style.opacity = '1';
-      }, 10);
+        const overlay = document.getElementById(overlayId);
+        overlay.style.display = "flex";
 
-      // Aguarda 2 segundos e faz o fade out
-      setTimeout(() => {
-        overlay.style.opacity = '0';
-        
-        // Aguarda o fade out terminar e redireciona
+        // Fade in
         setTimeout(() => {
-          window.location.href = redirectUrl;
-        }, 500);
-      }, 2000);
-    }
+          overlay.style.opacity = "1";
+        }, 10);
 
-    function handleSolClick() {
-      handleOverlayAndRedirect('overlay-sol', 'sol.html');
-    }
+        // Aguarda 2 segundos e faz o fade out
+        setTimeout(() => {
+          overlay.style.opacity = "0";
 
-    function handleProdutorClick() {
-      handleOverlayAndRedirect('overlay-produtor', 'produtor.html');
-    }
+          // Aguarda o fade out terminar e redireciona
+          setTimeout(() => {
+            window.location.href = redirectUrl;
+          }, 500);
+        }, 2000);
+      }
 
-    function handlePrimarioClick() {
-      handleOverlayAndRedirect('overlay-primario', 'consumidorprimario.html');
-    }
+      function handleSolClick() {
+        handleOverlayAndRedirect("overlay-sol", "sol.html");
+      }
 
-    function handleSecundarioClick() {
-      handleOverlayAndRedirect('overlay-secundario', 'consumidorsecundario.html');
-    }
+      function handleProdutorClick() {
+        handleOverlayAndRedirect("overlay-produtor", "produtor.html");
+      }
 
-    function handleTerciarioClick() {
-      handleOverlayAndRedirect('overlay-terciario', 'consumidorterciario.html');
-    }
+      function handlePrimarioClick() {
+        handleOverlayAndRedirect("overlay-primario", "consumidorprimario.html");
+      }
 
-    function handleDecompositorClick() {
-      handleOverlayAndRedirect('overlay-decompositor', 'decompositores.html');
-    }
+      function handleSecundarioClick() {
+        handleOverlayAndRedirect(
+          "overlay-secundario",
+          "consumidorsecundario.html"
+        );
+      }
+
+      function handleTerciarioClick() {
+        handleOverlayAndRedirect(
+          "overlay-terciario",
+          "consumidorterciario.html"
+        );
+      }
+
+      function handleDecompositorClick() {
+        handleOverlayAndRedirect("overlay-decompositor", "decompositores.html");
+      }
     </script>
   </body>
 </html>
