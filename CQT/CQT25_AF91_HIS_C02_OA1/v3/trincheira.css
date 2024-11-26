@@ -432,9 +432,6 @@ body {
     align-items: center; /* Centraliza verticalmente */
     background-color: rgba(0, 0, 0, 0.7);
   }
-  .close {
-    right: 10%; /* Distância da direita */
-  }
 }
 
 #conhecerModal {
@@ -593,5 +590,11 @@ body {
 
   .btn-conhecer img {
     margin-top: 10%;
+  }
+}
+
+@media (max-width: 900px) {
+  .close {
+    right: 15%; /* Distância da direita */
   }
 }
