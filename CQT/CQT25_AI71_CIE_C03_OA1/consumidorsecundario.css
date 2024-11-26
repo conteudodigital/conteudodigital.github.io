@@ -189,7 +189,7 @@ body {
   background: #f5e1d3;
   border-radius: 10px;
   width: 80% !important;
-  height: 160px !important; /* Reduzido a altura total do modal */
+  height: 220px !important; /* Reduzido a altura total do modal */
   z-index: 3000;
   position: fixed;
   top: 8%;
@@ -224,23 +224,23 @@ body {
 .dialogue {
   color: #000;
   font-family: "Quicksand", sans-serif;
-  font-size: 20px;
+  font-size: 24px;
   width: 100%;
-  height: 80px; /* Reduzido a altura do diálogo */
+  height: 80%; /* Reduzido a altura do diálogo */
   overflow-y: none;
   margin-bottom: 10px; /* Reduzido o espaço entre o diálogo e o botão */
 }
 
 .professor-image {
-  width: 120px;
+  width: 150px;
   height: auto;
-  transform: translate(50%, -40%);
+  transform: translate(50%, -50%);
 }
 
 .next-button {
   color: #4283aa;
   font-family: "Quicksand", sans-serif;
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 700;
   cursor: pointer;
   background: none;
@@ -340,14 +340,51 @@ body {
 }
 
 @media (max-width: 900px) {
-  .dialogue {
-    color: #000;
-    font-family: "Quicksand", sans-serif;
-    font-size: 16px;
+  .btn-container {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15%;
+  }
+
+  .btn-retornar {
+    cursor: pointer;
+    transition: transform 0.2s;
     width: 100%;
-    height: 80px; /* Reduzido a altura do diálogo */
-    overflow-y: none;
-    margin-bottom: 10px; /* Reduzido o espaço entre o diálogo e o botão */
+  }
+
+  .btn-retornar:hover {
+    transform: scale(1.1);
+  }
+  .modal {
+    width: 90% !important; /* Usa porcentagem para ser mais flexível */
+    height: 130px !important;
+    top: 5%;
+  }
+
+  .modal-content {
+    padding: 15px;
+  }
+
+  .left-container {
+    flex: 3;
+    padding-right: 15px;
+  }
+
+  .dialogue {
+    font-size: 13px;
+    height: 65px;
+    margin-bottom: 8px;
+  }
+
+  .next-button {
+    font-size: 13px;
+  }
+
+  .professor-image {
+    width: 80px;
+    transform: translate(50%, -40%);
   }
   .next-button {
     margin-top: 5%;
