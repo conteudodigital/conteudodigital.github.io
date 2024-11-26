@@ -352,6 +352,44 @@
                   caminho + itens[sexo].cabelos[this.id]
                 );
                 img1.image.onload = function () {};
+                // Ajuste de posição para ch3.png dependendo do tom de pele
+                if (itens[sexo].cabelos[this.id] === "ch3.png") {
+                  switch (tomPele) {
+                    case 0: // Tom de pele 1
+                      img1.x = -2.5; // Ajuste para a direita
+                      img1.y = 2.5; // Ajuste para baixo
+                      break;
+                    case 1: // Tom de pele 2
+                      img1.x = 6; // Ajuste para a direita
+                      img1.y = 8; // Ajuste para baixo
+                      img1.scaleX = 0.98; // Reduz a largura da imagem para 80% do tamanho original
+                      img1.scaleY = 0.98; // Mantém a altura original
+                      break;
+                    case 2: // Tom de pele 3
+                      img1.x = 1; // Ajuste para a direita
+                      img1.y = 2; // Ajuste para baixo
+                      break;
+                    case 3: // Tom de pele 4
+                      img1.x = 2; // Ajuste para a direita
+                      img1.y = 2; // Ajuste para baixo
+                      break;
+                    case 3: // Tom de pele 4
+                      img1.x = 2; // Ajuste para a direita
+                      img1.y = 2; // Ajuste para baixo
+                      break;
+                    case 5: // Tom de pele 4
+                      img1.x = 9; // Ajuste para a direita
+                      img1.y = 13; // Ajuste para baixo
+                      img1.scaleX = 0.98; // Reduz a largura da imagem para 80% do tamanho original
+                      img1.scaleY = 0.98; // Mantém a altura original
+                      break;
+                    // Adicione mais casos conforme necessário para outros tons de pele
+                    default:
+                      img1.x = -2.5; // Posição padrão
+                      img1.y = 2.5; // Posição padrão
+                      break;
+                  }
+                }
                 cabelo.addChild(img1);
                 this.scaleX = this.scaleY = 0.5;
                 createjs.Tween.get(this).to(
@@ -694,6 +732,17 @@
           }
 
           function salvarAvatar() {
+            // Armazena a visibilidade atual dos elementos
+            var recoVisible = reco.visible;
+            var contentVisible = content.visible;
+
+            // Oculta os elementos que não devem aparecer na imagem
+            reco.visible = false;
+            content.visible = false;
+
+            // Força uma atualização do palco para refletir as mudanças
+            stage.update();
+
             // Salva o conteúdo do canvas como uma imagem
             var canvas = document.getElementById("od1");
             var dataURL = canvas.toDataURL("image/png");
@@ -701,12 +750,19 @@
             // Cria um link de download
             var link = document.createElement("a");
             link.href = dataURL;
-            link.download = "avatar.png";
+            link.download = "meu_avatar.png";
 
             // Simula o clique no link para iniciar o download
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
+
+            // Restaura a visibilidade original dos elementos
+            reco.visible = recoVisible;
+            content.visible = contentVisible;
+
+            // Força uma última atualização do palco
+            stage.update();
           }
 
           function etapaFim() {
