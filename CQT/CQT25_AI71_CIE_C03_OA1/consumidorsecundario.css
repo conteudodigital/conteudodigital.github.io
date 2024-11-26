@@ -340,6 +340,21 @@ body {
 }
 
 @media (max-width: 900px) {
+  #raposa-container {
+    width: 15vw;
+    height: auto;
+    left: 7%; /* Posição horizontal */
+    top: 70%; /* Posição vertical */
+  }
+  #botao-raposa {
+    position: absolute;
+    top: 77%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 20;
+  }
+
   .btn-container {
     position: absolute;
     bottom: 10%;
