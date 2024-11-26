@@ -401,7 +401,7 @@ body {
   color: #aaa; /* Cor do botão de fechar */
   position: absolute; /* Posiciona o botão de fechar */
   top: 10px; /* Distância do topo */
-  right: 15px; /* Distância da direita */
+  right: 4%; /* Distância da direita */
   font-size: 28px; /* Tamanho da fonte */
   font-weight: bold; /* Negrito */
 }
