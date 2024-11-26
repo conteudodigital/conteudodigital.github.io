@@ -579,3 +579,16 @@ body {
 .btn-conhecer:hover {
   transform: scale(1.2); /* Aumenta o botão ao passar o mouse */
 }
+
+@media (max-width: 1366px) {
+  .btn-voltar {
+    width: 7%;
+  }
+  .btn-conhecer {
+    width: 20%;
+  }
+
+  .btn-conhecer img {
+    margin-top: 10%;
+  }
+}

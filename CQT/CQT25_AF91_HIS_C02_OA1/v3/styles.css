@@ -262,3 +262,16 @@ body {
 .botaoFechar {
   color: black; /* Cor do botão "X" para desktop */
 }
+
+@media (max-width: 1000px) {
+  .bts-creditos {
+    width: 10%;
+  }
+
+  .btn-image {
+    width: 20vw;
+  }
+  .title-image {
+    margin-bottom: -8%;
+  }
+}
