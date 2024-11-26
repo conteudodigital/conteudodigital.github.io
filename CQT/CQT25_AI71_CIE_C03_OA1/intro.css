@@ -116,22 +116,22 @@ body {
 }
 
 .bts-creditos {
-  position: absolute; /* Posiciona o botão de créditos */
-  top: 2%; /* Distância do topo */
-  left: 4%; /* Distância da esquerda */
+  position: absolute;
+  top: 2%;
+  left: 4%;
   background: none;
   border: none;
   cursor: pointer;
-  width: 7%; /* Aumenta o tamanho do botão */
-  height: 7%; /* Aumenta o tamanho do botão */
-  z-index: 0; /* Coloca o botão atrás da imagem */
+  width: 7%;
+  height: 7%;
+  z-index: 1;
 }
 
 .bts-creditos img {
-  width: 100%; /* Aumenta a imagem para 200% do tamanho do botão */
-  height: auto; /* Mantém a proporção da imagem */
-  position: relative; /* Permite que a imagem se posicione corretamente */
-  left: -50%; /* Ajusta a posição da imagem para centralizá-la */
+  width: 100%;
+  height: auto;
+  position: relative;
+  left: -50%;
 }
 
 .modalCreditos {
@@ -145,6 +145,10 @@ body {
   background-color: rgba(0, 0, 0, 0.7);
   justify-content: center;
   align-items: center;
+}
+
+.modalCreditos[style*="display: flex"] ~ .bts-creditos {
+  z-index: 0;
 }
 
 .modal-content {
@@ -214,15 +218,15 @@ body {
   margin: 0;
 }
 .botaoFecharCreditos {
-  position: fixed; /* Fixa o botão de fechar na tela */
-  top: 10px; /* Distância do topo */
-  right: 6%; /* Distância da direita (5% da tela) */
-  background: none; /* Sem fundo */
-  border: none; /* Sem borda */
-  color: black; /* Cor do botão "X" para mobile */
-  font-size: 28px; /* Tamanho da fonte */
-  cursor: pointer; /* Muda o cursor para indicar que é clicável */
-  z-index: 2; /* Coloca o botão acima da imagem */
+  position: fixed;
+  top: 10px;
+  right: 6%;
+  background: none;
+  border: none;
+  color: black;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 2;
 }
 
 .botaoFecharCreditos:hover,
@@ -271,12 +275,13 @@ body {
     position: absolute;
     top: 2%;
     left: 6%;
-    background: none;
-    border: none;
-    cursor: pointer;
     width: 12%;
     height: auto;
-    z-index: 10;
+    z-index: 1;
+  }
+
+  .backgroundCreditosMobile[style*="display: block"] ~ .bts-creditos {
+    z-index: 0;
   }
 
   .imagemCreditosMobile {

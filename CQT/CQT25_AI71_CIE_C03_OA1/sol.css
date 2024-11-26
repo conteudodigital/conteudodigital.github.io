@@ -51,20 +51,23 @@ body {
   height: auto;
 }
 
-#sol-container {
+.sol-wrapper {
+  position: absolute;
   width: 10vw;
   height: auto;
   left: 45%;
   top: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #botao-sol {
   position: absolute;
-  top: 20.2%;
-  left: 50.2%;
-  transform: translate(-58%, -50%);
+  transform: scale(0.8);
   cursor: pointer;
   z-index: 20;
+  transform: translate(-3%, -1%);
 }
 
 .modal {
@@ -173,12 +176,7 @@ body {
     transform: scale(1.1);
   }
   #botao-sol {
-    position: absolute;
-    top: 21%;
-    left: 50.45%;
-    transform: translate(-58%, -50%);
-    cursor: pointer;
-    z-index: 20;
+    transform: scale(0.8);
   }
 
   /* .modal {
@@ -231,9 +229,7 @@ body {
 
 @media (max-width: 900px) {
   #botao-sol {
-    transform: translate(280%, 20%);
-    top: 0;
-    left: 0;
+    transform: scale(0.8);
   }
   .btn-container {
     position: absolute;
@@ -314,5 +310,12 @@ body {
   /* Esconde o botão retornar original em mobile */
   .btn-retornar {
     display: none;
+  }
+  #botao-sol {
+    position: absolute;
+    transform: scale(0.8);
+    cursor: pointer;
+    z-index: 20;
+    transform: translate(-2%, -1%);
   }
 }
