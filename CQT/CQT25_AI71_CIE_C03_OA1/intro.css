@@ -19,10 +19,6 @@ body {
   margin-top: 20vh;
 }
 
-.title {
-  margin-bottom: 20px;
-}
-
 .title-image {
   width: 50vw;
   max-width: 200%;
@@ -73,7 +69,7 @@ body {
 }
 
 .btn-image {
-  width: 100%;
+  width: 60%;
   height: auto;
   cursor: pointer;
   transition: transform 0.3s ease;
@@ -132,7 +128,7 @@ body {
 }
 
 .bts-creditos img {
-  width: 200%; /* Aumenta a imagem para 200% do tamanho do botão */
+  width: 100%; /* Aumenta a imagem para 200% do tamanho do botão */
   height: auto; /* Mantém a proporção da imagem */
   position: relative; /* Permite que a imagem se posicione corretamente */
   left: -50%; /* Ajusta a posição da imagem para centralizá-la */
@@ -274,11 +270,11 @@ body {
   .bts-creditos {
     position: absolute;
     top: 2%;
-    left: 5%;
+    left: 6%;
     background: none;
     border: none;
     cursor: pointer;
-    width: 10%;
+    width: 12%;
     height: auto;
     z-index: 10;
   }
