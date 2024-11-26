@@ -177,7 +177,7 @@ body {
 .botaoFechar {
   position: absolute; /* Posiciona o botão de fechar */
   top: 3%; /* Distância do topo */
-  right: 20%; /* Distância da direita, ajustado para 10px */
+  right: 13%; /* Distância da direita, ajustado para 10px */
   color: white; /* Cor do botão de fechar */
   font-size: 28px; /* Tamanho da fonte */
   font-weight: bold; /* Negrito */
@@ -273,5 +273,14 @@ body {
   }
   .title-image {
     margin-bottom: -8%;
+  }
+  .botaoFechar {
+    right: 25%; /* Distância da direita, ajustado para 10px */
+  }
+}
+
+@media (max-width: 1366px) {
+  .botaoFechar {
+    right: 20%; /* Distância da direita, ajustado para 10px */
   }
 }
