@@ -231,7 +231,7 @@ body {
 
 @media (max-width: 900px) {
   #botao-sol {
-    transform: translate(325%, 20%);
+    transform: translate(290%, 20%);
     top: 0;
     left: 0;
   }
