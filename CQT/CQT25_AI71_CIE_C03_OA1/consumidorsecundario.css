@@ -482,6 +482,9 @@ body {
   .btn-retornar {
     display: none;
   }
+  .professor-button {
+    width: 12%;
+  }
 }
 
 /* Esconde o botão voltar por padrão (desktop) */

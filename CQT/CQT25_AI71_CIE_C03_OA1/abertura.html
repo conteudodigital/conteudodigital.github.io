@@ -53,14 +53,13 @@
       const dialogues = [
         "Entender cadeias e teias alimentares é importante para proteger o meio ambiente. Cada espécie cumpre seu papel e, se uma delas for afetada, toda a rede pode ser comprometida. Vamos entender um pouco melhor sobre isso na prática?",
         "A seguir você encontrará alguns cenários com diferentes seres vivos. Interaja com as relações alimentares que ocorrerão entre eles e observe o fluxo de energia no ecossistema.",
-        "Se quiser saber mais sobre o assunto abordado nos fluxos selecionados, clique sobre o ícone da 'conversa com o professor' e eu vou aparecer novamente para te explicar o assunto em detalhes!",
+        "Se quiser saber mais sobre o assunto abordado nos fluxos selecionados, clique sobre o ícone da 'conversa com o professor' <img src='assets/images/professor3.png' alt='Ícone do professor' class='icone-pequeno'> e eu vou aparecer novamente para te explicar o assunto em detalhes!",
       ];
 
       let currentDialogueIndex = 0;
 
       function openModal() {
-        document.getElementById("dialogo").innerText =
-          dialogues[currentDialogueIndex];
+        updateDialogue();
         document.getElementById("modal").style.display = "flex";
         document.getElementById("overlay").style.display = "block";
       }
@@ -74,14 +73,23 @@
       function advanceDialogue() {
         currentDialogueIndex++;
         if (currentDialogueIndex < dialogues.length) {
-          document.getElementById("dialogo").innerText =
-            dialogues[currentDialogueIndex];
+          updateDialogue();
           const professorNumber = (currentDialogueIndex % 3) + 1;
           document.querySelector(
             ".professor-image"
           ).src = `assets/images/professor${professorNumber}.png`;
         } else {
           window.location.href = "selecao.html";
+        }
+      }
+
+      function updateDialogue() {
+        const dialogueElement = document.getElementById("dialogo");
+        if (currentDialogueIndex === dialogues.length - 1) {
+          // Permite HTML no último diálogo
+          dialogueElement.innerHTML = dialogues[currentDialogueIndex];
+        } else {
+          dialogueElement.innerText = dialogues[currentDialogueIndex];
         }
       }
 

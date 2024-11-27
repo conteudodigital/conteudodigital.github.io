@@ -314,6 +314,10 @@ body {
 }
 /* Media Query para telas inferiores a 1000px (mobile) */
 @media (max-width: 900px) {
+  .professor-button {
+    width: 12%;
+  }
+
   .btn-container {
     position: absolute;
     bottom: 10%;

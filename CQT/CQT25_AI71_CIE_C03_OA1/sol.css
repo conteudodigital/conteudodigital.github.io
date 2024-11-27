@@ -228,6 +228,10 @@ body {
 }
 
 @media (max-width: 900px) {
+  .professor-button {
+    width: 12%;
+  }
+
   #botao-sol {
     transform: scale(0.8);
   }

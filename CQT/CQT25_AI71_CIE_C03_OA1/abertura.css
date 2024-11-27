@@ -14,7 +14,7 @@ body {
 .modal {
   background: #f5e1d3;
   border-radius: 10px;
-  width: 70% !important;
+  width: 80% !important;
   height: 220px !important;
   z-index: 3000;
   position: fixed;
@@ -154,6 +154,10 @@ body {
 }
 
 @media (max-width: 900px) {
+  .professor-button {
+    width: 12%;
+  }
+
   .btn-container {
     position: absolute;
     bottom: 10%;
@@ -188,7 +192,7 @@ body {
 
   .dialogue {
     font-size: 16px;
-    height: 65px;
+    height: 80%;
     margin-bottom: 8px;
   }
 
@@ -201,4 +205,10 @@ body {
     width: 80px;
     transform: translate(50%, -40%);
   }
+}
+
+.icone-pequeno {
+  width: 30px;
+  height: auto;
+  vertical-align: middle;
 }

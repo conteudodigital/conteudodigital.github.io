@@ -222,6 +222,10 @@ body {
   display: none;
 }
 @media (max-width: 900px) {
+  .professor-button {
+    width: 12%;
+  }
+
   .next-button {
     margin-top: 2%;
   }

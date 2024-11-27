@@ -33,11 +33,23 @@ body {
 }
 
 .btn-image {
-  width: 20vw;
+  width: 18vw;
   max-width: 80%;
   height: auto;
   margin-left: -22%;
   margin-right: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.btn-iniciar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.btn-image:hover {
+  transform: scale(1.2);
 }
 
 /* Ajustes para telas menores */
@@ -50,7 +62,7 @@ body {
     margin-right: auto;
   }
   .btn-image {
-    width: 30%;
+    width: 70%;
     max-width: 80%;
     height: auto;
     margin-left: -25%;
@@ -59,24 +71,6 @@ body {
   body {
     background-image: url("assets/images/background-iniciar-mobile.png");
   }
-}
-
-.btn-iniciar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-}
-
-.btn-image {
-  width: 60%;
-  height: auto;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.btn-image:hover {
-  transform: scale(1.2);
 }
 
 /* Adiciona os estilos para o aviso de virar a tela */

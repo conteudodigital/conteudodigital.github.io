@@ -160,40 +160,29 @@
       const professorButton = document.getElementById("professorButton");
 
       const dialogues = [
-        "Vamos conhecer mais sobre o sol? O Sol é uma estrela localizada a aproximadamente 150 milhões de quilômetros da Terra. Ele é uma importante fonte de energia e fundamental para a existência da vida em nosso planeta.",
         "Entender cadeias e teias alimentares é importante para proteger o meio ambiente. Cada espécie cumpre seu papel e, se uma delas for afetada, toda a rede pode ser comprometida. Vamos entender um pouco melhor sobre isso na prática?",
         "A seguir você encontrará alguns cenários com diferentes seres vivos. Interaja com as relações alimentares que ocorrerão entre eles e observe o fluxo de energia no ecossistema.",
-        "Se quiser saber mais sobre o assunto abordado nos fluxos selecionados, clique sobre o ícone da 'conversa com o professor' e eu vou aparecer novamente para te explicar o assunto em detalhes!",
+        "Se quiser saber mais sobre o assunto abordado nos fluxos selecionados, clique sobre o ícone da 'conversa com o professor' <img src='assets/images/professor3.png' alt='Ícone do professor' class='icone-pequeno'> e eu vou aparecer novamente para te explicar o assunto em detalhes!",
       ];
 
       let currentDialogueIndex = 0; // Índice do diálogo atual
 
       function openModal() {
-        document.getElementById("dialogo").innerText =
-          dialogues[currentDialogueIndex];
+        updateDialogue();
         document.getElementById("modal").style.display = "flex";
-        document.getElementById("overlay").style.display = "block"; // Exibe o overlay
+        document.getElementById("overlay").style.display = "block";
       }
 
       function closeModal() {
         document.getElementById("modal").style.display = "none";
-        document.getElementById("overlay").style.display = "none"; // Oculta o overlay
-        currentDialogueIndex = 0; // Reseta o índice ao fechar o modal
+        document.getElementById("overlay").style.display = "none";
+        currentDialogueIndex = 0;
       }
 
-      document
-        .getElementById("professorButton")
-        .addEventListener("click", openModal);
-
-      // Função para avançar os diálogos
       function advanceDialogue() {
         currentDialogueIndex++;
         if (currentDialogueIndex < dialogues.length) {
-          // Atualiza o texto do diálogo
-          document.getElementById("dialogo").innerText =
-            dialogues[currentDialogueIndex];
-
-          // Atualiza a imagem do professor (alterna entre 1, 2 e 3)
+          updateDialogue();
           const professorNumber = (currentDialogueIndex % 3) + 1;
           document.querySelector(
             ".professor-image"
@@ -202,19 +191,30 @@
           closeModal();
         }
       }
+
+      function updateDialogue() {
+        const dialogueElement = document.getElementById("dialogo");
+        if (currentDialogueIndex === dialogues.length - 1) {
+          // Permite HTML no último diálogo
+          dialogueElement.innerHTML = dialogues[currentDialogueIndex];
+        } else {
+          dialogueElement.innerText = dialogues[currentDialogueIndex];
+        }
+      }
+
       document
         .getElementById("professorButton")
         .addEventListener("click", openModal);
 
-      // Adiciona evento de clique ao document para avançar os diálogos
       document.addEventListener("click", function (event) {
-        if (document.getElementById("modal").style.display === "flex") {
-          // Se o modal estiver visível, qualquer clique avança o diálogo
+        if (
+          document.getElementById("modal").style.display === "flex" &&
+          !event.target.matches("#professorButton")
+        ) {
           advanceDialogue();
         }
       });
 
-      // Adiciona evento de teclado para avançar os diálogos com a tecla Enter
       document.addEventListener("keydown", function (event) {
         if (
           event.key === "Enter" &&

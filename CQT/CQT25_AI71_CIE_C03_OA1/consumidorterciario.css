@@ -270,6 +270,10 @@ body {
 }
 
 @media (max-width: 900px) {
+  .professor-button {
+    width: 12%;
+  }
+
   .btn-container {
     position: absolute;
     bottom: 10%;
