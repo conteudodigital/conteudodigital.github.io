@@ -4,6 +4,7 @@ body {
   background-image: url("assets/images/tutorial-background.png"); /* Imagem de fundo */
   background-size: cover;
   background-position: center;
+  background-color: #ddcebd;
   height: 100vh;
   display: flex;
   justify-content: center;
