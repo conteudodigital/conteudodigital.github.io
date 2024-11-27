@@ -68,8 +68,10 @@
       // nextButton.addEventListener("click", updateDialogue);
 
       function updateDialogue() {
+        // Verifica se ainda há diálogos disponíveis
         if (currentDialogue < dialogues.length) {
           dialogueElement.innerText = dialogues[currentDialogue];
+
           // Alterna a imagem da professora
           const professorImage =
             currentDialogue % 2 === 0
@@ -78,29 +80,19 @@
           document.querySelector(
             ".professor-image"
           ).src = `assets/images/${professorImage}`;
-          currentDialogue++;
 
           // Adiciona a animação ao novo diálogo
           dialogueElement.classList.add("fadeInRight");
           setTimeout(() => {
             dialogueElement.classList.remove("fadeInRight"); // Remove a classe após a animação
           }, 500); // Tempo da animação
+
+          currentDialogue++; // Incrementa o diálogo APÓS exibir o atual
         } else {
           // Redireciona para a página da trincheira após o último diálogo
-          window.location.href = "trincheira.html"; // Redireciona para a tela da trincheira
+          window.location.href = "trincheira.html";
         }
       }
-
-      nextButton.addEventListener("click", updateDialogue);
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Enter") {
-          updateDialogue();
-        }
-      });
-
-      // Inicia o diálogo
-      modalElement.classList.add("fadeInRight"); // Adiciona a classe de animação ao carregar
-      updateDialogue();
 
       // Código JavaScript para gerenciar o overlay e a exibição do aviso
       const overlay = document.getElementById("overlay");
