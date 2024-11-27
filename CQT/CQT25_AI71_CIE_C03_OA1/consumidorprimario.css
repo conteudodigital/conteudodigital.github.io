@@ -3,6 +3,7 @@ body {
   font-family: "Quicksand", sans-serif;
   background-image: url("assets/images/consumidorprimario/background-consumidor1.png");
   background-size: cover;
+  background-color: #c1d767;
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;

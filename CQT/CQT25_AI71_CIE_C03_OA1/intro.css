@@ -8,6 +8,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #c1d767;
 }
 
 .container {

@@ -3,7 +3,7 @@ body {
 
   background-image: url("assets/images/background-abertura.png"); /* Imagem de fundo */
   font-family: "Quicksand", sans-serif;
-
+  background-color: #c1d767;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
