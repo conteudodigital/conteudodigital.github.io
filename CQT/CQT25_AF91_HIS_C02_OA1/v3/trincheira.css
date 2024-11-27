@@ -4,7 +4,7 @@ body {
   padding: 0;
   overflow: hidden;
   font-family: "Quicksand", sans-serif;
-  background-color: #f0e4d7;
+  background-color: #ddcebd;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -401,7 +401,7 @@ body {
   color: #aaa; /* Cor do botão de fechar */
   position: absolute; /* Posiciona o botão de fechar */
   top: 10px; /* Distância do topo */
-  right: 4%; /* Distância da direita */
+  right: 2%; /* Distância da direita */
   font-size: 28px; /* Tamanho da fonte */
   font-weight: bold; /* Negrito */
 }
@@ -595,6 +595,6 @@ body {
 
 @media (max-width: 900px) {
   .close {
-    right: 15%; /* Distância da direita */
+    right: 13%; /* Distância da direita */
   }
 }
