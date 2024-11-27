@@ -120,7 +120,7 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  width: 7%; /* Aumenta o tamanho do botão */
+  width: 5%; /* Aumenta o tamanho do botão */
   height: 5%; /* Aumenta o tamanho do botão */
   z-index: 0; /* Coloca o botão atrás da imagem */
   cursor: pointer;
