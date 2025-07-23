@@ -13,7 +13,7 @@ var configAbout = {
 // introducao do jogo com som de fundo
 var introAbout = {
 	'type' : 'box', // "box" ou "audio"
-	'message' : 'Pratique o verbo <i><b>be</b></i> no singular com os jogos a seguir.',
+	'message' : 'Practice the verb <i><b>be</b></i> in the singular form with the Memory Game below.',
 	'sound' : 'mp3/intro.mp3'
 }
 
